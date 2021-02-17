@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
+/* Header bolmesi */
+
+/* Header info bolmesi */
+
+.header-info{
+    background-color: #333333;
+    padding: 10px 0px;
+    color: #fff;
+}
+.header-container{
+    width: 1350px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-contact-info i{
+    color:#00bcd4;
+    margin-right:10px;
+}
+.header-contact-info span{
+    margin-right:10px;
+}
+
+.header-social-icons i{
+    margin:0px 5px;
+}
+
+/* Header navbar bolmesi */
+.header-navbar{
+    /* border: 1px solid red; */
+    padding: 20px 0;
+}
+
+.navbar-logo img{
+    height: 60px;
+}
+
+.navbar-nav ul{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+}
+
+.navbar-nav ul li{
+    list-style: none;
+    padding: 0 10px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.navbar-search i{
+    font-size: 1.4em;
+    color: #c7c7c7;
+}
