@@ -9,7 +9,7 @@ body{
 
 .header-info{
     background-color: #333333;
-    padding: 10px 0px;
+    padding: 15px 0px;
     color: #fff;
 }
 .header-container{
@@ -58,4 +58,74 @@ body{
 .navbar-search i{
     font-size: 1.4em;
     color: #c7c7c7;
+}
+
+/* Slider section styles*/
+
+#slider{
+    height: 700px;
+    /* border: 1px solid grey; */
+    position: relative;
+}
+
+.slider-item{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    background-image: url("../img/bg-img-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:left center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.slider-buttons{
+    /* border: 1px solid red; */
+    /* background-color: red; */
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px,-50%);
+    left: 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+} 
+.slider-content{
+    width: 1350px;
+    margin: 0 auto;
+    text-align: right;
+    
+}
+.slider-content h1{
+    color: #fff;
+    font-size: 4.5em;
+    line-height: 65px;
+}
+.slider-content h3{
+    color: #fff;
+
+}
+.slider-content button{
+    background-color: #00bcd4;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 45px;
+}
+
+.slider-buttons button{
+    background-color: #fff;
+    padding: 30px;
+    border: none;
+    outline: none;
+    margin: 0 60px;
+}
+.slider-buttons button i{
+    font-size: 2em;
 }
