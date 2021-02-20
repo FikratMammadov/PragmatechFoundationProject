@@ -12,7 +12,7 @@ body{
     padding: 15px 0px;
     color: #fff;
 }
-.header-container{
+.header-container,.callToAction-container{
     width: 1350px;
     margin: 0px auto;
     display: flex;
@@ -128,4 +128,112 @@ body{
 }
 .slider-buttons button i{
     font-size: 2em;
+}
+
+/* Call To Action style */
+#callToAction{
+    background: url(../img/bg-image-7.jpg) center center no-repeat;
+    background-size: cover;
+    padding: 30px 0px;
+}
+
+.callToAction-container h1{
+    color: #fff;
+    font-size: 2em;
+    line-height: 30px;
+}
+
+.callToAction-container button{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.callToAction-container button:hover{
+    background-color: black;
+    color: #fff;
+}
+
+/* services */
+.services-container{
+    width: 1350px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+.services-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    /* border: 1px solid red; */
+}
+
+.service-item{
+    /* border: 1px solid gray; */
+    width: calc(100%/3);
+    margin: 0 10px;
+    padding: 10px;
+    transition: all .3s ease;
+    display: flex;
+}
+.service-item:hover{
+    background-color: #00bcd4;
+}
+
+.section-heading{
+    margin: 0 auto;
+    
+}
+
+.section-heading h1{
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.section-heading hr{
+    height: 1px;
+    width: 40px;
+    border: none;
+    background-color: #00bcd4;
+}
+
+.item-icon{
+    padding: 0 20px;
+    font-size: 2.5em;
+    color: #00bcd4;
+    transition: all .3s ease;
+     
+}
+/* .item-content{
+    color: gray;
+} */
+/* .item-content h3{
+    cursor: pointer;
+    transition: all .3s ease;
+    color: black;
+} */
+.item-content h3 span{
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.item-content h3 span:hover{
+    color: black !important; 
+}
+.item-content p{
+    color: gray;
+    transition: all .3s ease;
+}
+.service-item:hover .item-icon{
+    color: #fff;
+}
+.service-item:hover .item-content h3{
+    color: #fff;
+}
+/* .service-item:hover .item-content h3:hover{
+    color: black;
+} */
+.service-item:hover .item-content p{
+    color: #fff;
 }
