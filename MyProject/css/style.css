@@ -252,3 +252,78 @@ a{
 }
 /* Home Slider Section End */
 
+/* Feel The Taste Section Start */
+#feelTheTaste{
+    padding: 100px 0;
+    /* border: 1px solid red; */
+}
+.feelTheTaste-container{
+    width: 1450px;
+    margin: 0 auto;
+    /* border: 1px solid green; */
+}
+.feelTheTaste-item-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.feelTheTaste-title{
+    font-size: 2.8em;
+    font-family: 'Shippori Mincho', serif;
+}
+.feelTheTaste-content{
+    font-size: 6em;
+    color: #add50f;
+    font-family: 'Lobster Two', cursive;
+}
+#feelTheTaste .cake-items{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+#feelTheTaste .cake-item{
+    box-sizing: border-box;
+    /* border: 1px solid blue; */
+    width: calc(100%/3);
+    padding: 0 50px;
+    /* border: 1px solid yellow; */
+
+}
+#feelTheTaste .cake-item img{
+    width: 100%;
+}
+#feelTheTaste .cake-item h3{
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+    font-weight: 400;
+    text-align: center;
+}
+#feelTheTaste .cake-item p{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0;
+    opacity: .8;
+}
+#feelTheTaste .cake-item .cake-item-btn{
+    text-align: center;
+    margin-top: 30px;
+}
+#feelTheTaste .cake-item button{
+    font-size: 1.5em;
+    opacity: .8;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 30px;
+    border: 2px solid #ffe450;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition:.5s;
+}
+#feelTheTaste .cake-item button:hover{
+    background-color: #ff599a;
+    border-color: #ff599a;
+    color: #fff;
+}
+/* Feel The Taste Section End */
+
