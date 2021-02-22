@@ -256,6 +256,9 @@ a{
 #feelTheTaste{
     padding: 100px 0;
     /* border: 1px solid red; */
+    background-image: url("../img/feelthetaste-bg-img.png");
+    background-repeat: no-repeat;
+    
 }
 .feelTheTaste-container{
     width: 1450px;
@@ -283,7 +286,6 @@ a{
 }
 #feelTheTaste .cake-item{
     box-sizing: border-box;
-    /* border: 1px solid blue; */
     width: calc(100%/3);
     padding: 0 50px;
     /* border: 1px solid yellow; */
@@ -304,11 +306,11 @@ a{
     margin: 0;
     opacity: .8;
 }
-#feelTheTaste .cake-item .cake-item-btn{
+.cake-item .cake-item-btn{
     text-align: center;
     margin-top: 30px;
 }
-#feelTheTaste .cake-item button{
+.cake-item button{
     font-size: 1.5em;
     opacity: .8;
     border: none;
@@ -320,10 +322,93 @@ a{
     cursor: pointer;
     transition:.5s;
 }
-#feelTheTaste .cake-item button:hover{
+.cake-item button:hover{
     background-color: #ff599a;
     border-color: #ff599a;
     color: #fff;
 }
-/* Feel The Taste Section End */
+    /* Feel The Taste Section End */
+
+
+/* Best Products Section Start */
+#bestProducts{
+    margin-bottom: 70px;
+}
+#bestProducts .feelTheTaste-content{
+    color:#36ded8 ;
+}
+#bestProducts .cake-items{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+     
+}
+#bestProducts .cake-item{
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100%/4);
+    padding: 0 15px;
+    /* border: 1px solid yellow; */
+     
+}
+#bestProducts .cake-item .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9F9F9;
+    /* border: 1px solid blue; */
+    border-radius: 20px;
+}
+#bestProducts .cake-item img{
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+/* #bestProducts .cake-item span{
+    text-align: center;
+} */
+#bestProducts .cake-item a{
+    font-size: 1.4em;
+    color: #000; 
+    transition: .5s; 
+}
+#bestProducts .cake-item a:hover{
+    color: #ff599a;
+}
+#bestProducts .cake-item p{
+    font-size: 2em;
+    margin: 5px 0;
+}
+#bestProducts .cake-item p span{
+    opacity: .3;
+    font-size: .7em;
+    text-decoration-line: line-through;
+}
+#bestProducts .cake-item .icons i{
+    font-size: 1.2em;
+    opacity: .8;
+}
+#bestProducts .cake-item .cake-item-btn{
+    margin: 0;
+    margin: 20px 0;
+}
+#bestProducts .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+#bestProducts .buttons span{
+    background-color: #ff599a;
+    display: inline-block;
+    width: 2px;
+    padding: 14px 0;
+}
+#bestProducts .buttons i{
+    color: #ff599a;
+    margin: 0 20px;
+    font-size: 3.5em;
+}
+    /* Best Products Section End */
 
