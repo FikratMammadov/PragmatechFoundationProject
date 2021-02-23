@@ -13,6 +13,23 @@ li{
 a{
     text-decoration: none;
 }
+
+/* Common Classes */
+.item-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.item-header-title{
+    font-size: 2.8em;
+    font-family: 'Shippori Mincho', serif;
+}
+.item-header-content{
+    font-size: 6em;
+    color: #add50f;
+    font-family: 'Lobster Two', cursive;
+}
+
 /* Header Section Start */
 .header-container{
     max-width: 1450px;
@@ -260,25 +277,11 @@ a{
     background-repeat: no-repeat;
     
 }
-.feelTheTaste-container{
+/* .feelTheTaste-container{
     width: 1450px;
     margin: 0 auto;
-    /* border: 1px solid green; */
-}
-.feelTheTaste-item-header{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.feelTheTaste-title{
-    font-size: 2.8em;
-    font-family: 'Shippori Mincho', serif;
-}
-.feelTheTaste-content{
-    font-size: 6em;
-    color: #add50f;
-    font-family: 'Lobster Two', cursive;
-}
+} */
+ 
 #feelTheTaste .cake-items{
     display: flex;
     flex-wrap: wrap;
@@ -334,7 +337,7 @@ a{
 #bestProducts{
     margin-bottom: 70px;
 }
-#bestProducts .feelTheTaste-content{
+#bestProducts .item-header-content{
     color:#36ded8 ;
 }
 #bestProducts .cake-items{
@@ -409,6 +412,86 @@ a{
     color: #ff599a;
     margin: 0 20px;
     font-size: 3.5em;
+    cursor: pointer;
 }
     /* Best Products Section End */
+
+/* Nature Taste Section Start */
+#natureTaste{
+    padding: 30px 0;
+    background-image: url("../img/natureTaste-bg-img.jpg");
+}
+#natureTaste .item-header-content{
+    color: #000;
+}
+.natureTaste-body{
+    padding: 50px 0;
+    position: relative;    
+}
+.natureTaste-body .slider{
+    position: relative;
+}
+.natureTaste-body .buttons{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+
+}
+.natureTaste-body .buttons button{
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 1em;
+    padding: 8px 10px;
+    border: 1px solid #ffe450;
+    color: #000;
+    transition: .5s;
+    cursor: pointer;
+}
+.natureTaste-body .buttons button:hover{
+    color: #fff;
+    background-color: #ff599a;
+    border-color: #ff599a;
+}
+
+.natureTaste-body .cake-img{
+    padding: 0px 20px 0 70px;
+}
+.natureTaste-body .cake-img img{
+    width: 100%;
+    border-radius: 20px;
+}
+.natureTaste-body .cake-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.natureTaste-body .cake-content h1{
+    font-size: 1.8em;
+    transition: .5s;
+    cursor: pointer;
+    color: #000;
+}
+.natureTaste-body .cake-content h1:hover{
+    color: #fff;
+}
+.natureTaste-body .cake-content p{
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.natureTaste-body .cake-content .icons i{
+    margin: 10px 0;
+    font-size: 1.2em;
+    opacity: .8;
+}
+
+    /* Nature Taste Section End */
 
