@@ -29,6 +29,27 @@ a{
     color: #add50f;
     font-family: 'Lobster Two', cursive;
 }
+.cake-item-btn{
+    text-align: center;
+    margin-top: 30px;
+}
+.cake-item-btn button{
+    font-size: 1.5em;
+    opacity: .8;
+    border: none;
+    outline: none;
+    background-color: #F9F9F9;
+    border-radius: 30px;
+    border: 2px solid #ffe450;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition:.5s;
+}
+.cake-item-btn button:hover{
+    background-color: #ff599a;
+    border-color: #ff599a;
+    color: #fff;
+}
 
 /* Header Section Start */
 .header-container{
@@ -313,27 +334,7 @@ a{
     margin: 0;
     opacity: .8;
 }
-.cake-item .cake-item-btn{
-    text-align: center;
-    margin-top: 30px;
-}
-.cake-item button{
-    font-size: 1.5em;
-    opacity: .8;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    border-radius: 30px;
-    border: 2px solid #ffe450;
-    padding: 15px 30px;
-    cursor: pointer;
-    transition:.5s;
-}
-.cake-item button:hover{
-    background-color: #ff599a;
-    border-color: #ff599a;
-    color: #fff;
-}
+ 
     /* Feel The Taste Section End */
 
 
@@ -372,9 +373,7 @@ a{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-/* #bestProducts .cake-item span{
-    text-align: center;
-} */
+
 #bestProducts .cake-item a{
     font-size: 1.4em;
     color: #000; 
@@ -510,3 +509,119 @@ a{
 
     /* Nature Taste Section End */
 
+/* Latest Collection Styles */
+#latestCollection{
+    padding: 100px 0;
+}
+#latestCollection .item-header-content{
+    color: #f3d600;
+}
+#latestCollection .cake-types{
+    padding: 40px 0;
+}
+#latestCollection .cake-types ul{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+#latestCollection .cake-type{
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+#latestCollection .cake-type-name{
+    font-size: 1.5em;
+    opacity: .9;
+    letter-spacing: .5px;
+    transition: .5s;
+    margin: 5px 0;
+}
+#latestCollection .cake-type:hover .cake-type-name{
+    color: #ff599a;
+}
+#latestCollection .cake-items{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+     
+}
+#latestCollection .cake-item{
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100%/4);
+    padding: 0 15px;
+    /* border: 1px solid yellow; */
+     
+}
+#latestCollection .cake-item .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9F9F9;
+    /* border: 1px solid blue; */
+    border-radius: 20px;
+}
+#latestCollection .cake-item img{
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#latestCollection .cake-item a{
+    font-size: 1.4em;
+    color: #000; 
+    transition: .5s; 
+}
+#latestCollection .cake-item a:hover{
+    color: #ff599a;
+}
+#latestCollection .cake-item p{
+    font-size: 2em;
+    margin: 5px 0;
+}
+#latestCollection .cake-item p span{
+    opacity: .3;
+    font-size: .7em;
+    text-decoration-line: line-through;
+}
+#latestCollection .cake-item .icons i{
+    font-size: 1.2em;
+    opacity: .8;
+}
+#latestCollection .cake-item .cake-item-btn{
+    margin: 0;
+    margin: 20px 0;
+}
+
+
+
+/* Welcome section styles */
+#welcome{
+    text-align: center;
+    padding: 190px 0;
+    background:url("../img/welcome-bg-img.jpg") center center no-repeat;
+}
+.welcome-content{
+    width: 50%;
+    margin: 0 auto;
+}
+#welcome h3{
+    font-family: Lobster Two;
+    font-size: 2.5em;
+    font-weight: 400;
+    margin: 0;
+}
+#welcome h1{
+    color: #ff599a;
+    font-family: Lobster Two;
+    font-size: 6em;
+    font-weight: 400;
+    margin: 10px 0;
+}
+#welcome p{
+    font-size: 1.5em;
+    padding: 0 100px;
+}
