@@ -303,8 +303,57 @@ body{
     text-decoration: none;
 }
 
+/* About us section styles */
+#about{
+    background-color: #f8f8f8;
+    height: 700px;
+    position: relative;
 
+}
+.about-bg-image img{
+    width: 50%;
+    height: 760px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background: center center no-repeat;
+    background-size: cover;
 
+}
+.about-item{
+    padding: 10px;
+}
+.about-detail{
+    padding-right: 100px;
+}
+.about-detail .section-heading{
+    
+}
+.about-detail .section-heading h1{
+    text-align: left;
+}
+.about-detail .section-heading hr{
+    margin-left: 0px;
+}
+.about-item-icon{
+    text-align: center;
+    font-size: 2.5em;
+}
+.about-item-content h3{
+    margin-top: 0;
+}
+.persontage-item progress{
+    width: 100%;
+}
+.about-item:hover{
+    background: #00bcd4;
+    color: #fff;
+}
+.persontage-item  p{
+    display: flex;
+    justify-content: space-between;
+}
 /* Statistics style */
 #statistics{
     background-color: #00bcd4;
@@ -324,4 +373,19 @@ body{
 }
 .statistics-item p{
     font-size: 1.4em;
+}
+
+/* work section styles */
+#works{
+    background-color: #f8f8f8;
+}
+
+.work-item{
+    height: 360px;
+    margin: 30px 15px;
+}
+.work-item img{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
 }
