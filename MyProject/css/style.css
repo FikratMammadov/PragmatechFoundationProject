@@ -625,3 +625,48 @@ a{
     font-size: 1.5em;
     padding: 0 100px;
 }
+
+/* Menu section styles */
+#menu{
+    padding: 100px 0;
+    background: url("../img/menu-bg-img.webp") no-repeat;
+    background-size: cover;
+
+}
+.menu-item{
+    margin: 30px 20px 30px 0;
+}
+#menu .menu-item .row{
+    align-items: center;
+}
+#menu .item-header-title,#menu .item-header-content{
+    color: #fff;
+}
+#menu .menu-item-content{
+    padding: 0 40px;
+}
+#menu .menu-item-content .row{
+    align-items: center;
+}
+.menu-item-description h2{
+    font-family: Lobster Two;
+    margin: 0;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+}
+.menu-item-description h2:hover{
+    color: #ff599a;
+}
+.menu-item-description p{
+    color: #fff;
+    padding-right: 50px;
+    font-size: 1.5em;
+}
+.menu-item-price{
+    color: #fff;
+    font-size: 2em;
+    text-align: right;
+}
