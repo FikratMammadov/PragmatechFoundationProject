@@ -454,7 +454,7 @@ a{
 .btn-2{
     right: 0;
 }
-.natureTaste-body button{
+.btn button{
     outline: none;
     border: none;
     background-color: #fff;
@@ -466,7 +466,7 @@ a{
     transition: .5s;
     cursor: pointer;
 }
-.natureTaste-body button:hover{
+.btn button:hover{
     color: #fff;
     background-color: #ff599a;
     border-color: #ff599a;
@@ -546,6 +546,7 @@ a{
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
+    position: relative;
      
 }
 #latestCollection .cake-item{
