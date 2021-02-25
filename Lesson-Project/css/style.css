@@ -7,6 +7,44 @@ body{
 .section-padding{
     padding: 30px 0;
 }
+
+.section-heading{
+    margin: 0 auto;
+    
+}
+
+.section-heading h1{
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.section-heading hr{
+    height: 1px;
+    width: 40px;
+    border: none;
+    background-color: #00bcd4;
+}
+
+.btn{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    color: #000;
+    text-transform: uppercase;
+    transition: all .3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-second{
+    background-color: #00bcd4;
+}
+
 /* Header bolmesi */
 
 /* Header info bolmesi */
@@ -185,23 +223,7 @@ body{
     background-color: #00bcd4;
 }
 
-.section-heading{
-    margin: 0 auto;
-    
-}
-
-.section-heading h1{
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 10px 0;
-}
-.section-heading hr{
-    height: 1px;
-    width: 40px;
-    border: none;
-    background-color: #00bcd4;
-}
+ 
 
 .item-icon{
     padding: 0 20px;
@@ -310,14 +332,14 @@ body{
     position: relative;
 
 }
-.about-bg-image img{
+.about-bg-image{
     width: 50%;
     height: 760px;
     /* border: 1px solid red; */
     position: absolute;
     top: 0;
     right: 0px;
-    background: center center no-repeat;
+    background:url("../img/about-us-img.jpg") center center no-repeat;
     background-size: cover;
 
 }
@@ -388,4 +410,80 @@ body{
     width: 100%;
     height: 360px;
     object-fit: cover;
+}
+
+/* extra info styles */
+#extraInfo{
+    height: 380px;
+    background: url("../img/extraInfo-bg-img.jpg") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+.extraInfo-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.extraInfo-detail .section-heading{
+    margin-bottom: 40px;
+}
+.extraInfo-detail .section-heading h1{
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* team styles */
+
+#team{
+    background-color: #f8f8f8;
+}
+.team-item{
+    /* border: 1px solid green; */
+    margin: 0px 15px;
+    text-align: center;
+}
+.team-item img{
+    width: 100%;
+    height: 300xp;
+    object-fit: cover;
+}
+.team-item h4{
+    color: #00bcd4;
+    font-style: italic;
+}
+
+/* contact form section */
+#contact-form{
+    background-color: #f8f8f8;
+    height: 700px;
+    position: relative;
+
+}
+
+.contact-form-bg-img{
+    width: 50%;
+    height: 760px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background:url("../img/about-us-img.jpg") center center no-repeat;
+    background-size: cover;
+
+}
+.contact-form{
+    padding-left: 100px;
+}
+.contact-form .section-heading{
+    margin-left: 0px;
+}
+.contact-form .section-heading h1{
+    text-align: left;
+}
+.contact-form .section-heading hr{
+    margin-left: 0px;
 }
