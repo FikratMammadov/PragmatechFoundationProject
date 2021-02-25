@@ -51,6 +51,37 @@ a{
     color: #fff;
 }
 
+.btn{ 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-1{
+    left: 0;
+}
+
+.btn-2{
+    right: 0;
+}
+.btn button{
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 1.2em;
+    padding: 8px 10px;
+    border: 1px solid #ffe450;
+    color: #000;
+    transition: .5s;
+    cursor: pointer;
+}
+.btn button:hover{
+    color: #fff;
+    background-color: #ff599a;
+    border-color: #ff599a;
+}
+
 /* Header Section Start */
 .header-container{
     max-width: 1450px;
@@ -441,36 +472,7 @@ a{
     position: relative;
 }
 
-.btn{ 
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.btn-1{
-    left: 0;
-}
-
-.btn-2{
-    right: 0;
-}
-.btn button{
-    outline: none;
-    border: none;
-    background-color: #fff;
-    border-radius: 50%;
-    font-size: 1.2em;
-    padding: 8px 10px;
-    border: 1px solid #ffe450;
-    color: #000;
-    transition: .5s;
-    cursor: pointer;
-}
-.btn button:hover{
-    color: #fff;
-    background-color: #ff599a;
-    border-color: #ff599a;
-}
+ 
 
 .natureTaste-body .cake-img{
     padding: 0px 20px 0 70px;
@@ -670,4 +672,82 @@ a{
     color: #fff;
     font-size: 2em;
     text-align: right;
+}
+
+
+/* Blog section styles */
+#blog{
+    padding: 100px 0;
+}
+#blog .item-header-content{
+    color: #000;
+}
+.blog-items{
+    position: relative;
+}
+.blog-items .btn{
+    top: 30%;
+}
+.blog-item{
+    padding: 30px 0;
+    margin: 0 15px;
+    /* border: 1px solid red; */
+}
+.blog-item-image{
+    margin-bottom: -5px;
+}
+.blog-item-image img{
+    width: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.blog-item-content{
+    padding: 30px;
+    cursor: context-menu;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.blog-item-content h3{
+    margin: 0;
+    margin-bottom: 10px;
+}
+.blog-item-content h3 a{
+    color: #000;
+    font-size: 2em;
+    font-family: Lobster Two;
+    font-weight: 400;
+    transition: .5s;
+}
+.blog-item-content h3 a:hover{
+    color: #ff599a;
+}
+.blog-item-content .calendar span{
+    font-size: 1.4em;
+    margin-right: 20px;
+    color: #b8b8b8;
+}
+.blog-item-content .calendar span i{
+    color: #ff599a;
+    margin-right: 5px;
+}
+.blog-item-content p{
+    font-size: 1.5em;
+    opacity: .8;
+}
+.blog-item-content .footer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    opacity: .8;
+}
+.blog-item-content .footer a{
+    color: #000;
+    transition: .5s;
+}
+.blog-item-content .footer a:hover{
+    color: #ff599a;
 }
