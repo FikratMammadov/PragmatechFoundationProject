@@ -751,3 +751,77 @@ a{
 .blog-item-content .footer a:hover{
     color: #ff599a;
 }
+
+
+/* asked section styles */
+#asked{
+    padding: 100px 0;
+    background-color: #cdea7e;
+}
+#asked .item-header-content{
+    color: #000;
+}
+.asked-item{
+    padding: 50px 0;
+}
+.asked-item-image{
+    padding: 0px 50px;
+}
+.asked-item-image img{
+    width: 100%;
+    border-radius: 20px;
+}
+.asked-item-buttons{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.asked-item-buttons button{
+    border: none;
+    outline: none;
+    margin: 0 7px;
+    width: 7px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffe450;
+    cursor: pointer;
+}
+.asked-item-buttons button:hover{
+    background-color: #ff599a;
+}
+.asked-item-buttons button:focus{
+    background-color: #ff599a;
+}
+.asked-question{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 20px 0 ;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+.asked-question h5{
+    margin: 0;
+    font-family: Lobster Two;
+    font-weight: 400;
+}
+.asked-question h5 a{
+    font-size: 3em;
+    color: #000;
+    transition: .5s;
+}
+.asked-question .icon{
+    display: flex;
+    align-items: center;
+}
+.asked-question .icon i{
+    font-size: 2em;
+    transition: .5s;
+}
+.asked-question:hover h5 a, .asked-question:hover .icon i{
+    color: #ff599a;
+}
+.question-answer{
+    font-size: 1.5em;
+    opacity: .8;
+    margin: 30px 0;
+}
