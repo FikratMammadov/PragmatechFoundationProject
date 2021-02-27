@@ -6,6 +6,7 @@ body{
 }
 ul{
     margin: 0;
+    padding-left: 0;
 }
 li{
     list-style: none;
@@ -129,6 +130,9 @@ a{
 }
 #header-info .header-info-address ul li:last-child:hover a{
     color: #FBD60B;
+}
+#header-logo{
+    cursor: pointer;
 }
 
 /* Header Info End */
@@ -824,4 +828,144 @@ a{
     font-size: 1.5em;
     opacity: .8;
     margin: 30px 0;
+}
+
+/* features section styles */
+#features{
+    padding: 100px 0;
+}
+.features-item{
+    /* border: 1px solid red; */
+    margin: 0 15px;
+    padding: 60px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+}
+.features-item-img{
+    display: inline-block;
+    cursor: pointer;
+}
+.features-item h5{
+    font-size: 2em;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.features-item span{
+    display: inline-block;
+    font-size: 1.5em;
+    opacity: .8;
+    margin: 10px 0;
+}
+.logos{
+    margin-top: 100px;
+    position: relative;
+}
+.logo-items{
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    
+     
+}
+.logo-item{
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+/* footer styles */
+footer{
+    background: url("../img/footer-bg-img.webp") center center no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+}
+.footer-item{
+    color: #fff;
+}
+.footer-item h5{
+    font-size: 2em;
+    font-family: Lobster Two;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #ff599a;
+    font-weight: 400;
+}
+.footer-item li{
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 8px;  
+}
+.footer-item li i{
+    font-size: .8em;
+    margin-right: 3px;
+}
+.footer-item li a{
+    display: inline-block;
+    width: 100%;
+    font-size: 1em;
+}
+.footer-item li a{
+    color: #fff;
+    transition: all .5s ease;
+}
+.footer-item li:hover a{
+    color: #ff599a;
+}
+.footer-input{
+    margin: 10px 0;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #fff;
+    
+
+}
+.footer-input input{
+    outline: none;
+    border: none;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    opacity: .8;
+}
+.footer-input input::placeholder{
+    color: #000;
+}
+.footer-input a{
+    color: #000;
+    transition: all .5s ease;
+}
+.footer-input a:hover{
+    color: #ff599a;
+}
+
+
+/* footer contact section */
+.footer-contact{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright{
+    font-size: 1.5em;
+    opacity: .9;
+}
+.copyright a i{
+    font-size: .9em;
+}
+.copyright a{
+    color: #000;
+    transition: all .5s ease;
+    margin: 0 5px;
+}
+.copyright a:hover{
+    color: #ff599a;
+}
+.footer-cards{
+    display: flex;
+}
+.footer-card{
+    cursor: pointer;
+    margin: 0 3px;
 }
