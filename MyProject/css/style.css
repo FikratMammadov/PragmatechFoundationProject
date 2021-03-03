@@ -239,31 +239,24 @@ a{
 
 /* Home Slider Section Start */
 #home-slider{
-    height: 720px;
+    /* height: 720px; */
     position: relative;
     z-index: 0;
 }
 #home-slider .home-slider-item{
-    width: 100%;
-    height: 100%;
-    /* border: 1px solid gray; */
+    padding: 200px 0;
     background-image: url("../img/cake-3_2000x.jpg");
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 1;
     display: flex;
     align-items: center;
-
-
 }
 #home-slider .home-slider-item .home-slider-content{
-    width: 1450px;
+    position: relative;
+    width: 75%;
     margin: 0 auto;
-    /* border: 1px solid green; */
 }
 #home-slider .home-slider-item .home-slider-content h2{
     color: #fff;
@@ -291,7 +284,7 @@ a{
 #home-slider .home-slider-item .home-slider-content p span{
     font-size: 2em;
 }
-#home-slider .home-slider-item .home-slider-content button{
+#home-slider .home-slider-item .home-slider-content-position button{
     border: none;
     outline: none;
     border-radius: 20px;
@@ -302,20 +295,31 @@ a{
     transition: .5s;
     cursor: pointer;
 }
-#home-slider .home-slider-item .home-slider-content button:hover{
+#home-slider .home-slider-item .home-slider-content-position button:hover{
     color: #fff;
     background-color: #E76524;
 }
 #home-slider .home-slider-content-position{
-    width:30%;
-    /* border: 1px solid blue; */
+    width:50%;
     text-align: center;
+    position: relative;
+    opacity: 1;
+}
+#home-slider .home-slider-content .overlay{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .5;
+    
 }
 #home-slider .home-slider-buttons{
     width: 100%;
     z-index: 2;
     position: absolute;
-    /* border: 1px solid yellow; */
     display: flex;
     justify-content: space-between;
     top: 50%;
@@ -325,7 +329,7 @@ a{
    border: none;
    outline: none;
    font-size: 4em;
-   margin: 0 2.5em;
+   margin: 0 5%;
    background-color: transparent;
    color: #fff;
    cursor: pointer;
@@ -979,9 +983,33 @@ footer{
     margin: 0 3px;
 }
 
-
+@media(max-width:1400px){
+    
+}
 @media(max-width:1200px){
     /* Header section styles */
+
+    /* Home slider section styles */
+    #home-slider .home-slider-item{
+        padding: 100px 0 ;
+    }
+    #home-slider .home-slider-item .home-slider-content h2{
+        font-size: 3.5em;
+    }
+    #home-slider .home-slider-item .home-slider-content h3{
+        font-size: 2.8em;
+    }
+    #home-slider .home-slider-item .home-slider-content p{
+        font-size: 2.5em;
+    }
+    #home-slider .home-slider-item .home-slider-content p span{
+        font-size: 1.5em;
+    }
+    #home-slider .home-slider-item .home-slider-content-position button{
+        padding: 10px 20px;
+        font-size: 1.6em;
+    }
+
 }
 @media(max-width:992px){
     #header-info .header-container li{
@@ -989,6 +1017,26 @@ footer{
     }
     #header-info .header-info-address ul li:last-child{
         font-size: 1.3em;
+    }
+
+    /* Home slider section styles */
+     
+
+    #home-slider .home-slider-item .home-slider-content h2{
+        font-size: 2.8em;
+    }
+    #home-slider .home-slider-item .home-slider-content h3{
+        font-size: 2.2em;
+    }
+    #home-slider .home-slider-item .home-slider-content p{
+        font-size: 2em;
+    }
+    #home-slider .home-slider-item .home-slider-content p span{
+        font-size: 1.5em;
+    }
+    #home-slider .home-slider-item .home-slider-content-position button{
+        padding: 10px 20px;
+        font-size: 1.4em;
     }
 }
 @media(max-width:992px) and (min-width:768px){
@@ -1003,6 +1051,8 @@ footer{
     #header-navbar ul li{
         font-size: 1.3em;
     }
+
+    /* Home slider section styles */
 }
 @media(max-width:768px){
     /* Header section styles */
@@ -1034,6 +1084,17 @@ footer{
     }
     #header-navbar{
         display: none;
+    }
+
+
+    /* Home slider section styles */
+    #home-slider .home-slider-content-position{
+        padding: 20px 0;
+        width:100%;
+        text-align: center;
+    }
+    #home-slider .home-slider-content .overlay{
+        display: block;
     }
 }
 
