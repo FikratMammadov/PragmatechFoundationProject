@@ -22,7 +22,8 @@ a{
     flex-direction: column;
 }
 .item-header-title{
-    font-size: 2.8em;
+    font-size: 2.2em;
+    font-weight: 600;
     font-family: 'Shippori Mincho', serif;
 }
 .item-header-content{
@@ -1130,6 +1131,24 @@ footer{
     /* bestProducts section styles */
     #bestProducts .cake-item.cake-item-res-1,#bestProducts .cake-item.cake-item-res-2{
         display: none;
+    }
+
+    /* natureTaste section styles */
+
+    #natureTaste{
+        background-position: 50% 75%;
+    }
+    .natureTaste-body{
+        flex-wrap: wrap;
+    }
+    .natureTaste-body .slider{
+        flex: 100%;
+    }
+    .natureTaste-body .cake-img img{
+        width: 80%;
+    }
+    .natureTaste-body .btn-1{
+        margin-left: 5%;
     }
     
 }
