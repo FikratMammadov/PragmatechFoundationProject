@@ -409,15 +409,14 @@ a{
     /* border: 1px solid yellow; */
      
 }
-#bestProducts .cake-item .container{
+#bestProducts .cake-items .container{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #F9F9F9;
-    /* border: 1px solid blue; */
     border-radius: 20px;
 }
-#bestProducts .cake-item img{
+#bestProducts .cake-item img {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -542,6 +541,7 @@ a{
 #latestCollection .cake-types ul{
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 #latestCollection .cake-type{
@@ -577,13 +577,20 @@ a{
     /* border: 1px solid yellow; */
      
 }
+/* responsive'de bezi cake item divlerini legv etmek ucun */
+#latestCollection  .cake-item-res-1,#latestCollection .cake-item-res-2{
+    display: block;
+}
 #latestCollection .cake-item .container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #F9F9F9;
-    /* border: 1px solid blue; */
     border-radius: 20px;
+}
+#latestCollection .cake-item .row{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 #latestCollection .cake-item img{
     width: 100%;
@@ -615,6 +622,10 @@ a{
 #latestCollection .cake-item .cake-item-btn{
     margin: 0;
     margin: 20px 0;
+}
+#latestCollection .btn{ 
+    position: absolute;
+    top: 35%;
 }
 
 
@@ -1020,6 +1031,11 @@ footer{
         padding: 0 15px; 
     }
 
+    /* latestCollection section styles */
+    #latestCollection .cake-item-res-1{
+        display: none;
+    }
+
 }
 @media(max-width:992px){
     #header-info .header-container li{
@@ -1074,6 +1090,8 @@ footer{
     #bestProducts .cake-item.cake-item-res-1{
         display: none;
     }
+
+     
 
 
 
@@ -1150,9 +1168,35 @@ footer{
     .natureTaste-body .btn-1{
         margin-left: 5%;
     }
-    
-}
 
+    /* latestCollection section styles */
+    #latestCollection .cake-item-res-1,#latestCollection .cake-item-res-2{
+        display: none;
+    }
+    #latestCollection .cake-item{
+        justify-content: center;
+    }
+     
+@media(max-width:768px) and (min-width:576px){
+    /* latestCollection section styles */
+    #latestCollection .cake-item .container{
+        flex: 100%;
+        margin: 0;   
+        background-color: #fff;  
+        border: 1px solid #F7F7F7;
+    }
+    #latestCollection .cake-item .container .row.content{
+        background-color: #F7F7F7;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    #latestCollection .cake-item img{
+        width:80%;
+        border-radius: 0;
+         
+    }
+}
+}   
 @media(max-width:576px){
     /* bestProducts section styles */
     #bestProducts .cake-item.cake-item-res-1,#bestProducts .cake-item.cake-item-res-2,#bestProducts .cake-item.cake-item-res-3{
