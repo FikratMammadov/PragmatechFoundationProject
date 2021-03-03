@@ -358,8 +358,8 @@ a{
 }
 #feelTheTaste .cake-item{
     box-sizing: border-box;
-    width: calc(100%/3);
-    padding: 0 50px;
+    flex: calc(100%/3);
+    padding: 0 30px;
     /* border: 1px solid yellow; */
 
 }
@@ -399,7 +399,7 @@ a{
 #bestProducts .cake-item{
     display: flex;
     box-sizing: border-box;
-    width: calc(100%/4);
+    flex: calc(100%/4);
     padding: 0 15px;
     /* border: 1px solid yellow; */
      
@@ -567,7 +567,7 @@ a{
 #latestCollection .cake-item{
     display: flex;
     box-sizing: border-box;
-    width: calc(100%/4);
+    flex: calc(100%/4);
     padding: 0 15px;
     /* border: 1px solid yellow; */
      
@@ -1010,6 +1010,11 @@ footer{
         font-size: 1.6em;
     }
 
+    /* feelTheTaste section styles */
+    #feelTheTaste .cake-item{
+        padding: 0 15px; 
+    }
+
 }
 @media(max-width:992px){
     #header-info .header-container li{
@@ -1037,6 +1042,14 @@ footer{
     #home-slider .home-slider-item .home-slider-content-position button{
         padding: 10px 20px;
         font-size: 1.4em;
+    }
+
+    /* feelTheTaste section styles */
+    #feelTheTaste .cake-item p{
+        font-size: 1.3em;
+        text-align: center;
+        margin: 0;
+        opacity: .8;
     }
 }
 @media(max-width:992px) and (min-width:768px){
@@ -1095,6 +1108,13 @@ footer{
     }
     #home-slider .home-slider-content .overlay{
         display: block;
+    }
+
+
+    /* feelTheTaste section styles */
+    #feelTheTaste .cake-item{
+        flex: 100%;
+        margin-bottom: 15px;
     }
 }
 
