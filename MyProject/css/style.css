@@ -392,10 +392,14 @@ a{
 #bestProducts .cake-items{
     /* border: 1px solid red; */
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin-top: 40px;
      
 }
+#bestProducts .cake-item.cake-item-res-1,#bestProducts .cake-item.cake-item-res-2,#bestProducts .cake-item.cake-item-res-3{
+    display: block;
+}
+
 #bestProducts .cake-item{
     display: flex;
     box-sizing: border-box;
@@ -1065,7 +1069,13 @@ footer{
         font-size: 1.3em;
     }
 
-    /* Home slider section styles */
+    /* bestProducts section styles */
+    #bestProducts .cake-item.cake-item-res-1{
+        display: none;
+    }
+
+
+
 }
 @media(max-width:768px){
     /* Header section styles */
@@ -1116,10 +1126,19 @@ footer{
         flex: 100%;
         margin-bottom: 15px;
     }
+
+    /* bestProducts section styles */
+    #bestProducts .cake-item.cake-item-res-1,#bestProducts .cake-item.cake-item-res-2{
+        display: none;
+    }
+    
 }
 
 @media(max-width:576px){
-
+    /* bestProducts section styles */
+    #bestProducts .cake-item.cake-item-res-1,#bestProducts .cake-item.cake-item-res-2,#bestProducts .cake-item.cake-item-res-3{
+        display: none;
+    }
     
 }
 /* @media(max-width:280px) and(min-width:240px){
