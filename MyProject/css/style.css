@@ -785,7 +785,10 @@ a{
 .blog-item-content .footer a:hover{
     color: #ff599a;
 }
-
+/* blog item'larin bezilerini responsiv dizaynda gorunmemesi ucun */
+#blog .blog-item-res-1,#blog .blog-item-res-2{
+    display: block;
+}
 
 /* asked section styles */
 #asked{
@@ -1097,6 +1100,12 @@ footer{
     .menu-item-description p{
         font-size: 1.2em;
     }
+
+
+    /* Blog section styles */
+    #blog .blog-item-res-1{
+        display: none;
+    }
 }
 @media(max-width:992px) and (min-width:768px){
     /* Header section styles */
@@ -1200,6 +1209,11 @@ footer{
     /* Menu section styles */
     #menu .menu-items{
         flex-direction: column;
+    }
+
+    /* Blog section styles */
+    #blog .blog-item-res-2{
+        display: none;
     }
     
 }      
