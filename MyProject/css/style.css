@@ -635,6 +635,7 @@ a{
     text-align: center;
     padding: 190px 0;
     background:url("../img/welcome-bg-img.jpg") center center no-repeat;
+    background-size: cover;
 }
 .welcome-content{
     width: 50%;
@@ -1072,6 +1073,22 @@ footer{
         margin: 0;
         opacity: .8;
     }
+
+    /* Welcome section styles */
+    #welcome{
+        padding: 100px 0;
+    }
+    .welcome-content{
+        width: 70%;
+        margin: 0 auto;
+    }
+    #welcome h1{
+        font-size: 4em;
+    }
+    #welcome p{
+        font-size: 1.3em;
+        padding: 0 40px;
+    }
 }
 @media(max-width:992px) and (min-width:768px){
     /* Header section styles */
@@ -1090,11 +1107,6 @@ footer{
     #bestProducts .cake-item.cake-item-res-1{
         display: none;
     }
-
-     
-
-
-
 }
 @media(max-width:768px){
     /* Header section styles */
