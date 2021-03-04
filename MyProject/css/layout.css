@@ -39,7 +39,7 @@
     flex: calc(100%/12*9);
 }
 .col-10{
-    width: calc(100%/12*10);
+    flex: calc(100%/12*10);
 }
 .col-11{
     flex: calc(100%/12*11);
