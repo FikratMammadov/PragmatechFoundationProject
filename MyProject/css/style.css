@@ -877,10 +877,16 @@ a{
 #features{
     padding: 100px 0;
 }
+.features-items .row{
+    flex-wrap: wrap;
+}
+.features-item-col{
+    width: calc(100%/3);
+}
 .features-item{
     /* border: 1px solid red; */
-    margin: 0 15px;
-    padding: 60px;
+    margin:15px;
+    padding:10% 3%;
     text-align: center;
     border-radius: 20px;
     background-color: #f7f7f7;
@@ -904,10 +910,13 @@ a{
     margin-top: 100px;
     position: relative;
 }
+.logos .btn{
+    margin: 0 1%;
+}
 .logo-items{
     padding-left: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     
      
 }
@@ -1017,9 +1026,17 @@ footer{
     margin: 0 3px;
 }
 
-@media(max-width:1400px){
+@media(max-width:1600px){
+    /* features section styles */
+    .features-item-img img{
+        width: 50%;
+    }
+    .features-item h5{
+        font-size: 1.5em;
+        opacity: .8;
+    }
     
-}
+}  
 @media(max-width:1200px){
     /* Header section styles */
 
@@ -1120,6 +1137,14 @@ footer{
     /* asked section styles */
     .question-answer{
         font-size: 1.3em;
+    }
+    /* features section styles */
+    .features-item span{
+        font-size: 1.1em;
+    }
+
+    .logo-item-res-1{
+        display: none;
     }
 }
 @media(max-width:992px) and (min-width:768px){
@@ -1234,7 +1259,16 @@ footer{
     .asked-item{
         flex: 100%;
     }
-}      
+
+    /* features section styles */
+    .features-item-col{
+        width: 50%;
+    }
+    .logo-item-res-2,.logo-item-res-3{
+        display: none;
+    }
+}    
+ 
 @media(max-width:768px) and (min-width:576px){
     /* latestCollection section styles */
     #latestCollection .cake-item .container{
@@ -1264,33 +1298,13 @@ footer{
         flex-direction: column;
         align-items: flex-start;
     }
-    
-}
-/* @media(max-width:280px) and(min-width:240px){
-    .header-info-address ul li{
-        flex: 50%;
-        text-align: center;
-    }
-    .header-info-address ul li:last-child{
-        flex: 100%;
-    }
-    #header-info .header-info-address ul{
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-@media(max-width:240px){
 
-    .header-info-address ul li:first-child{
-        flex: 100%;
+    /* features section styles */
+    .features-item-col{
+        width: 100%;
+    }
+    .logo-item-res-4{
+        display: none;
     }
     
-    #header-menubar ul li{
-        margin-right: 0;
-    }
 }
-@media(max-width:130px){
-    #header-logo img{
-        width: 50px;
-    }
-} */
