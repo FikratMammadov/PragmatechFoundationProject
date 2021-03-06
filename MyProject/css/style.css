@@ -1006,9 +1006,9 @@ footer{
 }
 
 
-/* footer contact section */
+/* footer contact section styles*/
 .footer-contact{
-    padding: 20px 0;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1017,6 +1017,7 @@ footer{
 .copyright{
     font-size: 1.5em;
     opacity: .9;
+    font-weight: 300;
 }
 .copyright a i{
     font-size: .9em;
@@ -1160,6 +1161,11 @@ footer{
     .footer-item li{
         font-size: 1.3em;
     }
+
+    /* footer section styles */
+    .copyright{
+        font-size: 1.3em;
+    }
      
 }
 @media(max-width:992px) and (min-width:768px){
@@ -1291,7 +1297,20 @@ footer{
     .footer-col{
         flex: 100%;
     }
-    
+
+    /* footer-contact section styles */
+    .footer-contact{
+        flex-direction: column;
+        align-items: center;
+    }
+    .copyright{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .copyright span{
+        margin-bottom: 10px;
+    }
 }    
  
 @media(max-width:768px) and (min-width:576px){
