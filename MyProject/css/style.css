@@ -673,9 +673,6 @@ a{
 #menu .menu-item .row img{
     width: 100%;
 }
-#menu .menu-item .row{
-    
-}
 #menu .item-header-title,#menu .item-header-content{
     color: #fff;
 }
@@ -935,7 +932,18 @@ footer{
     background-size: cover;
     padding: 80px 0;
 }
+.footer-col{
+    flex: 25%;
+    margin-bottom: 20px;
+}
+.footer-items{
+    padding: 0 3%;
+}
+.footer-items .row{
+    flex-wrap: wrap;
+}
 .footer-item{
+    display: inline-block;
     color: #fff;
 }
 .footer-item h5{
@@ -968,7 +976,10 @@ footer{
     color: #ff599a;
 }
 .footer-input{
-    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0;
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
@@ -978,7 +989,7 @@ footer{
 .footer-input input{
     outline: none;
     border: none;
-    width: 90%;
+    width: 80%;
     font-family: 'Poppins', sans-serif;
     color: #000;
     opacity: .8;
@@ -1146,6 +1157,10 @@ footer{
     .logo-item-res-1{
         display: none;
     }
+    .footer-item li{
+        font-size: 1.3em;
+    }
+     
 }
 @media(max-width:992px) and (min-width:768px){
     /* Header section styles */
@@ -1163,6 +1178,10 @@ footer{
     /* bestProducts section styles */
     #bestProducts .cake-item.cake-item-res-1{
         display: none;
+    }
+    /* footer styles */
+    .footer-item h5{
+        font-size: 1.3em;
     }
 }
 @media(max-width:768px){
@@ -1267,6 +1286,12 @@ footer{
     .logo-item-res-2,.logo-item-res-3{
         display: none;
     }
+
+    /* footer styles */
+    .footer-col{
+        flex: 100%;
+    }
+    
 }    
  
 @media(max-width:768px) and (min-width:576px){
@@ -1286,6 +1311,14 @@ footer{
         width:80%;
         border-radius: 0;
          
+    }
+
+    /* footer section styles */
+    .footer-help,.footer-support{
+        flex:50%
+    }
+    .footer-item{
+        width: 50%;
     }
 }
  
