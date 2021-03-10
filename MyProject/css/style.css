@@ -46,7 +46,7 @@ a{
     opacity: .8;
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: #fff;
     border-radius: 30px;
     border: 2px solid #ffe450;
     padding: 15px 30px;
@@ -97,9 +97,29 @@ a{
 }
 .cake-item-img{
     margin-bottom: -5px;
+    position: relative;
+}
+.sold-out{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+    background-color: #db0022;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    font-size: 1.2em;
 }
 .cake-item-img img{
     width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .cake-content{
     padding: 20px 0;
@@ -110,22 +130,61 @@ a{
     border-bottom-left-radius: 20px;
     border-bottom-right-radius:20px ;
 }
-.cake-item a{
+.cake-content a{
     font-size: 1.4em;
     color: #000; 
     transition: .5s; 
+    font-weight: 300;
 }
-.cake-item a:hover{
+.cake-content a:hover{
     color: #ff599a;
 }
-.cake-item p{
+.cake-content p{
     font-size: 2em;
     margin: 5px 0;
 }
-.cake-item p span{
+.cake-content p span{
     opacity: .3;
     font-size: .7em;
     text-decoration-line: line-through;
+}
+
+/* pagination common classes */
+.pagination{
+    padding: 30px 0;
+}
+.pagintion-page{
+    font-size: 1.3em;
+    padding: 8px 12px;
+    margin: 0 3px;
+    border: 1px solid #ff599a;
+    transition: .5s;
+    cursor: pointer;
+}
+.pagintion-page:hover{
+    background-color: #ff599a;
+}
+.pagintion-page:hover a{
+    color: #fff;
+}
+.pagintion-page-active{
+    background-color: #ff599a;
+}
+.pagintion-page-active a{
+    color: #fff;
+}
+.pagination-page-arrow{
+    background-color: #ff599a;
+}
+.pagination-page-arrow a{
+    color: #000;
+}
+.pagination-page-arrow-passive{
+    background-color: #fff;
+    cursor: not-allowed;
+}
+.pagination-page-arrow-passive a{
+    cursor: not-allowed;
 }
 
 /* Header Section Start */
@@ -1498,16 +1557,69 @@ footer{
 
 
 /* SHOP PAGE STYLES */
-.products{
-    height: 400px;
-    border: 1px solid red;
+
+
+/* products section styles */
+.products-nav-btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #ffe450;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right:5px;
+    transition: .5s;
+}
+.products-nav-btn a{
+    font-size: 1.2em;
+}
+.products-nav-btn:hover{
+    background-color: #ff599a;
+    border-color: #ff599a;
+}
+.products-nav-btn:hover a{
+    color: #fff;
+}
+.products-nav-btn-active{
+    background-color: #ff599a;
+}
+.products-nav-btn-active a{
+    color: #fff;
+}
+.products-sorting,.product-sorting-item,.product-sorting-features {
+    padding-left: 0;
+}
+.product-sorting-item{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.product-sorting-features{
+    width: 70%;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #ffe450;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: .5s;
+}
+ 
+.product-sorting-features:hover{
+    background-color: #ff599a;
+    border-color: #ff599a;
+    color: #fff;
+}
+.product-sorting-features i{
+    font-size: 1.2em;
 }
 
-
+ 
+ 
 /* Choices Section Styles */
-.choices{
-    /* border: 1px solid green; */
-}
+
 .choices-item{
     padding: 0 10% 30px 10%;
 }
@@ -1626,18 +1738,23 @@ footer{
     .choices-item-lists li{
         font-size: 1.3em;
     }
-   .choices-cake-content p{
-        font-size: 1.2em;
-        margin: 5px 0;
-}
+    .choices-cake-content p{
+            font-size: 1.2em;
+            margin: 5px 0;
+    }
     .choices-cake-content p span{
-        font-size:1em ;
-}
+        font-size:1em;
+    }
+    .choices-item{
+        padding: 0 0 30px 0;
+    }
+
     
 }
 
-@media(max-width:768px){
-    .choices-item{
-        padding: 0 0 30px 0;
+@media(max-width:992px) and (min-width:768px){
+     /* products section styles */
+    .product-sorting-item{
+        font-size: 1.2em;
     }
 }
