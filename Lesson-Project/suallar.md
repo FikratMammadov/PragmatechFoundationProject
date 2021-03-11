@@ -29,3 +29,5 @@
 3. Günümüzdə istifadə olunan Js,PHP,Python və C# dillərində ortaq istifadə olunan data növləri hansılardır və qısaca izahatlarını yazın
     - String - bu məlumat növünə mətnlər daxildir
     - Boolean - bu məlumat növünün iki dəyəri var true və false
+
+4. Type Conversion ya da Type Casting nədir? Hansı hallarda ehtiyac duyulur
