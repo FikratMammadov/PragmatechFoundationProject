@@ -43,7 +43,7 @@ a{
 }
 .cake-item-btn button{
     font-size: 1.5em;
-    opacity: .8;
+    /* opacity: .8; */
     border: none;
     outline: none;
     background-color: #fff;
@@ -78,11 +78,16 @@ a{
     background-color: #fff;
     border-radius: 50%;
     font-size: 1.2em;
-    padding: 8px 10px;
+    /* padding: 8px 10px; */
+    height: 30px;
+    width: 30px;
     border: 1px solid #ffe450;
     color: #000;
     transition: .5s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .btn button:hover{
     color: #fff;
@@ -1756,5 +1761,325 @@ footer{
      /* products section styles */
     .product-sorting-item{
         font-size: 1.2em;
+    }
+}
+
+
+
+/* PAGES PAGE STYLES */
+
+/* post section styles */
+#post{
+    box-sizing: border-box;
+}
+
+.post-image img{
+    width: 100%;
+}
+
+
+#post .post-content{
+    border: 2px solid #f7f7f7;
+    padding: 3% 0;
+}
+.post-description{
+    padding: 0 7%;
+}
+.post-content-header{
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+
+}
+.post-content hr{
+    border: none;
+    height: 1px;
+    background-color: #000;
+    width: 40px;
+    margin-left: 0;
+}
+.post-content p{
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 30px 0;
+}
+.row.post-cake-items{
+    margin: 0 !important;
+}
+.post-cake-items{
+    padding: 30px 8%;
+    position: relative;
+}
+.post-cake-items .btn{
+    padding: 0 3%;
+}
+.post-cake-items .btn button{
+    border: none;
+    background-color:#f7f7f7 ;
+}
+.post-cake-items .btn button:hover{
+    background-color: #ff599a;
+    color: #fff;
+}
+
+.post-cake-item img{
+    width: 100%;
+}
+
+
+ 
+/* cakes-bakes section styles */
+#cakes-bakes{
+    background-color: #f7f7f7;
+}
+#cakes-bakes .col-12{
+    padding-bottom: 30px !important;
+}
+.page-item-header{
+    text-align: center;
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+.page-item-header h1{
+    margin: 5px 0;
+    font-weight: 400;
+}
+.page-item-header span{
+    font-size: .8em;
+}
+.page-cake-item{
+    /* margin: 10px 0; */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.page-cake-item-header{
+    font-size: 2.5em;
+    font-family: 'Lobster Two', cursive;
+    padding: 15px 0;
+}
+.page-cake-item-img{
+    margin: 0 15%;
+    width: 300px;
+    height: 300px;
+}
+.page-cake-item-img img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.page-cake-item-description{
+    margin: 0 5%;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 300;
+    padding: 20px 0;
+}
+#cakes-bakes .cake-item-btn button{
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: .5px;
+    padding: 12px 20px;
+}
+#cakes-bakes .cake-item-btn{
+    margin: 30px 0;
+}
+
+/* cakes-bakes-offers section styles */
+#cakes-bakes-offers{
+    background:url("../img/cakes-bakes-offers-bg.jpg") center center no-repeat;
+    background-size: cover;
+
+}
+
+#cakes-bakes-offers .page-item-header{
+    color: #fff;
+}
+#cakes-bakes-offers p{
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0 28%;
+}
+
+/* sweetMovement section styles */
+#sweetMovement .post-content-header{
+    font-size: 5em;
+    opacity: .8;
+}
+#sweetMovement p{
+    opacity: .8;
+}
+.post-content-choice {
+    font-size: 1.5em;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+.post-content-choice i{
+    width: 30px;
+    font-size: 1.5em;
+}
+#sweetMovement .cake-item-btn{
+    text-align: start;
+}
+
+/* salesNumber section styles */
+#salesNumber{
+    background-color: #ff599a;
+    padding: 70px;
+}
+.sales-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.sales-item-icon{
+    background-color: #fff;
+    box-sizing: border-box;
+    width:75px;
+    height: 75px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    transition: .5s;
+}
+.sales-item:hover .sales-item-icon{
+    background-color: #ff599a;
+}
+.sales-item-num{
+    font-size: 4em;
+    font-weight: 300;
+}
+.sales-item-title{
+    font-size: 2.5em;
+    font-family: 'Lobster Two', cursive;
+}
+
+
+/* staff section styles */
+.staff-employee{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.staff-employee-image{
+    position: relative;
+    width: 275px;
+    height: 275px;
+    z-index: 0;
+    margin-bottom: 20px;
+}
+.staff-employee-image:hover .staff-employee-social{
+    z-index: 2;
+}
+.staff-employee-image:hover img.img-back {
+    opacity: 1;
+}
+
+.staff-employee-image img.img-back{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: .5;
+}
+.staff-employee-image-second{
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 1;
+}
+.staff-employee-image-second img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.staff-employee-social{
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #ff599a;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transition: .5s; */
+}
+.staff-employee-social-icon{
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: .5s;
+    font-size: 1.5em;
+}
+.staff-employee-social-icon a{
+    color: #fff;
+}
+.staff-employee-social-icon.twitter:hover{
+    background-color: #4099ff;
+}
+.staff-employee-social-icon.facebook:hover{
+    background-color: #3b5998;
+}
+.staff-employee-social-icon.google-plus:hover{
+    background-color: #d34836;
+}
+
+.staff-employee-name{
+    font-size: 2em;
+    font-family: 'Lobster Two', cursive;
+}
+.staff-employee-profession{
+    color: #cccccc;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+@media(max-width:1200px){
+    /* cakes-bakes section styles */
+    .page-cake-item-img{
+        margin: 0 15%;
+        width: 150px;
+        height: 150px;
+        transition: .5s;
+    }
+}
+
+@media(max-width:992px){
+    /* post section styles */
+    .post-content p{
+        font-size: 1.3em;
+    }
+
+    /* cakes-bakes-offers section styles */
+    #cakes-bakes-offers p{
+        font-size: 1.3em;
+        padding: 0 8%;
     }
 }

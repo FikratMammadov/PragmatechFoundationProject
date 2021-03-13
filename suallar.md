@@ -30,4 +30,13 @@
     - String - bu məlumat növünə mətnlər daxildir
     - Boolean - bu məlumat növünün iki dəyəri var true və false
 
-4. Type Conversion ya da Type Casting nədir? Hansı hallarda ehtiyac duyulur
+4. Type Conversion ya da Type Casting nədir? Hansı hallarda ehtiyac duyulur?
+    - Type Conversion bir dəyişən tipini digər tipə çevirmək üçün istifadə olunur.
+    - 2 növü var: Implicit conversion və Explicit conversion. 
+    Implicit conversion Automatic Type conversion'dır.
+    Explicit converion bəzi funksiyalardan istifadə edərək bir dəyişən tipinin digər tipə çevrilməsidir.
+    Bu funksiyalara Number(), String() və Boolean() aiddir.
+
+5. Operator precedence nədir və əhəmiyyətini izah edin
+
+6. Automatic Type Conversion ve Type Conversion Methodlar arasındakı fərqləri izah edin.
