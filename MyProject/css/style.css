@@ -2083,3 +2083,38 @@ footer{
         padding: 0 8%;
     }
 }
+
+
+
+/* WISHLIS PAGE */
+
+/* wishlist-products section styles*/
+#wishlist-products .wishlist-table{
+    border-collapse: collapse;
+}
+#wishlist-products table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#wishlist-products table, td, th,.wishlist-comment,.wishlist-footer {
+    border: 1px solid #e4e4e4;
+    padding: 20px 0;
+}
+#wishlist-products .wishlist-comment,.wishlist-footer{
+    font-size: 1.4em;
+    font-weight: 300;
+    text-align: center;
+    border-top: none;
+}
+#wishlist-products th.product{
+    width: calc(100%/12*3);
+}
+#wishlist-products th.price{
+    width: calc(100%/12*2);
+}
+#wishlist-products th.stock{
+    width: calc(100%/12*4);
+}
+#wishlist-products table th{
+    font-size: 1.5em;
+}
