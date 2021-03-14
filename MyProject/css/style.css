@@ -58,11 +58,15 @@ a{
     border-color: #ff599a;
     color: #fff;
 }
-
+.cake-item-btn-active button{
+    background-color: #ff599a;
+    color: #fff;
+}
 .btn{ 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1;
 }
 
 .btn-1{
@@ -79,8 +83,8 @@ a{
     border-radius: 50%;
     font-size: 1.2em;
     /* padding: 8px 10px; */
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     border: 1px solid #ffe450;
     color: #000;
     transition: .5s;
@@ -2185,5 +2189,346 @@ footer{
 @media(max-width:576px){
     .log-in-form{
         width: 100%;
+    }
+}
+
+/* Collection - Anniversary - Butterscotch PAGE */
+
+/* Choices Section Styles */
+
+.choices-item-best-cakes li{
+     padding: 15px 0;
+     border-bottom: 1px dashed #e4e4e4;
+     display: flex;
+     align-items: center;
+}
+.choices-item-best-cakes li:last-child{
+    border-bottom: none;
+}
+.choices-item-best-cake-about{
+    width: 50%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: column;
+}
+.choices-item-best-cake-about a{
+    margin-bottom: 5px;
+    color: #000;
+    font-weight: 300;
+    transition: .5s;
+}
+.choices-item-best-cake-about:hover a{
+    color: #ff599a;
+}
+.choices-item-best-cake-about p{
+    margin: 0;
+}
+.choices-item-best-cake-about p span{
+    opacity: .5;
+    font-size: .8em;
+    text-decoration-line: line-through;
+}
+.choices-item-best-cake-about .icons{
+    font-size: .7em;
+}
+.choices-item-best-cake-image{
+    width: 25%;
+    cursor: pointer;
+}
+.choices-item-best-cake-image img{
+    width: 100%;
+}
+
+
+.choices-item-features li{
+    padding: 15px 0;
+    border-bottom: 1px dashed #e4e4e4;
+    display: flex;
+}
+.choices-item-features li:last-child{
+   border-bottom: none;
+}
+.choices-item-feature-icon{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.choices-item-feature-about{
+    width: 75%;
+}
+.choices-item-feature-about h3{
+    margin:0;
+    font-size: 2em;
+    font-family: 'Lobster Two', cursive;
+    font-weight: 400;
+}
+.choices-item-feature-about p{
+    font-size: 1.4em;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+@media(max-width:1500px){
+    .choices-item-feature-icon{
+        width: 45px;
+        height: 45px;
+    }
+}
+@media(max-width:1200px){
+    .choices-item-feature-about{
+        width: 70%;
+    }
+}
+@media(max-width:992px){
+    .choices-item-feature-icon{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* product section styles */
+.product-image{
+    /* border: 1px solid red; */
+    margin-bottom: 30px;
+}
+.product-image img{
+    width: 100%;
+    cursor: pointer;
+}
+.product-choices-image{
+    margin: 20px 0;
+}
+
+.product-content{
+    /* border: 1px solid green; */
+    margin-bottom: 30px;
+}
+.product-content-header{
+    font-size: 3.5em;
+    font-family: 'Lobster Two', cursive;
+    margin-bottom: 10px;
+}
+.product-content-price{
+    font-weight: 700;
+    font-size: 2em;
+    color: #ff599a;
+    margin-bottom: 10px;
+}
+.product-content-price span{
+    color: #000;
+    font-weight: 400;
+    opacity: .5;
+    font-size: .7em;
+    text-decoration-line: line-through;
+}
+.product-item .icons{
+    font-size: 1.5em;
+}
+.product-item p{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.product-content-about-item{
+    margin: 20px 0;
+}
+.product-content-about-item-title{
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.product-content-about-item-value .color{
+    width: 35px;
+    height: 35px;
+    border: 2px solid #e4e4e4;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.product-content-about-item-value .color.pink{
+    background-color: pink;
+}
+.product-content-about-item-value .color.brown{
+    background-color: brown;
+}
+.product-content-about-item-value .color-active{
+    border: 2px solid #ff599a;
+}
+.product-content-about-item-value .flavor{
+    padding: 10px 15px;
+    border: 2px solid #ff599a;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.product-content-about-item-value .flavor a{
+    color: #000;
+}
+.product-content-about-item-value .pagination{
+    padding: 0;
+    display: flex;
+}
+.product-content-about-item-value .pagination li{
+    font-size: 1.5em;
+    padding: 10px 15px;
+    border: 1px solid #e4e4e4;
+    cursor: pointer;
+}
+.product-content-about-item-value .pagination li a{
+    color: #000;
+}
+.product-content-about-item-value .pagination li:nth-child(2){
+    border-right: none;
+    border-left: none;
+}
+.product-content-about-item-value .subtotal{
+    font-weight: 700;
+    font-size: 2em;
+    color: #ff599a;
+}
+.product-content-about-item-value .type{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.product-content-about-item-value .availability{
+    font-size: 1.5em;
+    color: #fa9324;
+}
+.product-content-buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-content-buttons .cake-item-btn{
+    margin: 5px;
+}
+.product-content-social{
+    display: flex;
+    margin: 20px 0;
+}
+.product-content-social-icon{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    margin: 0 2px;
+}
+.product-content-social-icon a{
+    color: #fff;
+}
+.product-content-social-icon.facebook{
+    background-color: #3B5998;
+}
+.product-content-social-icon.twitter{
+    background-color: #1DA1F2;
+}
+.product-content-social-icon.briefcase{
+    background-color: #738A8D;
+}
+.product-content-social-icon.envelope{
+    background-color: #848484;
+}
+.product-content-social-icon.plus{
+    background-color: #FF6550;
+}
+.product-content-social-icon-number{
+    width: 60px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0 2px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    position: relative;
+    margin-left: 10px;
+    font-weight: 700;
+}
+.product-content-social-icon-number:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -4px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #aaa;
+    transform: rotate(45deg);
+    margin-right:-4px;
+    border-top: 0px;
+    border-right: 0px;
+    background-color: #fff;
+     
+}
+.product-item-description-buttons .cake-item-btn{
+    margin:5px;
+    font-weight: 300;
+}
+.product-item-description-buttons .cake-item-btn button{
+    padding: 10px 15px;
+}
+.product-item-description p{
+    margin: 0;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+/* Product Collection section styles */
+
+.product-collection-header{
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+}
+.product-collection-header p{
+    font-size: 3em;
+    color: #fbd60b;
+    margin: 10px 0;
+}
+.product-collection-header h2{
+    font-size: 6em;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.product-collection .btn{
+    top: 30%;
+}
+ 
+@media(max-width:1200px){
+    .product-recently .cake-item-btn button{
+        padding: 10px 15px;
+    }
+    .product-recently .cake-content p{
+        font-size: 1.5em;
+    }
+}
+@media(max-width:992px){
+    .product-content-header{
+        font-size: 2.5em;
+    }
+    .product-item p{
+        font-size: 1.3em;
+    }
+    .product-content-about-item-value .type{
+        font-size: 1.3em;
+    }
+    .product-content-about-item-value .availability{
+        font-size: 1.3em;
+    }
+}
+@media(min-width:992px){
+    .product-recently .cake-content p span{
+        display: block;
+        text-align: center;
     }
 }
