@@ -26,6 +26,7 @@
     
 2. Rəqəm və ədədlərin maşın dilinə tərcümə olunma prosesini bilirik. Bəs hərflər və simvollar necə tərcümə olunur?
     - Mətn tipli informasiyanın kodlaşdırılması üçün ASCII standartı American Standard Code for Information Interchange qəbul edilmişdir. Bu standartdan 256 müxtəlif simvolun – ingilis əlifbasının baş və kiçik hərflərinin, 0-dan 9-a qədər rəqəmlərin, durğu işarələrinin və xüsusi idarəedici simvolların təsviri zamanı istifadə edilir. 
+
 3. Günümüzdə istifadə olunan Js,PHP,Python və C# dillərində ortaq istifadə olunan data növləri hansılardır və qısaca izahatlarını yazın
     - String - bu məlumat növünə mətnlər daxildir
     - Boolean - bu məlumat növünün iki dəyəri var true və false
@@ -40,3 +41,4 @@
 5. Operator precedence nədir və əhəmiyyətini izah edin
 
 6. Automatic Type Conversion ve Type Conversion Methodlar arasındakı fərqləri izah edin.
+    - Automatic Type Conversion
