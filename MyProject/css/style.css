@@ -355,7 +355,7 @@ a{
 #home-slider{
     /* height: 720px; */
     position: relative;
-    z-index: 0;
+    /* z-index: 0; */
 }
 #home-slider .home-slider-item{
     padding: 200px 0;
@@ -778,7 +778,6 @@ a{
     padding: 100px 0;
     background: url("../img/menu-bg-img.webp") no-repeat;
     background-size: cover;
-
 }
 .menu-item{
     margin: 30px 20px 30px 20px;
@@ -1981,6 +1980,7 @@ footer{
     z-index: 0;
     margin-bottom: 20px;
 }
+
 .staff-employee-image:hover .staff-employee-social{
     z-index: 2;
 }

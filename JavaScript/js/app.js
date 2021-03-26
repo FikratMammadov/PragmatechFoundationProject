@@ -6,8 +6,7 @@
 // }
 // topla();
 // console.log(a)
-function telebe(_ad,_soyad,_yas)
- 
+
 
 // a=prompt("Birinci ededi daxil edin: ");
 // console.log(String(a*1)=="NaN");
@@ -27,16 +26,47 @@ function telebe(_ad,_soyad,_yas)
 
 
 // Week 05 Ders 02
-function Teacher(_ad,_soyad,_yas){
-    this.ad=_ad;
-    this.soyad=_soyad;
-    this.yas=_yas;
-    this.melumatGoster=function(){
-        console.log(this.ad+" "+this.soyad+" "+this.yas);
-    }
-}
+// function Teacher(_ad,_soyad,_yas){
+//     this.ad=_ad;
+//     this.soyad=_soyad;
+//     this.yas=_yas;
+//     this.melumatGoster=function(){
+//         console.log(this.ad+" "+this.soyad+" "+this.yas);
+//     }
+// }
 
-let muellim1=new Teacher("Samir","Karimov",40);
-muellim1.melumatGoster();
+// let muellim1=new Teacher("Samir","Karimov",40);
+// muellim1.melumatGoster();
+
+
+// class Person {
+//     constructor(_name){
+//         this.#name=_name;
+//     }
+
+//     Introduce(){
+//         console.log(`My name is ${this.#name}`);
+//     }
+
+// }
+
+ 
+// let p1=new Person("Firkat");
+
+// console.log(p1.Introduce());
+
+arr=[4,5,2,2,5,3,1,7];
+let min=arr[0]
+
+for(let i=1;i<arr.length;i++){
+    for(let j=0;j<arr.length;j++){
+        if(arr[i]<min){
+        min=arr[i]
+    }
+    }
+    
+}
+console.log(min)
+
 
 
