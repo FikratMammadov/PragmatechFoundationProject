@@ -2686,3 +2686,28 @@ footer{
         margin: 0 5px;
     }
 }
+
+/* Shopping Cart Page Styles */
+.shopping-cart-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shopping-cart-message h2{
+    font-weight: 400;
+    font-size: 6em;
+    font-family: 'Lobster Two', cursive;
+    margin: 10px 0;
+}
+.shopping-cart-message p{
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 5px 0;
+}
+.shopping-cart-message p a{
+    color: #000;
+    transition: .5s;
+}
+.shopping-cart-message p a:hover{
+    color: #ff599a;
+}
