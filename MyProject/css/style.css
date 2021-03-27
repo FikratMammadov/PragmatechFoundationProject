@@ -396,6 +396,7 @@ a{
     text-transform: uppercase;
     margin: 0;
     letter-spacing: 5px;
+    margin-bottom: 10px;
 }
 #home-slider .home-slider-item .home-slider-content p span{
     font-size: 2em;
