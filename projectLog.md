@@ -9,10 +9,11 @@
 - Log in button - log-in.html
 - Wishlist button - wishlist.html
 - A World of Cup Cake - anniversary-butterscotch.html (Alt səhifə)
+- Sweet & attractive chocolate cake - chocolate-cake.html (Home Alt sehife) (cup-cake.html ve fruit-cake.html ile eynidir.)
 
 ## Html və Css bitmə faizi
 - animasiyalar qalıb. 95% hazır olduğunu düşünürəm.
-- post-comment sehifesi qalib. Alt səhifələr eynidir.
+- Butun sehifeler hazirlanib. Alt səhifələr eynidir.
 
 ## Javascript'ə ehtiyac duyulan bölmələr
 - back to top button
