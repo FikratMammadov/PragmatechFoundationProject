@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .container {}
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .item {
+            border: 3px solid black;
+            cursor: pointer;
+        }
+
+        .item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .6);
+            z-index: 2;
+        }
+
+        .overlay img {
+            height: 70%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .closeBtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="overlay">
+        <img src="img/1.jpg" alt="">
+        <button class="btn btn-primary closeBtn" onclick="closeItem(this)">
+            Close
+        </button>
+    </div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <h3 class="my-3">Image Gallery</h3>
+                <div class="gallery my-4">
+                    <div class="item" onclick="showBigImage(this)">
+                        <img src="img/1.jpg" alt="">
+                    </div>
+                    <div class="item" onclick="showBigImage(this)">
+                        <img src="img/2.jfif" alt="">
+                    </div>
+                    <div class="item" onclick="showBigImage(this)">
+                        <img src="img/3.jfif" alt="">
+                    </div>
+                    <div class="item" onclick="showBigImage(this)">
+                        <img src="img/4.jfif" alt="">
+                    </div>
+                    <div class="item" onclick="showBigImage(this)">
+                        <img src="img/5.jfif" alt="">
+                    </div>
+                </div>
+            </div>a
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+
+
+        function closeItem(elem) {
+            document.body.removeChild(elem.parentElement);
+        }
+
+        function showBigImage(elem) {
+            let overlay = `
+            <div class="overlay">
+                <img src="${elem.querySelector('img').getAttribute('src')}" alt="">
+                <button class="btn btn-primary closeBtn" onclick="closeItem(this)"> 
+                Close
+                </button>
+            </div>
+            `
+
+            document.body.innerHTML += overlay;
+        }
+    </script>
+</body>
+
+</html>

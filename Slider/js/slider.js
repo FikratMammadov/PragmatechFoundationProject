@@ -8,9 +8,12 @@ let rightBtn = document.querySelector('#btn-right');
 let slideImgSrc = document.querySelector('.slide-frame img')
 let title=document.querySelector('.desc p');
 let index = 0;
+ 
+let pagination = document.querySelector('.pagination');
+// let pages=document.querySelectorAll('.page');
 
 
-console.log(title);
+// console.log(pages);
 slides=[
     {
         img:"img/slide-img-1.jpg",
@@ -56,4 +59,18 @@ rightBtn.addEventListener('click', function () {
     }
 })
 
+for(let i=0;i<slides.length;i++){
+    let page = document.createElement('div');
+    page.className="page";
+    pagination.appendChild(page)
+}
 
+ 
+
+for(let i=0;i<pagination.children.length;i++){
+    pagination.children[i].addEventListener('click',function(){
+        slideImgSrc.setAttribute('src', slides[i].img)
+    });
+}
+ 
+// console.log(pagination)

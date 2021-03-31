@@ -1,0 +1,19 @@
+.slide img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.slider-content{
+    transition: all .5s ease;
+}
+
+.slider {
+    overflow: hidden;
+}
+
+.slider-controls a {
+    font-size: 3em;
+}
+
+ 

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font awesome -->
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="accordion">
+                    <div class="item my-2">
+                        <h3 class="alert alert-danger my-0 d-flex justify-content-between"
+                            onclick="toggleAccordion(this)">Title 01 <i class="fal fa-minus"></i></h3>
+                        <p class="alert alert-primary my-0 show">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                            Sint
+                            aliquam, illum dolores assumenda, aperiam, ad incidunt placeat pariatur officia ea nostrum.
+                            Sequi hic laudantium, asperiores consequuntur provident ipsum temporibus. Accusantium?
+
+                        </p>
+                    </div>
+                    <div class="item my-2">
+                        <h3 class="alert alert-danger my-0 d-flex justify-content-between"
+                            onclick="toggleAccordion(this)">Title 02 <i class="fal fa-plus"></i></h3>
+                        <p class="alert alert-primary my-0 hide">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                            Sint
+                            aliquam, illum dolores assumenda, aperiam, ad incidunt placeat pariatur officia ea nostrum.
+                            Sequi hic laudantium, asperiores consequuntur provident ipsum temporibus. Accusantium?
+
+                        </p>
+                    </div>
+                    <div class="item my-2">
+                        <h3 class="alert alert-danger my-0 d-flex justify-content-between"
+                            onclick="toggleAccordion(this)">Title 03 <i class="fal fa-plus"></i></h3>
+                        <p class="alert alert-primary my-0 hide">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                            Sint
+                            aliquam, illum dolores assumenda, aperiam, ad incidunt placeat pariatur officia ea nostrum.
+                            Sequi hic laudantium, asperiores consequuntur provident ipsum temporibus. Accusantium?
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function toggleAccordion(elem) {
+            nextElement = elem.nextElementSibling;
+            accordion = elem.parentElement.parentElement;
+            btn = elem.children[0]
+            // Eger paragraf gorunurse toggle status true , eks halda false olsun
+            if (nextElement.className == "alert alert-primary my-0 show") {
+                toggleStatus = true;
+            } else {
+                toggleStatus = false;
+            }
+
+            if (toggleStatus == false) {
+                for (let i = 0; i < accordion.children.length; i++) {
+                    accordion.children[i].children[1].className = "alert alert-primary my-0 hide"
+                    accordion.children[i].children[0].children[0].className = "fal fa-plus"
+                }
+                nextElement.className = "alert alert-primary my-0 show";
+                btn.className = "fal fa-minus"
+            }
+
+        }
+    </script>
+</body>
+
+</html>
