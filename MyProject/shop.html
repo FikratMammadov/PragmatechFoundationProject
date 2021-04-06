@@ -25,7 +25,50 @@
     <title>Shop</title>
 </head>
 
-<body>
+<body onresize="checkStatus()">
+    <!-- <div id="addToCart" class="addToCart-overlay" style="display:block;">
+        <div class="container">
+            <div class="card-item row">
+                <div class="card-content col-12 col-md-6">
+                    <div class="card-content-message">
+                        product successfully added to your shopping cart
+                    </div>
+                    <div class="card-content-product row">
+                        <div class="card-content-product-image col-4">
+                            <img src="img/shop-products-img-1.webp" alt="">
+                        </div>
+                        <div class="card-content-product-description col-8">
+                            <div class="card-content-product-description-name">
+                                A World of Cup Cake
+                            </div>
+                            <div class="card-content-product-description-price">
+                                $300.00
+                            </div>
+                            <div class="card-content-product-description-number">
+                                Qyt: 1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-pay col-12 col-md-6">
+                    <div class="card-pay-product-number">
+                        there are 9 item(s) in your cart
+                    </div>
+                    <div class="card-pay-product-price">
+                        $300.00 USD
+                    </div>
+                    <div class="card-pay-product-buttons d-flex">
+                        <div class="cake-item-btn"><button>cantinue shopping</button></div>
+                        <div class="cake-item-btn"><button><i class="fas fa-shopping-cart"></i> view cart</button></div>
+                    </div>
+                </div>
+                <div class="card-item-close">
+                    <i class="fal fa-times"></i>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
     <section id="header">
         <div id="header-info">
             <div class="container">
@@ -51,7 +94,7 @@
             <div id="header-logo">
                 <a href="index.html">
                     <img src="img/logo.png" alt="">
-                </a>  
+                </a>
             </div>
             <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
@@ -130,16 +173,20 @@
                                 <div class="products-sorting d-flex col-md-8 col-xl-6 col-lg-9">
                                     <div class="col-8 product-sorting-item d-flex align-items-center">
                                         <span class="d-md-inline-flex d-none">Sort by</span>
-                                        <div class="product-sorting-features d-flex align-items-center justify-content-between">
+                                        <div
+                                            class="product-sorting-features d-flex align-items-center justify-content-between">
                                             <div class="products-sorting-features-name">Featured</div>
-                                            <div class="products-sorting-feature-btn "><i class="fas fa-sort-down"></i></div>
+                                            <div class="products-sorting-feature-btn "><i class="fas fa-sort-down"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4 d-md-inline-flex d-none product-sorting-item  align-items-center">
                                         <span>Show</span>
-                                        <div class="product-sorting-features d-flex align-items-center justify-content-between">
+                                        <div
+                                            class="product-sorting-features d-flex align-items-center justify-content-between">
                                             <div class="products-sorting-features-name">12</div>
-                                            <div class="products-sorting-features-btn"><i class="fas fa-sort-down"></i></div>
+                                            <div class="products-sorting-features-btn"><i class="fas fa-sort-down"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -147,9 +194,23 @@
                             <section id="products">
                                 <div class="cake-items row">
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-1.webp" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href="" class="cake-item-img-1"><img
+                                                        src="img/shop-products-img-1.webp" alt=""></a>
+                                                <a href="" class="cake-item-img-2">
+                                                    <img src="img/shop-products-img-10.webp" alt="">
+                                                </a>
+                                                <!-- <div class="cake-item-img-overlay">
+                                                    <a href=""><i class="fal fa-link"></i></a>
+                                                    <a href=""><i class="fal fa-eye"></i></a>
+                                                    <a href=""><i class="fal fa-heart"></i></a>
+                                                </div> -->
+
+                                            </div>
+
                                         </div>
+
                                         <div class="cake-content">
                                             <span><a href="">A World of Cup Cake </a></span>
                                             <p>$300.00 <span>$351.00</span></p>
@@ -160,13 +221,17 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-2.webp" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-2.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-3.webp" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Angel Food Cake</a></span>
@@ -180,11 +245,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-3.webp" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-3.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-5.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Banana Snack Cake</a></span>
@@ -198,11 +266,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-4.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-4.jpg" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-6.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Birthday Giant Cup Cake </a></span>
@@ -216,11 +287,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-5.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-7.jpg" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-10.webp" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Celebration Cake </a></span>
@@ -234,11 +308,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-6.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-8.jpg" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-5.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Children's Cup Cake </a></span>
@@ -252,11 +329,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-7.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-9.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-11.webp" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Chocolate cake </a></span>
@@ -270,11 +350,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-8.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-10.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-4.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Chocolate Cup Cake </a></span>
@@ -288,15 +371,18 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
-                                    <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-9.webp" alt="">
-                                            <div class="sold-out">
-                                                <span>SOLD OUT</span> 
+                                    <!-- <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-1.webp" alt=""></a>
+                                                <div class="sold-out">
+                                                    <span>SOLD OUT</span>
+                                                </div>
                                             </div>
                                         </div>
+
                                         <div class="cake-content">
                                             <span><a href="">Chocolate Tease Cup Cake </a></span>
                                             <p>$289.00</p>
@@ -307,13 +393,16 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            
+
                                         </div>
-                                         
-                                    </div>
+
+                                    </div> -->
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-10.webp" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-11.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-7.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Classic Carrot Cake </a></span>
@@ -327,11 +416,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-11.webp" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-5.jpg" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-7.jpg" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Cookies Crispy Cake </a></span>
@@ -345,11 +437,14 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                     <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                        <div class="cake-item-img">
-                                            <img src="img/shop-products-img-12.jpg" alt="">
+                                        <div class="cake-item-images">
+                                            <div class="cake-item-img">
+                                                <a href=""><img src="img/shop-products-img-9.webp" alt=""></a>
+                                                <a href=""><img src="img/shop-products-img-10.webp" alt=""></a>
+                                            </div>
                                         </div>
                                         <div class="cake-content">
                                             <span><a href="">Deeper Cup Cake </a></span>
@@ -363,21 +458,24 @@
                                             </div>
                                             <div class="cake-item-btn"><button>Add To Cart</button></div>
                                         </div>
-                                         
+
                                     </div>
                                 </div>
                                 <!-- Pagination section start -->
                                 <div class="pagination">
                                     <ul class="d-flex justify-content-center">
-                                        <li class="pagintion-page pagination-page-arrow pagination-page-arrow-passive"><a href=""><i class="fal fa-chevron-left"></i></a></li>
+                                        <li class="pagintion-page pagination-page-arrow pagination-page-arrow-passive">
+                                            <a href=""><i class="fal fa-chevron-left"></i></a>
+                                        </li>
                                         <li class="pagintion-page pagintion-page-active"><a href="">1</a></li>
                                         <li class="pagintion-page"><a href="">2</a></li>
                                         <li class="pagintion-page"><a href="">3</a></li>
-                                        <li class="pagintion-page pagination-page-arrow"><a href=""><i class="fal fa-chevron-right"></i></a></li>
+                                        <li class="pagintion-page pagination-page-arrow"><a href=""><i
+                                                    class="fal fa-chevron-right"></i></a></li>
                                     </ul>
                                 </div>
                                 <!-- Pagination section end -->
-                                
+
                             </section>
                         </div>
 
@@ -568,19 +666,20 @@
                         </div>
                         <ul class="footer-cards">
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-1.png" alt=""></a>                                
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-1.png" alt=""></a>
                             </li>
                             <li class="footer-card">
                                 <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-2.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-3.png" alt=""></a>                               
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-3.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"> <img src="img/footer-card-4.png" alt=""></a>                              
+                                <a href="Home Sub Pages/shopping-cart.html"> <img src="img/footer-card-4.png"
+                                        alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-5.png" alt=""></a>                                
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-5.png" alt=""></a>
                             </li>
                         </ul>
                     </div>
@@ -589,6 +688,8 @@
         </div>
     </section>
 
+
+    <script src="js/shop.js"></script>
 </body>
 
 </html>

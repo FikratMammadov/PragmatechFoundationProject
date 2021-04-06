@@ -104,12 +104,21 @@ a{
     position: relative;
 }
 .cake-item{
-    margin: 20px 0;
+    margin: 20px 0px;
+    /* padding: 0px !important; */
+    overflow: hidden;
+}
+.cake-item-images{
+    overflow: hidden;
 }
 .cake-item-img{
     margin-bottom: -5px;
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    /* overflow: hidden; */
+    transition: .5s;
 }
+
 .sold-out{
     position: absolute;
     top: 50%;
@@ -128,9 +137,49 @@ a{
     font-size: 1.2em;
 }
 .cake-item-img img{
+    /* z-index: -1; */
     width: 100%;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+     
+}
+.cake-item-img:hover{
+    opacity: .6;
+}
+.cake-item-img:hover .cake-item-img-overlay{
+    z-index: 2;
+}
+.cake-item-img-2{
+    position: relative;
+}
+.cake-item-img-overlay{
+    position: absolute;
+    top: 50%;
+    left: 150%;
+    transform: translate(-50%,-50%);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: .5s;
+}
+.cake-item-img-overlay a{
+
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: .5s;
+}
+.cake-item-img-overlay a:hover{
+    background-color: #ff599a;
 }
 .cake-content{
     padding: 20px 0;
@@ -160,6 +209,81 @@ a{
     text-decoration-line: line-through;
 }
 
+
+/* add to cart overlay */
+.addToCart-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+
+}
+#addToCart .card-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border: 7px solid #000;
+    z-index: 2;
+    padding: 35px;
+}
+.card-content-message{
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+ 
+.card-content-product-image img{
+    width: 100%;
+    border: 3px solid #f7f7f7;
+}
+.card-content-product-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.5em;
+}
+.card-content-product-description-name{
+    font-size: 1.5em;
+    font-family: 'Lobster Two', cursive;
+}
+.card-pay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-pay-product-number{
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+.card-pay-product-price{
+    font-size: 2.5em;
+}
+.card-pay-product-buttons .cake-item-btn{
+    margin: 0 5px;
+}
+.card-pay-product-buttons .cake-item-btn button{
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+.card-item-close{
+    width: 20px;
+    height: 20px;
+    background-color: #F7F7F7;
+    color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 /* pagination common classes */
 .pagination{
     padding: 30px 0;
@@ -597,13 +721,20 @@ a{
 .natureTaste-body{
     padding: 50px 0;
     position: relative;    
+     
 }
 .natureTaste-body .slider{
     position: relative;
+    width: 50%;
+    overflow: hidden;
 }
-
+.natureTaste-body .slider .slider-contents{
+    display: flex;
+    transition: 2s;
+}
 .natureTaste-body .container-full{
     position: relative;
+    transition: 1s;
 }
 
  

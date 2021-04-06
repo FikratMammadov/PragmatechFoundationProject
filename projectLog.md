@@ -22,11 +22,11 @@
 - search button
 - cart button
 - Home
-    - home-slider section'da slider
+    - home-slider section'da slider  + 
     - Products image hover olduqda dəyişən şəkil
     - Products add to card button
     - natureTaste section'da image hover olduqda dəyişən şəkil
-    - natureTaste section'da slider
+    - natureTaste section'da slider  +
     - latestCollection section'da slider
     - blog section'da slider
     - asked section'da slider

@@ -33,8 +33,6 @@ homeSliderContents = [
         price: 70,
         btnColor: "rgb(226, 53, 68)",
         btnBgColor: "white"
-
-
     }
 
 ];
@@ -59,9 +57,6 @@ homeSliderBtnRight.addEventListener('click', function () {
     console.log(index);
 });
 
- 
-
-
 function setHomeSliderContent(){
     homeSliderHeader.textContent = homeSliderContents[index].header;
     homeSliderDescription.style.color = homeSliderContents[index].descriptionColor;
@@ -74,8 +69,47 @@ function setHomeSliderContent(){
     } else {
         homeSliderPosition.style.float = 'left'
     }
+    console.log(homeSliderPosition);
 }
-console.log(homeSliderPosition)
+
+// console.log(homeSliderBtn.style.className);
+
+// natureTaste section'da slider 
+let natureTasteSliderContainer = document.querySelector('#natureTaste .slider');
+let natureTasteSliderContainerWidth = natureTasteSliderContainer.clientWidth;
+let natureTasteContents = document.querySelectorAll('#natureTaste .slider .container-full');
+let natureTasteSliderContent = document.querySelector('#natureTaste .slider .slider-contents');
+let natureTasteLeftBtn = document.querySelector('#natureTaste .slider .btn-1');
+let natureTasteRightBtn = document.querySelector("#natureTaste .slider .btn-2");
+let pos=0;
+index=0;
+
+for(let i=0;i<natureTasteContents.length;i++){
+    natureTasteContents[i].style.width = natureTasteSliderContainerWidth+"px";
+    // console.log(natureTasteContents[i])
+}
+
+natureTasteLeftBtn.addEventListener("click",function(){   
+    if(index>0){
+        index--;
+        pos+=natureTasteSliderContainerWidth;
+        natureTasteSliderContent.style.transform = `translateX(${pos}px)`;
+        console.log(index)
+    }
+})
+natureTasteRightBtn.addEventListener('click',function(){
+    if (index < natureTasteContents.length - 1){
+        index++;
+        pos-=natureTasteSliderContainerWidth;
+        natureTasteSliderContent.style.transform = `translateX(${pos}px)`;
+        console.log(natureTasteContents[index-1]);
+        console.log(index)
+    }
+})
+
+
+
+ 
 
 
 
