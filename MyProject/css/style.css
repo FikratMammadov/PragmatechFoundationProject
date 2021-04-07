@@ -212,21 +212,22 @@ a{
 
 /* add to cart overlay */
 .addToCart-overlay{
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1;
-
+    z-index: 4;
+    position: fixed;
 }
 #addToCart .card-item{
+    width: 70%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: #fff;
     border: 7px solid #000;
-    z-index: 2;
     padding: 35px;
 }
 .card-content-message{
@@ -284,6 +285,20 @@ a{
     align-items: center;
     cursor: pointer;
 }
+@media(max-width:1200px){
+    #addToCart .card-item{
+        width: 80%;
+    }
+    .card-pay-product-buttons .cake-item-btn button{
+         font-size: 1.2em;
+    }
+}
+@media(max-width:768px){
+    .card-pay{
+        margin-top: 50px;
+    }
+}
+.card-pay
 /* pagination common classes */
 .pagination{
     padding: 30px 0;
@@ -1788,6 +1803,13 @@ footer{
      display: flex;
      align-items: center;
      cursor: pointer;
+}
+.choices-item-lists.sub-lists{
+    padding-left: 7%;
+    display: none;
+}
+.choices-item-lists.sub-lists li{
+    font-size: 1.3em;
 }
 .choices-item-lists li:last-child{
     border-bottom: none;

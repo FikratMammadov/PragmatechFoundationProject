@@ -26,7 +26,7 @@
 </head>
 
 <body onresize="checkStatus()">
-    <!-- <div id="addToCart" class="addToCart-overlay" style="display:block;">
+    <div id="addToCart" class="addToCart-overlay">
         <div class="container">
             <div class="card-item row">
                 <div class="card-content col-12 col-md-6">
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-    </div> -->
+    </div>
     <section id="header">
         <div id="header-info">
             <div class="container">
@@ -201,12 +201,6 @@
                                                 <a href="" class="cake-item-img-2">
                                                     <img src="img/shop-products-img-10.webp" alt="">
                                                 </a>
-                                                <!-- <div class="cake-item-img-overlay">
-                                                    <a href=""><i class="fal fa-link"></i></a>
-                                                    <a href=""><i class="fal fa-eye"></i></a>
-                                                    <a href=""><i class="fal fa-heart"></i></a>
-                                                </div> -->
-
                                             </div>
 
                                         </div>
@@ -221,7 +215,7 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn" onclick="addToCart(this)"><button>Add To
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
                                                     Cart</button></div>
                                         </div>
 
@@ -243,7 +237,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -264,7 +259,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -285,7 +281,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -306,7 +303,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -327,7 +325,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -348,7 +347,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -369,7 +369,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -414,7 +415,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -435,7 +437,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -456,7 +459,8 @@
                                                 <i class="fal fa-star"></i>
                                                 <i class="fal fa-star"></i>
                                             </div>
-                                            <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                            <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                    Cart</button></div>
                                         </div>
 
                                     </div>
@@ -490,16 +494,33 @@
                                 Category
                             </div>
                             <ul class="choices-item-lists category">
-                                <li> <a href="">Black Forest</a> <a href="" class="choices-item-lists-btn"><i
-                                            class="fal fa-plus"></i></a></li>
+                                <li>
+                                    <a href="">Black Forest</a> <a href="" class="choices-item-lists-btn"><i
+                                            class="fal fa-plus"></i></a>
+                                </li>
+                                <ul class="choices-item-lists sub-lists">
+                                    <li><a href="">Aprons</a></li>
+                                    <li><a href="">Choco Shrads Cakes</a></li>
+                                    <li><a href="">Cake Eggless</a></li>
+                                </ul>
                                 <li><a href="">White Forest</a> <a href="" class="choices-item-lists-btn"><i
                                             class="fal fa-plus"></i></a></li>
+                                <ul class="choices-item-lists sub-lists">
+                                    <li><a href="">Forest Beauty</a></li>
+                                    <li><a href="">Be Santa</a></li>
+                                    <li><a href="">Alluring Hamper</a></li>
+                                </ul>
                                 <li><a href="">Cup Cakes</a></li>
                                 <li><a href="">Stawberry Cakes</a></li>
                                 <li><a href="">Vanilla Cakes</a></li>
                                 <li><a href="">Onesie Fondant Cake</a></li>
                                 <li><a href="">Birthday Cake</a> <a href="" class="choices-item-lists-btn"><i
                                             class="fal fa-plus"></i></a></li>
+                                <ul class="choices-item-lists sub-lists">
+                                    <li><a href="">Pineapple Cake</a></li>
+                                    <li><a href="">Tempting Truffle Cake</a></li>
+                                    <li><a href="">Butterscotch Cake</a></li>
+                                </ul>
                             </ul>
                         </div>
                         <div class="choices-item">

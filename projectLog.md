@@ -23,7 +23,7 @@
 - cart button
 - Home
     - home-slider section'da slider  + 
-    - Products image hover olduqda dəyişən şəkil
+    - Products image hover olduqda dəyişən şəkil +
     - Products add to card button
     - natureTaste section'da image hover olduqda dəyişən şəkil
     - natureTaste section'da slider  +
