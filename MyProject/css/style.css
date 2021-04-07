@@ -1789,6 +1789,9 @@ footer{
     padding: 10px;
     border-radius: 20px;
 }
+.choices-item-header.accordion{
+    cursor: pointer;
+}
 .choices-item-header-btn{
     font-size: .8em;
     margin-right: 1%;

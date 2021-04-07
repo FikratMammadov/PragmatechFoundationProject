@@ -118,3 +118,20 @@ function choicesAccoridion(e){
 }
 
 
+/*choices section'da choices-item-header üçün accordion*/
+
+function choicesHeaderAccordion(e){
+    choicesHeaderNextElement = e.nextElementSibling;
+    choicesHeaderBtn = e.children[0].children[0];
+
+    if(choicesHeaderBtn.className=="fal fa-plus"){
+        choicesHeaderNextElement.style.display="none";
+        choicesHeaderBtn.className = "fal fa-minus";
+    }else{
+        choicesHeaderNextElement.style.display="block";
+        choicesHeaderBtn.className = "fal fa-plus";
+    }
+
+    console.log(choicesHeaderBtn)
+}
+
