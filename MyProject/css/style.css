@@ -1807,6 +1807,7 @@ footer{
 .choices-item-lists.sub-lists{
     padding-left: 7%;
     display: none;
+ 
 }
 .choices-item-lists.sub-lists li{
     font-size: 1.3em;

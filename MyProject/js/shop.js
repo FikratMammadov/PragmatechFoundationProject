@@ -51,6 +51,8 @@ let cardDeleteBtn = document.querySelector('.card-item-close')
 let totalPrice = 0;
 let totalNumber = 0;
 let number = 0;
+
+
 function addToCart(e,num) {
     number+=Number(num);
     addToCartContainer.style.display = "block";
@@ -97,3 +99,22 @@ addToCartContainer.addEventListener('click', function (e) {
         addToCartContainer.style.display = "block";
     }
 });
+
+
+
+/*choices section'da category'də accordion*/
+
+function choicesAccoridion(e){
+    choicesNextElement = e.parentElement.nextElementSibling;
+    choicesBtn = e.children[0];
+
+    if(choicesBtn.className=="fal fa-plus"){
+        choicesNextElement.style.display="block";
+        choicesBtn.className = "fal fa-minus";
+    }else{
+        choicesNextElement.style.display="none";
+        choicesBtn.className = "fal fa-plus";
+    }    
+}
+
+
