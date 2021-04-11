@@ -33,10 +33,10 @@
     - asked section'da accordion
     - features section'da slider
 - Shop
-    - choices section'da category'də accordion
+    - choices section'da category'də accordion +
     - choices section'da choices-item-header üçün accordion
     - choices section'da best sellers üçün slider
-    - products add to card button
+    - products add to card button +
     - products section'da grid view və list view butonları
     - products section'da sort by və show dropdowns
     - products section'da products slider
