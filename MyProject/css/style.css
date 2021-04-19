@@ -738,6 +738,9 @@ a{
     position: relative;    
      
 }
+.natureTaste-body.row{
+    margin-right: 0px;
+}
 .natureTaste-body .slider{
     position: relative;
     width: 50%;
@@ -745,11 +748,10 @@ a{
 }
 .natureTaste-body .slider .slider-contents{
     display: flex;
-    transition: 2s;
+    transition: 1s;
 }
 .natureTaste-body .container-full{
     position: relative;
-    transition: 1s;
 }
 
  
@@ -929,10 +931,13 @@ a{
     background: url("../img/menu-bg-img.webp") no-repeat;
     background-size: cover;
 }
+#menu .menu-items.row{
+    margin: 0;
+}
 .menu-item{
     margin: 30px 20px 30px 20px;
 }
-#menu .menu-item .row img{
+#menu .menu-item img{
     width: 100%;
 }
 #menu .item-header-title,#menu .item-header-content{

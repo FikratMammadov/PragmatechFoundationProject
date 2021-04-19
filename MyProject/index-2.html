@@ -20,16 +20,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Sweet House</title>
+    <title>Home</title>
 </head>
 
-<body onresize="checkSize()">
+<body>
     <section id="header">
         <div id="header-info">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center justify-content-md-between">
                     <div class="header-info-contact">
                         <ul>
                             <li><i class="fas fa-phone-alt"></i> (00) 000 111 222 </li>
@@ -52,10 +52,9 @@
                 <a href="index.html">
                     <img src="img/logo.png" alt="">
                 </a>
-
             </div>
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center justify-content-md-between">
                     <div class="header-menubar-account">
                         <ul>
                             <li>
@@ -90,17 +89,16 @@
         <section id="header-navbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <ul>
-                            <li class="navbar-active"><a href="index.html">Home</a></li>
-                            <li><a href="collection.html">Collection <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="shop.html">Shop <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="cookies.html">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="wedding.html">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="cupcakes.html">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="pages.html">Pages <i class="fal fa-chevron-down"></i></a></li>
-                        </ul>
-                    </div>
+                    <ul class="justify-content-center">
+                        <li class="navbar-active"><a href="index.html">Home</a></li>
+                        <li><a href="collection.html">Collection <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="shop.html">Shop <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="cookies.html">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="wedding.html">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="cupcakes.html">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="pages.html">Pages <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -109,10 +107,6 @@
     </section>
 
     <section id="home-slider">
-        <!-- <div class="home-slider-buttons">
-            <button><i class="far fa-chevron-left"></i></button>
-            <button><i class="far fa-chevron-right"></i></button>
-        </div> -->
         <div class="home-slider-item">
             <div class="home-slider-buttons">
                 <button><i class="far fa-chevron-left"></i></button>
@@ -278,85 +272,84 @@
                     <div class="col-6">
 
                     </div>
-                    <div class="slider row">
-                        <div class="slider-buttons">
-                            <div class="btn btn-1">
-                                <button><i class="fal fa-arrow-left"></i></button>
+                    <div class="slider col-6">
+                        <div class="row">
+                            <div class="slider-buttons">
+                                <div class="btn btn-1">
+                                    <button><i class="fal fa-arrow-left"></i></button>
+                                </div>
+                                <div class="btn btn-2" style="margin-right: 1%;">
+                                    <button><i class="fal fa-arrow-right"></i></button>
+                                </div>
                             </div>
-                            <div class="btn btn-2" style="margin-right: 1%;">
-                                <button><i class="fal fa-arrow-right"></i></button>
+
+                            <div class="slider-contents">
+                                <div class="container-full row">
+                                    <div class="cake-img col-6">
+                                        <img src="img/natureTaste-cake-img.jpg" alt="">
+                                    </div>
+                                    <div class="cake-content col-6">
+                                        <h1>Gurmet Cake</h1>
+                                        <p>$395.00</p>
+                                        <div class="icons">
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-full row">
+                                    <div class="cake-img col-6">
+                                        <img src="img/natureTaste-cake-img-2.jpg" alt="">
+                                    </div>
+                                    <div class="cake-content col-6">
+                                        <h1>Linda Cake</h1>
+                                        <p>$598.00</p>
+                                        <div class="icons">
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-full row">
+                                    <div class="cake-img col-6">
+                                        <img src="img/natureTaste-cake-img-3.jpg" alt="">
+                                    </div>
+                                    <div class="cake-content col-6">
+                                        <h1>Gurmet Cake</h1>
+                                        <p>$395.00</p>
+                                        <div class="icons">
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-full row">
+                                    <div class="cake-img col-6">
+                                        <img src="img/natureTaste-cake-img-4.jpg" alt="">
+                                    </div>
+                                    <div class="cake-content col-6">
+                                        <h1>Gurmet Cake</h1>
+                                        <p>$395.00</p>
+                                        <div class="icons">
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                            <i class="fal fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="slider-contents">
-                            <div class="container-full row">
-                                <div class="cake-img col-6">
-                                    <img src="img/natureTaste-cake-img.jpg" alt="">
-                                    <!-- <img src="img/bestProducts-cake-item-3.jpg" alt=""> -->
-                                </div>
-                                <div class="cake-content col-6">
-                                    <h1>Gurmet Cake</h1>
-                                    <p>$395.00</p>
-                                    <div class="icons">
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container-full row">
-                                <div class="cake-img col-6">
-                                    <img src="img/natureTaste-cake-img-2.jpg" alt="">
-                                </div>
-                                <div class="cake-content col-6">
-                                    <h1>Linda Cake</h1>
-                                    <p>$598.00</p>
-                                    <div class="icons">
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container-full row">
-                                <div class="cake-img col-6">
-                                    <img src="img/natureTaste-cake-img-3.jpg" alt="">
-                                </div>
-                                <div class="cake-content col-6">
-                                    <h1>Gurmet Cake</h1>
-                                    <p>$395.00</p>
-                                    <div class="icons">
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container-full row">
-                                <div class="cake-img col-6">
-                                    <img src="img/natureTaste-cake-img-4.jpg" alt="">
-                                </div>
-                                <div class="cake-content col-6">
-                                    <h1>Gurmet Cake</h1>
-                                    <p>$395.00</p>
-                                    <div class="icons">
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                 </div>
             </div>
@@ -540,15 +533,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row menu-items">
-                <div class="menu-item-col">
+            <div class="menu-items row">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-3">
                                     <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
@@ -576,20 +569,20 @@
 
                     </div>
                 </div>
-                <div class=" menu-item-col">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="img/menu-img-2.png" alt="">
+                                <div class="col-3">
+                                    <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
                                                 <div class="col-10">
                                                     <div class="menu-item-description">
-                                                        <h2>Jelly Soft Cake</h2>
+                                                        <h2>Creamy Chocolate Cake</h2>
                                                         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis
                                                             ante.
                                                             Maecenas nec</p>
@@ -597,7 +590,7 @@
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="menu-item-price">
-                                                        $14.00
+                                                        $19.00
                                                     </div>
                                                 </div>
                                             </div>
@@ -611,22 +604,20 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="row menu-items">
-                <div class=" menu-item-col">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="img/menu-img-3.png" alt="">
+                                <div class="col-3">
+                                    <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
                                                 <div class="col-10">
                                                     <div class="menu-item-description">
-                                                        <h2>Creamy White Forest</h2>
+                                                        <h2>Creamy Chocolate Cake</h2>
                                                         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis
                                                             ante.
                                                             Maecenas nec</p>
@@ -634,7 +625,7 @@
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="menu-item-price">
-                                                        $12.00
+                                                        $19.00
                                                     </div>
                                                 </div>
                                             </div>
@@ -648,20 +639,20 @@
 
                     </div>
                 </div>
-                <div class=" menu-item-col">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="img/menu-img-4.png" alt="">
+                                <div class="col-3">
+                                    <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
                                                 <div class="col-10">
                                                     <div class="menu-item-description">
-                                                        <h2>Grand Celebration Cake</h2>
+                                                        <h2>Creamy Chocolate Cake</h2>
                                                         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis
                                                             ante.
                                                             Maecenas nec</p>
@@ -669,7 +660,7 @@
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="menu-item-price">
-                                                        $18.00
+                                                        $19.00
                                                     </div>
                                                 </div>
                                             </div>
@@ -683,22 +674,20 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="row menu-items">
-                <div class="menu-item-col">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="img/menu-img-5.png" alt="">
+                                <div class="col-3">
+                                    <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
                                                 <div class="col-10">
                                                     <div class="menu-item-description">
-                                                        <h2>Fruit Cherry Cake</h2>
+                                                        <h2>Creamy Chocolate Cake</h2>
                                                         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis
                                                             ante.
                                                             Maecenas nec</p>
@@ -706,7 +695,7 @@
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="menu-item-price">
-                                                        $18.00
+                                                        $19.00
                                                     </div>
                                                 </div>
                                             </div>
@@ -720,20 +709,20 @@
 
                     </div>
                 </div>
-                <div class=" menu-item-col">
+                <div class="col-md-6">
                     <div class="container-full">
                         <div class="menu-item">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="img/menu-img-6.png" alt="">
+                                <div class="col-3">
+                                    <img src="img/menu-img-1.png" alt="">
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <div class="container-full">
                                         <div class="menu-item-content">
                                             <div class="row">
                                                 <div class="col-10">
                                                     <div class="menu-item-description">
-                                                        <h2>Tasty Black Forest</h2>
+                                                        <h2>Creamy Chocolate Cake</h2>
                                                         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis
                                                             ante.
                                                             Maecenas nec</p>
@@ -756,6 +745,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -776,15 +766,11 @@
                     </div>
                 </div>
             </div>
-            <div class="blog-items">
-                <div class="btn btn-1">
-                    <button><i class="fal fa-arrow-left"></i></button>
-                </div>
-                <div class="btn btn-2">
-                    <button><i class="fal fa-arrow-right"></i></button>
-                </div>
+        </div>
+        <div class="blog-items">
+            <div class="container">
                 <div class="row">
-                    <div class="blog-item">
+                    <div class="blog-item col">
                         <div class="blog-item-image">
                             <a href="Home Sub Pages/chocolate-cake.html"><img src="img/blog-img-1.jpg" alt=""></a>
                         </div>
@@ -808,7 +794,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-item blog-item-res-2">
+                    <div class="blog-item col blog-item-res-2">
                         <div class="blog-item-image">
                             <a href="Home Sub Pages/fruit-cake.html"><img src="img/blog-img-2.jpg" alt=""></a>
 
@@ -833,7 +819,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-item blog-item-res-1">
+                    <div class="blog-item col blog-item-res-1">
                         <div class="blog-item-image">
                             <a href="Home Sub Pages/cup-cake.html"><img src="img/blog-img-3.jpg" alt=""></a>
                         </div>
@@ -859,8 +845,16 @@
                     </div>
                 </div>
             </div>
+            <div class="btn btn-1">
+                <button><i class="fal fa-arrow-left"></i></button>
+            </div>
+            <div class="btn btn-2">
+                <button><i class="fal fa-arrow-right"></i></button>
+            </div>
 
         </div>
+
+
     </section>
 
     <section id="asked">

@@ -75,7 +75,7 @@ function setHomeSliderContent(){
 // console.log(homeSliderBtn.style.className);
 
 // natureTaste section'da slider 
-let natureTasteSliderContainer = document.querySelector('#natureTaste .slider');
+let natureTasteSliderContainer = document.querySelector('#natureTaste .slider ');
 let natureTasteSliderContainerWidth = natureTasteSliderContainer.clientWidth;
 let natureTasteContents = document.querySelectorAll('#natureTaste .slider .container-full');
 let natureTasteSliderContent = document.querySelector('#natureTaste .slider .slider-contents');
@@ -86,7 +86,18 @@ index=0;
 
 for(let i=0;i<natureTasteContents.length;i++){
     natureTasteContents[i].style.width = natureTasteSliderContainerWidth+"px";
-    // console.log(natureTasteContents[i])
+}
+
+natureTasteSliderContent.style.width = natureTasteSliderContainerWidth * natureTasteContents.length + 'px';
+ 
+function checkSize(){
+    natureTasteSliderContainerWidth = natureTasteSliderContainer.clientWidth;
+    for(let i=0;i<natureTasteContents.length;i++){
+        natureTasteContents[i].style.width = natureTasteSliderContainerWidth+"px";
+    }
+    natureTasteSliderContent.style.width = natureTasteSliderContainerWidth * natureTasteContents.length + 'px';
+    console.log(natureTasteSliderContainerWidth )
+    console.log(natureTasteSliderContent.style.width )
 }
 
 natureTasteLeftBtn.addEventListener("click",function(){   
@@ -106,8 +117,6 @@ natureTasteRightBtn.addEventListener('click',function(){
         console.log(index)
     }
 })
-
-
 
  
 

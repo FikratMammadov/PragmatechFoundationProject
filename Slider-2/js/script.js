@@ -11,7 +11,7 @@ for (i = 0; i < slides.length; i++) {
     slides[i].style.width = containerWidth + 'px';
 }
 cursorDisable();
-// sliderContent.style.width = containerWidth * slides.length + 'px';
+sliderContent.style.width = containerWidth * slides.length + 'px';
 
 leftBtn.addEventListener('click', function () {
     if (index > 0) {
