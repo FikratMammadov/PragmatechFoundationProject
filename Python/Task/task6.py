@@ -1,7 +1,7 @@
 # Verilən cümlənin icərisində olan saitlərin sayını tapan proqram yazın
 
 saitler = ["a","ı","o","u","e","ə","i","ö","ü"]
-cumle="Salam Mehdi necesen"
+cumle="Salam gozel oglan."
 cumle2=cumle.lower()
 say=0
 for i in cumle2:

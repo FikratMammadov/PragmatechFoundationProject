@@ -8,4 +8,4 @@ while i<len(sentenceList):
     if(sentenceList[i]==" "or sentenceList[i]=="?"):
         sentenceList.remove(sentenceList[i])
     i+=1
-print(len(sentenceList)) 
+print(len(sentenceList))
