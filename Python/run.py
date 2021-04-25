@@ -46,34 +46,41 @@
 #     sum+=qaliq 
 # print(sum)
 
-# lst=[]
-# n=int(input())
-# for i in range(n):
-#     cmd=input().split()
-#     if cmd[0]=='insert':
-#         lst.insert(int(cmd[1]),int(cmd[2]))
-#     elif cmd[0]=='print':
-#         print(lst)
-#     elif cmd[0]=='remove':
-#         lst.remove(int(cmd[1]))
-#     elif cmd[0]=='append':
-#         lst.append(int(cmd[1]))
-#     elif cmd[0]=='sort':
-#         lst.sort()
-#     elif cmd[0]=='pop':
-#         lst.pop()
-#     else:
-#         lst.reverse()
+lst=[]
+n=int(input())
+for i in range(n):
+    cmd=input().split()
+    if cmd[0]=='insert':
+        lst.insert(int(cmd[1]),int(cmd[2]))
+    elif cmd[0]=='print':
+        print(lst)
+    elif cmd[0]=='remove':
+        lst.remove(int(cmd[1]))
+    elif cmd[0]=='append':
+        lst.append(int(cmd[1]))
+    elif cmd[0]=='sort':
+        lst.sort()
+    elif cmd[0]=='pop':
+        lst.pop()
+    else:
+        lst.reverse()
 
 # x='Hello world'
 # y=200
 # # print(f"a{x.center(20,'-')}a")
 # print(type(isinstance(y,int)))
 
-a = "this is a string"
+# a = "this is a string"
 
-def split_and_join(chr):
-    myList = a.split()
-    print(chr.join(myList)) 
+# def split_and_join(chr):
+#     myList = a.split()
+#     print(chr.join(myList)) 
     
-split_and_join('-')
+# split_and_join('-')
+
+# a=3
+# b=5
+
+# print(a+b)
+# print(a-b)
+# print(a*b)
