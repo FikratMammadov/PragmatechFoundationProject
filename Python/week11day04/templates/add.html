@@ -1,0 +1,10 @@
+{% extends 'layout.html' %} {% block content %}
+<h3 class="my-3">Add User</h3>
+
+<form action="/add" method='POST'>
+    <input type="text" class="form-control my-2" name='f_name' placeholder="Your Name">
+    <input type="text" class="form-control my-2" name='l_name' placeholder="Your Surname">
+    <input type="submit" class="btn btn-primary my-2" value='Add'>
+</form>
+{% endblock %}
+

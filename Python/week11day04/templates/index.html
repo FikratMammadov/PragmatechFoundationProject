@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h3 class="my-3">All Users</h3>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+         {% for user in users %}
+         <tr>
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.f_name}}</td>
+            <td>{{user.l_name}}</td>
+            <td>
+                <a href="/delete/{{user.id}}" class="btn btn-primary"><i class="bi bi-trash-fill"></i></a>
+                <a href="/update/{{user.id}}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+            </td>
+        </tr>
+         {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
