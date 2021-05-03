@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} {% block content %}
+<h3 class="my-3">Add User</h3>
+
+<form action="/add" method='POST' enctype="multipart/form-data">
+    <input type="text" class="form-control my-2" name='p_title' placeholder="Xeber basligi">
+    <textarea name="p_content" class="form-control my-2" cols="30" rows="10"></textarea>
+    <input type="file" name="p_img" class="form-control my-2">
+    <input type="date" name="p_date" class="form-control my-2">
+    <input type="submit" class="btn btn-primary my-2" value='Add'>
+</form>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends 'layout.html' %} {% block content %}
+<h3 class="my-3">Update User</h3>
+
+<form action="/update/{{user.id}}" method='POST'>
+    <input type="text" class="form-control my-2" name='f_name' placeholder="Your Name" value = {{user.f_name}}>
+    <input type="text" class="form-control my-2" name='l_name' placeholder="Your Surname" value="{{user.l_name}}">
+    <input type="submit" class="btn btn-primary my-2" value='Update'>
+</form>
+{% endblock %}
+
