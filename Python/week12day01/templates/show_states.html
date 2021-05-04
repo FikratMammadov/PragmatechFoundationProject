@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <h3>Index</h3>
+     <form action="/" method="POST">
+        <select name="country_name" method='POST' class="form-control my-2">
+            {% for state in states %}
+                <option value="{{state.id}}">{{state.state_name}}</option>
+            {% endfor %}
+       </select>
+       <input type="submit" class="btn btn-primary" value="Show States">
+       
+    </form>
+{% endblock content %}

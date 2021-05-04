@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="my-2">Add State</h3>
+     
+    <form action="/state/add" method="POST">
+        <select name="country_name" method='POST' class="form-control my-2">
+            {% for country in countries %}
+                <option value="{{country.id}}">{{country.country_name}}</option>
+            {% endfor %}
+       </select>
+        <input class="form-control" type="text" name="state_name" placeholder="State Name">
+        <input type="submit" class="btn btn-primary my-2" value="Add State">
+    </form>
+{% endblock content %}
