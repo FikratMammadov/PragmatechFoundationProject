@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/*-------------------- Directions --------------------*/
+$rtl: 0;
+$dir: ltr !default;
+
+@import 'config/directional';
+
+/*-------------------- Main CSS File --------------------*/
+@import 'mixins/clearfix';
+@import 'mixins/breakpoints';
+@import 'mixins/lazy';
+@import 'mixins/buttons';
+
+@import 'config/variables';
+
+@import 'libs/grid';
+@import 'libs/bootstrap';
+
+/*-------------------- General Styles --------------------*/
+@import 'base/base';
+@import 'base/type';
+@import 'base/layout';
+
+/*-------------------- Elements Styles --------------------*/
+@import 'elements/buttons';
+@import 'elements/icon-boxes';
+@import 'elements/social-icons';
+@import 'elements/tabs';
+@import 'elements/testimonials';
+
+/*-------------------- Base Styles --------------------*/
+@import 'base/headers/header';
+@import 'base/headers/menu';
+@import 'base/headers/mobile-menu';
+@import 'base/headers/sticky-header';
+@import 'base/footers/footer';
+
+/*-------------------- Spacing + Helpers --------------------*/
+@import 'config/helpers';
+@import 'config/spacing';
+
+/*-------------------- Page Styles --------------------*/
+@import 'pages/landing';

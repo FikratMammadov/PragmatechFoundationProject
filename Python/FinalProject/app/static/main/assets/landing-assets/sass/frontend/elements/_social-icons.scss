@@ -1,0 +1,123 @@
+/* Social Icons */
+.social-icons,
+.yith-wcwl-share {
+	display: flex;
+	align-items: center;
+	flex-flow: row wrap;
+}
+
+@include mq('lg') {
+	.sticky-sidebar > .social-icons {
+		flex-flow: column wrap;
+	}
+}
+
+
+.social-icons:not(.circle-type):not(.yith-wcwl-share) {
+	 > a {
+		width: auto;
+		height: auto;
+	}
+}
+
+.circle-type .social-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.6rem;
+	width: 4rem;
+	height: 4rem;
+	color: #999999;
+	margin: 0;
+	background-color: transparent;
+	border: 1px solid #e1e2e6;
+	border-radius: 50%;
+	text-decoration: none;
+	opacity: 1;
+	transition: .35s;
+
+	&:not(:last-child) {
+		margin-#{$right}: 1rem;
+	}
+
+	&.social-email {
+		font-size: 1.8rem;
+	}
+
+	&:hover,
+	&:focus {
+		color: #fff;
+	}
+}
+
+.social-icon,
+.yith-wcwl-share li a {
+	width: auto;
+	height: auto;
+	border: none;
+	color: #999;
+
+	&:not(:last-child) {
+		margin-#{$right}: 2rem;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-label {
+	margin-bottom: 0;
+	margin-#{$right}: 2rem;
+	line-height: 21px;
+}
+
+.sticky-content .social-label {
+	line-height: 1;
+	margin-bottom: 1rem;
+}
+
+.social-icons-sm {
+	.social-icon {
+		font-size: 1.2rem;
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+@each $icons, $color in (social-facebook, $social-facebook),
+						(social-twitter, $social-twitter),
+						(social-instagram, $social-instagram),
+						(social-youtube, $social-youtube),
+						(social-pinterest, $social-pinterest),
+						(social-linkedin, $social-linkedin),
+						(social-tumblr, $social-tumblr),
+						(social-email, $social-email),
+						(social-googleplus, $social-googleplus),
+						(social-vk, $social-vk),
+						(social-whatsapp, $social-whatsapp) {
+	.social-icons-colored .#{$icons} {
+		color: $color;
+	}
+	.social-icons-colored.circle-type .social-icon.#{$icons} {
+		color: #fff;
+		border-color: $color;
+		background-color: $color;
+
+		&:hover,
+		&:focus {
+			background-color: #fff !important;
+			border-color: #d7d7d7 !important;
+
+			&.#{$icons} {
+				color: $color;
+			}
+		}
+	}
+}
+
+@include mq('lg', 'max') {
+	.social-icons-vertical {
+		margin-bottom: 2rem;
+		justify-content: flex-start;
+	}
+}

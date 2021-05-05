@@ -1,0 +1,17 @@
+.owl-nav-round {
+	.owl-nav {
+		[class*='owl-'] {
+			top: 42%;
+			width: 6rem;
+		    height: 6rem;
+		    background: #fff;
+		    opacity: 1;
+		    border: 1px solid #ebebeb;
+		    font-size: 2.4rem;
+
+		    &:not(.disabled):hover {
+		    	background: #fff;
+		    }
+		}
+	}
+}

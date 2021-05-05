@@ -1,0 +1,24 @@
+/* Tabs Elements */
+
+.nav-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $dark-text;
+
+    .nav-item + .nav-item {
+        margin-left: 3rem;
+    }
+
+    a {
+        display: block;
+        color: inherit;
+    }
+
+    .nav-item.active a,
+    a:hover {
+        color: $primary-color;
+    }
+}

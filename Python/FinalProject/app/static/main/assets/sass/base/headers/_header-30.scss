@@ -1,0 +1,105 @@
+/* Header 30 */
+
+.header {
+	position: relative;
+	z-index: 1040;
+}
+
+
+.header-top {
+	background-color: #222;
+	color: $light-text;
+	margin-bottom: 0;
+	font-weight: 400;
+
+	.container:after {
+		display: none;
+	}
+}
+
+.header-dropdown {
+	padding-top: .9rem;
+	padding-bottom: .8rem;
+}
+
+.header-middle {
+	position: absolute;
+	left: 0;
+	right: 0;
+	background: transparent;
+	border: none;
+
+	&.fixed {
+		background-color: #222;
+	}
+	
+	.header-left,
+	.header-right {
+		flex: 1 1 0;
+	}
+
+	.header-center {
+		flex: 0 1 auto;
+	}
+
+	.header-right {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.menu > li:not(:hover):not(.active):not(.show) > a {
+		color: white;
+	}
+
+	.logo {
+		margin-top: 3.45rem;
+	}
+
+	.menu > li {
+		& + li {
+			margin-left: 1rem;
+		}
+
+		& > a {
+			padding-top: 3.2rem;
+			padding-right: 3rem !important;
+			padding-bottom: 3.2rem;
+			padding-left: 1rem;
+		}
+	}
+
+	.menu.sf-arrows .sf-with-ul::after {
+		right: 1rem;
+	}
+}
+
+
+.search-toggle, 
+.mobile-menu-toggler {
+	color: white;
+}
+
+.mobile-menu-toggler {
+	margin-left: 0;
+}
+
+.cart-dropdown{
+	.dropdown-toggle {
+		font-size: 3rem;
+		color: white;
+	}
+
+	.cart-count {
+		min-width: 1.7rem;
+		height: 1.7rem;
+		margin-bottom: 1.5rem;
+		margin-left: -1.2rem;
+	}
+
+	.cart-txt {
+		font-size: 1.3rem;
+		font-weight: 600;
+		letter-spacing: 0;
+		margin-left: 1rem;
+	}
+}

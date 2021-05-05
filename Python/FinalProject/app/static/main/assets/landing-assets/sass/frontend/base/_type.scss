@@ -1,0 +1,98 @@
+/* Type */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  -webkit-appearance: none;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-primary {
+  color: $primary-color !important;
+}
+.text-secondary {
+  color: $secondary-color !important;
+}
+.text-dark {
+  color: #333 !important;
+}
+.text-light {
+  color: #ccc !important;
+}
+.text-white {
+  color: #fff !important;
+}
+.text-body {
+  color: $body-text !important;
+}
+
+.lead {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.875;
+  margin-bottom: 1.2rem;
+}
+
+blockquote {
+  position: relative;
+  margin: 0 0 2rem;
+}
+
+ins {
+  text-decoration: none;
+}
+
+em {
+  font-size: 85%;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+h1, .h1 {
+  font-size: 5rem;
+}
+
+h2, .h2 {
+  font-size: 4rem;
+}
+
+h3, .h3 {
+  font-size: 3rem;
+}
+
+h4, .h4 {
+  font-size: 2.4rem;
+}

@@ -1,0 +1,42 @@
+/* Footer Dark */
+.footer-dark {
+	background-color: #333333;
+
+	.footer-middle {
+		border-top-width: 0;
+	}
+
+	.widget-title {
+		color: #fff;
+	}
+
+	.social-icon {
+		&:hover,
+		&:focus {
+			color: #fff;
+		}
+	}
+
+	.footer-bottom {
+		color: #666666;
+		
+		.container:before {
+			background-color: #525455;
+		}
+	}
+
+	&.footer-2 {
+		.widget-about-info {
+			 a:not(:hover) {
+			 	color: #fff;
+			}
+		}
+		.widget-about-title {
+			color: $primary-color;
+		}
+
+		.footer-bottom {
+			color: #999999;
+		}
+	}
+}

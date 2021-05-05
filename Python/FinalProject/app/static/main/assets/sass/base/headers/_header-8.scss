@@ -1,0 +1,139 @@
+/* Header 8 */
+.header-8 {
+	.header-top {
+		font-weight: 400;
+		font-size: 1.4rem;
+		color: lighten($primary-color, 31%);
+		background-color: $primary-color;
+		margin-bottom: 0;
+
+		.container:after,
+		.container-fluid:after {
+			display: none;
+		}
+
+		.header-dropdown > a:hover,
+		.header-dropdown > a:focus,
+		.top-menu > li > a:hover,
+		.top-menu > li > a:focus {
+			color: #fff;
+		}
+	}
+
+	.header-menu {
+		margin-top: 0;
+
+		ul a:not(:focus):not(:hover) {
+			color: #666;
+		}
+	}
+
+	.header-dropdown {
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+
+		& + .header-dropdown {
+			margin-left: 2rem;
+		}
+	}
+
+	.top-menu,
+	.header-dropdown > a, 
+	.header-dropdown > span {
+		text-transform: capitalize;
+	}
+	
+	.header-dropdown > a, 
+	.header-dropdown > span {
+		padding-right: 2rem;
+	}
+
+	.header-dropdown > a::after, 
+	.header-dropdown > span::after {
+		font-size: 1rem;
+		margin-top: -.5rem;
+	}
+
+	.top-menu li + li {
+		margin-left: 2.1rem;
+	}
+
+	.header-middle {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+
+	.main-nav {
+		margin-left: 0;
+		margin-right: 3rem;
+	}
+
+	.menu > li > a {
+	    padding-top: 3.45rem;
+	    padding-bottom: 3.45rem;
+	}
+
+	.header-search {
+		.form-control {
+			background-color: #f4f4f4;
+
+			&::placeholder {
+				font-style: italic;
+			}
+		}
+
+		.header-search-wrapper {
+			border-color: #f4f4f4;
+		}
+	}
+
+	.cart-dropdown .dropdown-menu, 
+	.compare-dropdown .dropdown-menu,
+	.menu ul, .menu .megamenu {
+		margin-top: 0;
+	}
+}
+
+@include mq('lg') {
+	.header-8 {
+		.header-top {
+			.top-menu a:hover,
+			.top-menu a:focus {
+				color: #fff;
+			}
+		}
+	}
+}
+
+@include mq('lg', 'max') {
+	.header-8 {
+		.top-menu ul a:not(:hover):not(:focus) {
+			color: #666;
+		}
+
+		.top-menu:not(.top-link-menu) ul {
+			margin-top: 0;
+		}
+
+		.top-menu:not(.top-link-menu) > li {
+			padding-right: 2rem;
+		}
+		
+		.top-menu:not(.top-link-menu) > li::after {
+			font-size: 1rem;
+			margin-top: -.5rem;
+		}
+	}
+}
+
+@include mq('xl') {
+	.header-8 {
+		.header-search .header-search-wrapper {
+			display: flex;
+		}
+
+		.main-nav {
+			margin-right: 26rem;
+		}
+	}
+}

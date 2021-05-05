@@ -1,0 +1,140 @@
+/* Grid */
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto,
+.col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto, .col-xxl, .col-xxl-1, .col-xxl-10, .col-xxl-11, .col-xxl-12, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-auto, .col-5col, .col-7col, .col-8col {
+	position: relative;
+	width: 100%;
+	padding-right: $gap;
+	padding-left: $gap;
+}
+
+@for $i from 1 through 12 {
+	.col-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+}
+@for $i from 1 through 12 {
+	@include mq('sm') {
+		.col-sm-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+	}
+}
+@for $i from 1 through 12 {
+	@include mq('md') {
+		.col-md-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+	}
+}
+@for $i from 1 through 12 {
+	@include mq('lg') {
+		.col-lg-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+	}
+}
+@for $i from 1 through 12 {
+	@include mq('xl') {
+		.col-xl-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+	}
+}
+@for $i from 1 through 12 {
+	@include mq('xxl') {
+		.col-xxl-#{$i} { max-width: #{round(100% / 12 * $i * 10000) / 10000}; flex: 0 0 #{round(100% / 12 * $i * 10000) / 10000}; }
+	}
+}
+
+[class*=' c-'] > * {
+	width: 100%;
+	padding-left: $gap;
+	padding-right: $gap;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+@media (min-width: 320px) {
+	@for $i from 1 through 8 {
+		.c-xs-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+	.col-xs {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-xs-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 576px) {
+	@for $i from 1 through 8 {
+		.c-sm-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+	.col-sm {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-sm-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	@for $i from 1 through 8 {
+		.c-md-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+	.col-md {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-md-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 992px) {
+	@for $i from 1 through 8 {
+		.c-lg-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+	.col-lg {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.col-lg-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	@for $i from 1 through 8 {
+		.c-xl-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+}
+
+@media (min-width: 1600px) {
+	@for $i from 1 through 8 {
+		.c-xxl-#{$i} > * {
+			flex-basis: #{round(100/$i*10000)/10000}% !important;
+			max-width: #{round(100/$i*10000)/10000}% !important;
+		}
+	}
+}

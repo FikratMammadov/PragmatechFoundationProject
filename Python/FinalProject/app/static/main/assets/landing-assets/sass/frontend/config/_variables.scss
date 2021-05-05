@@ -1,0 +1,55 @@
+// Variables
+$font-size: 1.4rem !default;
+$sidebar-font-size: 1.4rem !default;
+$footer-font-size: 1.3rem !default;
+$input-font-size: 1.4rem !default;
+$button-font-size: 1.4rem !default;
+
+$primary-color: #cc9966 !default;
+$primary-color-dark: #006699 !default;
+$secondary-color: #a6c76c !default;
+$secondary-color-dark: #2f3946 !default;
+$link-color: $primary-color !default;
+$gap: 20px;
+
+$border-radius: 0 !default;
+
+$body-text: #666666 !default;
+$light-text: #999999 !default;
+$dark-text: #333333 !default;
+$headings-text: $dark-text !default;
+
+$font-family: 'Poppins', sans-serif !default;
+$second-font-family: 'Poppins', sans-serif !default;
+
+$social-facebook: #8f79ed;
+$social-twitter: #79c8ed;
+$social-instagram: #dd6d9a;
+$social-youtube: #e66262;
+$social-pinterest: #e66262;
+$social-linkedin: #3399cc;
+$social-pinterest: #e66262;
+$social-tumblr: #2478ba;
+$social-email: #111;
+$social-googleplus: #3a589d;
+$social-vk: #cb2320;
+$social-whatsapp: #0072b7;
+
+$breakpoints: (
+	xs: 480px,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1600px,
+	xlst: 1920px
+);
+
+$max-breakpoints: (
+	xs: 479px,
+	sm: 575px,
+	md: 767px,
+	lg: 991px,
+	xl: 1199px,
+	xxl: 1599px
+);

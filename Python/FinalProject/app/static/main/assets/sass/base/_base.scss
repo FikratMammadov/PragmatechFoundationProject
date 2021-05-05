@@ -1,0 +1,139 @@
+// Base
+html {
+	font-size: 62.5%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size-adjust: 100%;
+}
+
+body {
+  font: normal 300 #{$font-size}/1.86 $font-family;
+  color: $body-text;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: $primary-color;
+}
+
+::selection {
+  color: #fff;
+  background-color: $primary-color;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ebebeb;
+  margin: 3rem auto 2.5rem;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 70%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.bg-light {
+  background-color: #f8f8f8 !important;
+}
+
+.bg-light-2 {
+  background-color: #f9f9f9 !important;
+}
+
+.bg-lighter {
+  background-color: #fafafa !important;
+}
+
+.bg-gray {
+  background-color: #f4f5f8 !important;
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
+}
+
+.bg-image {
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.bg-overlay {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: .3;
+    background-color: #333;
+  }
+
+  .container,
+  .container-fluid {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Animation for lazyload */
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

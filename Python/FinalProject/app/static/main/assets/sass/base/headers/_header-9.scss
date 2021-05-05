@@ -1,0 +1,79 @@
+/* Header 9 */
+.header-9 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index:1040;
+	background-color: transparent;
+
+	.header-middle {
+		border-bottom: none;
+	}
+
+	.cart-dropdown,
+	.compare-dropdown {
+		padding-left: 2.3rem;
+
+		&:not(:hover):not(.show) {
+			.dropdown-toggle {
+				color: #fff;
+			}
+		}
+
+		.dropdown-menu {
+			margin-top: 0;
+		}
+	}
+
+	.header-search {
+		.header-search-wrapper {
+			border-color:  #fff;
+		}
+	}
+
+	.wishlist-link:not(:hover):not(:focus),
+	.search-toggle:not(:hover):not(:focus):not(.active),
+	.mobile-menu-toggler,
+	.wishlist-link:not(:hover):not(:focus),
+	.menu > li:not(:hover):not(.active):not(.show) > a,
+	.mobile-menu-toggler {
+		color: #fff;
+	}
+
+	.logo {
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.main-nav {
+		margin-left: 1rem;
+	}
+
+	.menu {
+		ul,
+		.megamenu {
+			margin-top: 0;
+		}
+	}
+
+	.menu > li > a {
+		padding-top: 2.85rem;
+		padding-bottom: 2.85rem;
+	}
+
+	.sticky-header.fixed {
+		background-color: #333;
+	}
+}
+
+@include mq('sm', 'max') {
+	.header-9 .cart-dropdown, 
+	.header-9 .compare-dropdown {
+		padding-left: 1.4rem;
+	}
+
+	.header-9 .wishlist-link {
+		margin-left: 1.4rem;
+	}
+}

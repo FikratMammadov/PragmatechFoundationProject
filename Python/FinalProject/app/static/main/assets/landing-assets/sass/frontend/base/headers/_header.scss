@@ -1,0 +1,38 @@
+/* Header Styles */
+.header {
+	background: #333;
+
+	.inner-wrap,
+	.header-col {
+		display: flex;
+		align-items: center;
+	}
+
+	.header-left,
+	.header-right {
+		flex: 1;
+	}
+
+	.header-right {
+		justify-content: flex-end;
+	}
+
+	.header-top,
+	.header-main,
+	.header-bottom {
+		padding: 2rem 0;
+	}
+
+	.logo img {
+		display: block;
+	}
+}
+
+.fixed-header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	background: transparent;
+	z-index: 2;
+}

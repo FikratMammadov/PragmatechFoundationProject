@@ -1,0 +1,57 @@
+/* Layout */
+.container {
+	max-width: 100%;
+	width: 1440px;
+}
+
+.container, .container-fluid {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gap;
+	padding-right: $gap;
+}
+
+.page-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	#{$left}: 0;
+	transition: left 0.4s, right 0.4s ease;
+}
+
+@include mq('lg', 'max') {
+	.mmenu-active .page-wrapper {
+		#{$left}: 200px;
+	}
+}
+
+.main {
+	flex: 1 1 auto;
+	width: 100%;
+}
+
+.page-content {
+	padding-bottom: 5rem;
+}
+
+@include mq('xl') {
+	.container-fluid {
+		padding-#{$left}: 30px;
+		padding-#{$right}: 30px;
+	}
+}
+/* Extend grid - 1600px */
+@include mq('xxl') {
+	.container-fluid {
+		padding-#{$left}: 62px;
+		padding-#{$right}: 62px;
+	}
+}
+@include mq('xlst') {
+	.container-fluid {
+		max-width: 1920px;
+		margin-#{$left}: auto;
+		margin-#{$right}: auto;
+	}
+}

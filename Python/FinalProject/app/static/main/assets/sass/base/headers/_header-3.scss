@@ -1,0 +1,123 @@
+/* Header 3 */
+.header-3 {
+	color: #fff;
+	background-color: #333333;
+	.header-top {
+		background-color: #333;
+		.container::after,
+		.container-fluid::after {
+		    height: .1rem;
+			background-color: #444444;
+		}
+		.header-left i {
+			font-size: 1.6rem;
+			margin-right: .5rem;
+		}
+	}
+	.header-dropdown {
+		padding-top: .65rem;
+		padding-bottom: .65rem;
+	}
+	.header-middle {
+		border-bottom: none;
+	}
+	.header-bottom {
+		background-color: #fff;
+		.menu>li>a::before {
+		    bottom: 0;
+		    top: unset;
+	}
+	}
+	.wishlist a {
+		color: #fff;
+	}
+	.cart-dropdown:not(:hover):not(.show) .dropdown-toggle, .compare-dropdown:not(:hover):not(.show) .dropdown-toggle,
+	.mobile-menu-toggler,
+	.search-toggle:not(:hover):not(:focus),
+	.wishlist-link:not(:hover):not(:focus) {
+	    color: #fff;
+	}
+
+	.wishlist .wishlist-count,
+	.cart-count {
+			color: #333;
+	}
+	.header-bottom {
+		border-bottom: .1rem solid #ebebeb;
+		.header-right p {
+			padding-right: 0;
+		}
+	}
+	.logo {
+		margin-bottom: 3.5rem;
+		margin-top: 3rem;
+	}
+
+	.header-search-extended {
+		.btn {
+			max-width: 40px;
+			margin-left: 1rem;
+			height: 46px;
+			font-size: 2.2rem;
+			background-color: transparent;
+			color: #333;
+		}
+		.form-control {
+			border-top-right-radius: 3rem;
+			border-bottom-right-radius: 3rem;
+			padding-left: 0;
+			height: 44px;
+			padding: 1rem 2.4rem 1rem .5rem;
+		}
+	}
+	.btn-primary:hover, 
+	.btn-primary:focus, 
+	.btn-primary.focus, 
+	.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, 
+	.show > .btn-primary.dropdown-toggle {
+	    color: $primary-color;
+	    background-color: transparent;
+	}
+}
+@include mq('lg', 'max') {
+	.header-3 {
+		.header-search-visible {
+
+			.header-search-wrapper {
+				border-color: #dadada;
+				&:before {
+					border-bottom-color: #dadada;
+				}
+			}
+		}
+	}
+}
+
+@include mq('sm', 'max') {
+	.header-3 .cart-dropdown, 
+	.header-3 .compare-dropdown,
+	.header-3 .wishlist {
+		padding-left: 1.4rem;
+	}
+}
+
+
+@media screen and (max-width: 1119px) {
+	.header-intro-clearance .header-bottom .container::before,
+	.header-intro-clearance .header-bottom .container::after {
+		visibility: hidden;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.header-intro-clearance .header-bottom .header-right i {
+		visibility: hidden;
+	}
+}
+
+
+@media screen and (max-width: 399px) {
+	.header-intro-clearance .account, .wishlist {
+		display: none;
+	}
+}

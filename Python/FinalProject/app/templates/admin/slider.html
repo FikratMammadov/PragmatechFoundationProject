@@ -1,0 +1,41 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h3 class="my-2">Welcome to Slider page</h3>
+    
+    <h4 class="my-2">Add new Slide</h4>
+    <form action="/admin/slider" method="POST" enctype="multipart/form-data">
+        <input type="text" class="form-control my-2" name="s_title" placeholder="Slide Title">
+        <input type="text" class="form-control my-2" name="s_header" placeholder="Slide Header">
+        <input type="text" class="form-control my-2" name="s_url" placeholder="Slide URL">
+        <input type="file" class="form-control my-2" name="s_photo">
+        <input type="submit" class="btn btn-primary px-2 my-2" value="Add New Slide">
+    </form>
+
+    <h4 class="my-2">All Slides</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Slide Title</th>
+                <th>Slide Header</th>
+                <th>Slide URL</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for slide in slides  %}
+                <tr>
+                <td scope="row">{{slide.s_title}}</td>
+                <td>{{slide.s_header}}</td>
+                <td>{{slide.s_url}}</td>
+                <td>
+                    <a href="">Delete</a>
+                    <a href="">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+             
+            
+        </tbody>
+    </table>
+{% endblock content %}

@@ -1,0 +1,11 @@
+
+$rtl: 1;
+$dir: rtl !default;
+
+@import '../frontend/config/directional';
+
+/* Molla using plugins css */
+
+@import "magnific-popup/magnific-popup";
+@import "owl-carousel/owl.carousel";
+@import 'jquery.countdown';

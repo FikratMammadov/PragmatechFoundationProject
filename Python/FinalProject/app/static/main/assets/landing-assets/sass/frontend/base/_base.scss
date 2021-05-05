@@ -1,0 +1,79 @@
+// Base
+html {
+	direction: $dir;
+	font-size: 62.5%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	font-size-adjust: 100%;
+}
+
+body {
+	font: normal 400 #{$font-size}/1.86 $font-family;
+	background-color: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+input, a {
+	&:focus {
+		outline: none;
+	}
+}
+
+p {
+	margin-bottom: 1.5rem;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1.5rem;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #ebebeb;
+	margin: 3rem auto 2.5rem;
+}
+
+sub,
+sup {
+	position: relative;
+	font-size: 70%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -.5em;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+mark {
+	color: inherit;
+	background-color: transparent;
+}
+
+select {
+	border-radius: 0;
+}
+
+select:focus {
+	outline: none;
+}

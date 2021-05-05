@@ -1,0 +1,49 @@
+/* Modals */
+.modal-backdrop {
+	background-color: #333;
+
+	&.show {
+		opacity: .4;
+	}
+}
+
+.modal-body {
+	padding: 0;
+
+	.close {
+		position: absolute;
+		right: 1.5rem;
+		top: 1.5rem;
+	}
+}
+
+.modal-content {
+	border: none;
+	box-shadow: 5px 10px 16px rgba(51, 51, 51, .05), -5px 10px 16px rgba(51, 51, 51, .05);
+}
+
+.close {
+	font-weight: normal;
+	font-size: 1.8rem;
+	color: $body-text;
+	opacity: 1;
+	transition: all .3s;
+
+	&:hover,
+	&:focus {
+		color: $primary-color;
+	}
+}
+
+@include mq('md') {
+	.modal-dialog {
+		max-width: 575px;
+	}
+}
+
+
+@include mq('lg') {
+}
+
+@include mq('sm', 'max') {
+}

@@ -1,0 +1,10 @@
+/* Skin demo 26 - index-26.html */
+$primary-color: #61ab00;
+$secondary-color: #fcb941;
+$second-primary-color: #999;
+
+.second-primary-color {
+    color: $second-primary-color !important;
+}
+
+@import 'skin';

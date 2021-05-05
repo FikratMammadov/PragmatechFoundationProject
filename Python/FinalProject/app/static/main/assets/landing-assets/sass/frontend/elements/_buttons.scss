@@ -1,0 +1,49 @@
+/* Button Elements */
+.btn {
+    display: inline-block;
+    padding: 0.6em 1.5em;
+    background: $primary-color;
+    border: 1px solid $primary-color;
+    color: #fff;
+    transition: color .35s, border .35s, background .35s;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+    &:hover,
+    &:focus {
+        color: $primary-color;
+        border-color: #fff;
+        background-color: #fff;
+    }
+}
+
+.btn-icon {
+    i:first-child {
+        margin-right: .5rem;
+    }
+    i:last-child {
+        margin-left: .5rem;
+    }
+
+    i, span {
+        vertical-align: middle;
+    }
+}
+
+.btn-link {
+    padding: 0;
+    background: none;
+    border: none;
+
+    &:hover {
+        border: none;
+        background: none;
+    }
+}
+
+.btn-hover-shadow {
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}

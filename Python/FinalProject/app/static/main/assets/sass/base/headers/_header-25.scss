@@ -1,0 +1,251 @@
+/* Header 6 */
+.header-25 {
+    .social-icons {
+        margin-right: 3.3rem;
+
+        a {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #b6b9bc;
+        }
+    }
+
+    .social-icons-color .social-icon:not(:last-child) {
+        margin-right: 2.1rem;
+    }
+
+    .top-menu {
+        text-transform: none;
+
+		i {
+            margin-right: .5rem;
+            font-size: 1.6rem;
+        }
+
+		li + li {
+			margin-left: 1.7rem;
+		}
+    }
+
+    .account-links {
+        margin-right: 1.3rem;
+        padding-top: .55rem;
+        padding-bottom: .55rem;
+    }
+    
+    .header-dropdown {
+        padding-top: .55rem;
+        padding-bottom: .55rem;
+        
+        > a,
+        > span {
+            padding-right: 2.7rem;
+            font-weight: 400;
+            text-transform: initial;
+        }
+    }
+
+    .header-menu {
+		margin-top: 0;
+        font-size: 1.3rem;
+    }
+    
+    .header-middle {
+        margin-bottom: .1rem;
+        line-height: 1.5;
+        border-bottom: none;
+        min-height: 84px;
+
+        .header-left {
+            flex: 1 1 0;
+            -ms-flex: 1;
+        }
+        
+        .header-center {
+            flex: 0 1 auto;
+
+            p {
+                font-size: 1.1rem;
+                letter-spacing: .3em;
+            }
+        }
+
+        .header-right {
+            flex: 1 1 0;
+            -ms-flex: 1;
+            justify-content: flex-end;
+        }
+
+        .wishlist-link {
+            color: #333;
+            margin-left: 0;
+
+			&:hover,
+			&:focus {
+				color: $primary-color;
+			}
+		}
+
+        .btn {
+            letter-spacing: 0;
+        }
+
+        .btn-primary:hover, 
+        .btn-primary:focus,
+        .btn-primary:not(:disabled):not(.disabled):active {
+            color: #666;
+            background-color: transparent;
+            border: transparent;
+        }
+        
+        .header-right .btn-primary:hover {
+            background-color: #a6c76c;
+            border-color: #a6c76c;
+        }
+    }
+    
+    .header-bottom {
+        background-color: #222;
+
+        .menu > li + li {
+            margin-left: .6rem;
+        }
+        
+        .menu > li > a {
+            padding-top: 1.55rem;
+            padding-bottom: 1.55rem;
+            letter-spacing: .05em;
+            font-weight: 600;
+            color: #fff;
+
+            &:before {
+                bottom: 1rem;
+            }
+        }
+
+        .header-right {
+            i {
+                font-size: 1.7rem;
+                margin-right: 1.6rem;
+                color: $primary-color;
+            }
+            p {
+                font-size: 1.4rem;
+                font-weight: 600;
+                letter-spacing: .03em;
+            }
+        }
+    }
+    
+    .logo {
+        margin-top: 2.5rem;
+        margin-bottom: 1.7rem;
+    }
+
+    .header-search-extended {
+		margin-top: 2.2rem;
+        margin-bottom: 1.8rem;
+        
+		.form-control {
+            padding: 1.4rem 2.4rem 1.2rem 2rem;
+			font-size: 1.3rem;
+			font-weight: 400;
+			color: #222;
+			border-radius: 0;
+            outline: none;
+        }
+        
+		.form-control::placeholder {
+			color: #222;
+        }
+        
+		.btn {
+			padding-left: 1rem;
+			background-color: transparent;
+			color: #666;
+			font-size: 2.6rem;
+			max-width: 2.5rem;
+			z-index: 1;
+		}
+    }
+
+    .header-search .search-wrapper-wide {
+		width: 270px;
+		border: none;
+	}
+
+    .wishlist-txt,
+	.cart-txt {
+		margin-left: .7rem;
+		margin-top: -.5rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+		letter-spacing: 0;
+		color: #222;
+		transition: all .3s;
+    }
+    
+    .cart-txt {
+		font-weight: 600;
+    }
+    
+    .wishlist-link .wishlist-count,
+	.cart-dropdown .cart-count {
+		margin-bottom: 1.5rem;
+		margin-left: -1.4rem;
+		min-width: 1.6rem;
+		height: 1.6rem;
+    }
+    
+    .wishlist-link {
+        font-size: 2.8rem;
+
+        i {
+            margin-top: 2px;
+        }
+
+        &:hover,
+		&:focus {
+			.wishlist-txt {
+				color: $primary-color;
+			}
+		}
+    }        
+
+	.cart-dropdown {
+		padding-left: 2.7rem;
+
+		&:hover,
+		&:focus {
+			.cart-txt {
+				color: $primary-color;
+			}
+		}
+    }
+    
+    .menu.sf-arrows > li > .sf-with-ul:after {
+        right: 1.2rem !important;
+        font-weight: 300;
+        letter-spacing: -.01em;
+    }
+}
+
+@include mq('lg', 'max') {
+    .header-25 .header-menu {
+        top: 0;
+    }
+    
+    .header-25 .sticky-header {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .wishlist-link {
+        display: flex !important;
+        
+        .wishlist-txt {
+            display: none;
+        }
+    }
+}

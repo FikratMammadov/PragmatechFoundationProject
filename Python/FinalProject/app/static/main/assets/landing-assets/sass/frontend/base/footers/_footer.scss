@@ -1,0 +1,79 @@
+/* Footer Style */
+
+.footer .divider {
+    margin: 0;
+    background: #ebebeb;
+}
+
+.footer {
+    padding: 2rem 0;
+    color: #999;
+    font-weight: 300;
+    line-height: 26px;
+
+    a {
+        color: inherit;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    .links a {
+        border-bottom: 1px solid;
+    }
+
+    .links li + li:before {
+        content: '|';
+        margin: 0 6px;
+    }
+}
+
+/* Scroll Top Button */
+#scroll-top {
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    #{$right}: 50px;
+    bottom: 128px;
+    z-index: 999;
+    color: #cccccc;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    visibility: hidden;
+    opacity: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #fafafa;
+    font-size: 3rem;
+    transition: 0.4s;
+    transform: translateY(60px);
+}
+
+#scroll-top:hover,
+#scroll-top:focus {
+    color: #999;
+    background-color: #eaeaea;
+}
+
+#scroll-top.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+}
+
+@include mq('lg', 'max') {
+    #scroll-top {
+        bottom: 60px;
+    }
+}
+
+@include mq('md') {
+    #scroll-top {
+        display: flex;
+    }
+}
