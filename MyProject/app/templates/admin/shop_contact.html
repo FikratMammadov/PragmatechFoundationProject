@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+    <h3>Add Contact Information</h3>
+
+    <form action="/admin/shop_contact" method="POST">
+        <input type="text" class="form-control my-2" placeholder="Contact Icon" name="contact_icon">
+        <input type="text" class="form-control my-2" placeholder="Contact Detail" name="contact_detail">
+        <input type="submit" class="btn btn-primary" value="Add Contact Info">
+    </form>
+
+    <h4 class="my-2">All Information</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Contact Icon</th>
+                <th>Contact Detail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shopContact in shopContacts  %}
+                <tr>
+                <td scope="row">{{shopContact.contact_icon}}</td>
+                <td>{{shopContact.contact_detail}}</td>
+                <td>
+                    <a href="/admin/shop_contact/delete/{{shopContact.id}}">Delete</a>
+                    <a href="/admin/shop_contact/update/{{shopContact.id}}">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+             
+            
+        </tbody>
+    </table>
+{% endblock content %}

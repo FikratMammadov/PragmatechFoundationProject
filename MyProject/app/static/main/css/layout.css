@@ -1,0 +1,49 @@
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container-full{
+    width: 100%;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.col-1{
+    flex: calc(100%/12*1);
+}
+.col-2{
+    flex: calc(100%/12*2);
+}
+.col-3{
+    flex: calc(100%/12*3);
+}
+.col-4{
+    flex: calc(100%/12*4);
+}
+.col-5{
+    flex: calc(100%/12*5);
+}
+.col-6{
+    flex: calc(100%/12*6);
+}
+.col-7{
+    flex: calc(100%/12*7);
+}
+.col-8{
+    flex: calc(100%/12*8);
+}
+.col-9{
+    flex: calc(100%/12*9);
+}
+.col-10{
+    flex: calc(100%/12*10);
+}
+.col-11{
+    flex: calc(100%/12*11);
+}
+.col-12{
+    flex: calc(100%/12*12);
+}
