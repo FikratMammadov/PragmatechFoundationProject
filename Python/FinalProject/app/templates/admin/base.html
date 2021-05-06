@@ -22,12 +22,26 @@
                     <div class="col-12">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{url_for('admin_index')}}">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/slider">Slider</a>
+                                <a class="nav-link" href="{{url_for('admin_slider')}}">Slider</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/product">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/product/colors">Product Colors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/product/photos">Product Images</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/product/categories">Product Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/product/size">Product</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

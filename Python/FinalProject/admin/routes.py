@@ -1,8 +1,10 @@
+# admin.routes
 from app import app
 from app import db
-from app.models import Slider
+from app.models import Slider,Categories
 import os
-from flask import render_template,request,redirect
+from admin.forms import CategoryForm
+from flask import render_template,request,redirect,url_for
 
 @app.route('/admin')
 def admin_index():
@@ -29,3 +31,16 @@ def admin_slider():
         db.session.commit()
         return redirect('/admin/slider')
     return render_template('admin/slider.html',slides = slides)
+
+@app.route('/admin/categories',methods=['GET','POST'])
+def admin_categories():
+    form = CategoryForm()
+    categories = Categories.query.all()
+    if request.method=='POST':
+        category = Categories(
+            cat_name=form.cat_name.data
+        )
+        db.session.add(category)
+        db.session.commit()
+        return redirect('/admin/categories')
+    return render_template('admin/categories.html',form=form,categories = categories)
