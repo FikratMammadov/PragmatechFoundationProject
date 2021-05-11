@@ -26,6 +26,7 @@
 </head>
 
 <!-- Start Header -->
+
 <body onresize="checkSize()">
     <section id="header">
         <div id="header-info">
@@ -34,7 +35,8 @@
                     <div class="header-info-contact">
                         <ul>
                             {% for shopContact in shopContacts %}
-                            <li><i class="{{shopContact.contact_icon}}"></i> <a href="">{{shopContact.contact_detail}}</a></li>
+                            <li><i class="{{shopContact.contact_icon}}"></i> <a
+                                    href="{{shopContact.contact_link}}">{{shopContact.contact_detail}}</a></li>
                             {% endfor %}
                             <!-- <li><i class="fas fa-phone-alt"></i> (00) 000 111 222 </li>
                             <li><i class="fas fa-envelope"></i> <a href="">info@somedomain.com</a></li> -->
@@ -96,13 +98,14 @@
                 <div class="row">
                     <div class="col-12">
                         <ul>
-                            <li class="navbar-active"><a href="index.html">Home</a></li>
-                            <li><a href="collection.html">Collection <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="shop.html">Shop <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="cookies.html">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="wedding.html">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="cupcakes.html">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="pages.html">Pages <i class="fal fa-chevron-down"></i></a></li>
+                            <li class="navbar-active"><a href="{{url_for('main_index')}}">Home</a></li>
+                            <li><a href="{{url_for('main_collections')}}">Collection <i
+                                        class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_shop')}}">Shop <i class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_wedding')}}">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_aboutus')}}">Pages <i class="fal fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -114,7 +117,7 @@
     <!-- End Header -->
 
     {% block content %}
-        
+
     {% endblock content %}
 
     <!-- Start Footer -->
@@ -195,20 +198,24 @@
                         </div>
                         <ul class="footer-cards">
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-1.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-2.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-3.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"> <img src="static/main/img/footer-card-4.png"
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-1.png"
                                         alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-5.png" alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-2.png"
+                                        alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-3.png"
+                                        alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"> <img
+                                        src="static/main/img/footer-card-4.png" alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-5.png"
+                                        alt=""></a>
                             </li>
                         </ul>
                     </div>
@@ -218,8 +225,10 @@
     </section>
 
     <!-- End Footer -->
+    {% block scripts %}
 
-    <script src="static/main/js/script.js"></script>
+    {% endblock scripts %}
+
 </body>
 
 </html>

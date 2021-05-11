@@ -1,0 +1,38 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Feature</h3>
+
+<form action="/admin/features" method="POST" enctype="multipart/form-data">
+    <input type="file" class="form-control my-2" placeholder="Features Image" name="features_image">
+    <input type="text" class="form-control my-2" placeholder="Features Title" name="features_title">
+    <input type="text" class="form-control my-2" placeholder="Features Content" name="features_content">
+    <input type="submit" class="btn btn-primary" value="Add Feature">
+</form>
+
+<h4 class="my-2">All Information</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Features Image</th>
+            <th>Features Title</th>
+            <th>Features Content</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feature in features %}
+        <tr>
+            <td scope="row">{{feature.features_image}}</td>
+            <td>{{feature.features_title}}</td>
+            <td>{{feature.features_content}}</td>
+            <td>
+                <a href="/admin/features/delete/{{feature.id}}">Delete</a>
+                <a href="/admin/features/update/{{feature.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+{% endblock content %}

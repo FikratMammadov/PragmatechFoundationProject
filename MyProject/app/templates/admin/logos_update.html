@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Logo</h3>
+
+<form action="/admin/logos/update/{{logo.id}}" method="POST" enctype="multipart/form-data">
+    {{form.l_image(class='form-control my-2',placeholder='Logo Image')}}
+    {{form.submit(value='Update Logo',class='btn btn-primary')}}
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font awesome -->
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/main/css/grid.css">
+    <link rel="stylesheet" href="../static/main/css/style.css">
+    <title>Shop</title>
+</head>
+
+<body onresize="checkStatus()">
+    <div id="addToCart" class="addToCart-overlay">
+        <div class="container">
+            <div class="card-item row">
+                <div class="card-content col-12 col-md-6">
+                    <div class="card-content-message">
+                        product successfully added to your shopping cart
+                    </div>
+                    <div class="card-content-product row">
+                        <div class="card-content-product-image col-4">
+                            <img src="../static/main/img/shop-products-img-1.webp" alt="">
+                        </div>
+                        <div class="card-content-product-description col-8">
+                            <div class="card-content-product-description-name">
+                                A World of Cup Cake
+                            </div>
+                            <div class="card-content-product-description-price">
+                                $300.00
+                            </div>
+                            <div class="card-content-product-description-number">
+                                Qyt: 1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-pay col-12 col-md-6">
+                    <div class="card-pay-product-number">
+                        there are 9 item(s) in your cart
+                    </div>
+                    <div class="card-pay-product-price">
+                        $300.00 USD
+                    </div>
+                    <div class="card-pay-product-buttons d-flex">
+                        <div class="cake-item-btn"><button>cantinue shopping</button></div>
+                        <div class="cake-item-btn"><button><i class="fas fa-shopping-cart"></i> view cart</button></div>
+                    </div>
+                </div>
+                <div class="card-item-close">
+                    <i class="fal fa-times"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section id="header">
+        <div id="header-info">
+            <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                    <div class="header-info-contact">
+                        <ul>
+                            {% for shopContact in shopContacts %}
+                            <li><i class="{{shopContact.contact_icon}}"></i> <a
+                                    href="{{shopContact.contact_link}}">{{shopContact.contact_detail}}</a></li>
+                            {% endfor %}
+                            <!-- <li><i class="fas fa-phone-alt"></i> (00) 000 111 222 </li>
+                            <li><i class="fas fa-envelope"></i> <a href="">info@somedomain.com</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="header-info-address">
+                        <ul>
+                            <li><a href="">Store Location</a></li>
+                            <li><a href="">Track Your Order</a></li>
+                            <li><a href="">USD</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="header-menubar">
+            <div id="header-logo">
+                <a href="index.html">
+                    <img src="../static/main/img/logo.png" alt="">
+                </a>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                    <div class="header-menubar-account">
+                        <ul>
+                            <li>
+                                <a href=""><i class="fal fa-search"></i></a>
+                            </li>
+                            <li>
+                                <a href="log-in.html"><i class="fal fa-user"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-menubar-wishlist">
+                        <ul>
+                            <li>
+                                <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fal fa-shopping-bag"></i></a>
+                                <span class="shopping-value">
+                                    0
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <section id="header-navbar">
+            <div class="container">
+                <div class="row">
+                    <ul class="justify-content-center">
+                        <li class="navbar-active"><a href="{{url_for('main_index')}}">Home</a></li>
+                        <li><a href="{{url_for('main_collections')}}">Collection <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                        <li><a href="{{url_for('main_shop')}}">Shop <i class="fal fa-chevron-down"></i></a></li>
+                        <li><a href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                        <li><a href="{{url_for('main_wedding')}}">Wedding Cakes <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                        <li><a href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                        <li><a href="{{url_for('main_aboutus')}}">Pages <i class="fal fa-chevron-down"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </section>
+    </section>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer>
+        <div class="container">
+            <div class="footer-items">
+                <div class="row">
+                    <div class="footer-col">
+                        <div class="footer-item">
+                            <h5>Contact us</h5>
+                            <ul>
+                                <li>No: 58 A, East Madison Street, <br>
+                                    Baltimore, MD,
+                                    <br> USA 4508.
+                                </li>
+                                <li><i class="fas fa-phone-alt"></i> +080 123 4567</li>
+                                <li>
+                                    <a href="#"><i class="fal fa-envelope"></i> support@somemail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col footer-help">
+                        <div class="footer-item">
+                            <h5>Help</h5>
+                            <ul>
+                                <li><a href="">Search</a></li>
+                                <li><a href="">Help</a></li>
+                                <li><a href="">Information</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="">Shipping Details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col footer-support">
+                        <div class="footer-item">
+                            <h5>Support</h5>
+                            <ul>
+                                <li><a href="">Contact us</a></li>
+                                <li><a href="">About us</a></li>
+                                <li><a href="">Careers</a></li>
+                                <li><a href="">Refunds & Returns</a></li>
+                                <li><a href="">Deliveries</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col ">
+                        <div class="footer-item footer-item-newsletter">
+                            <h5>Newsletter</h5>
+                            <ul>
+                                <li>A short sentence describing what someone will receive by subscribing</li>
+                            </ul>
+                            <div class="footer-input">
+                                <input type="email" name="" id="" placeholder="Email address">
+                                <a href=""><i class="fas fa-paper-plane"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <section id="footer-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-contact">
+                        <div class="copyright">
+                            <span>Copyright <a href="">Powered by Shopify</a></span>
+                            <span>
+                                <a href="" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="" class="social-icon"><i class="fab fa-google"></i></a>
+                                <a href="" class="social-icon"><i class="fab fa-tumblr"></i></a>
+                            </span>
+
+                        </div>
+                        <ul class="footer-cards">
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-1.png" alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-2.png" alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-3.png" alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"> <img src="../static/main/img/footer-card-4.png"
+                                        alt=""></a>
+                            </li>
+                            <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-5.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% block scripts %}
+        
+    {% endblock scripts %}
+     
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Feature</h3>
+
+<form action="/admin/features/update/{{feature.id}}" method="POST" enctype="multipart/form-data">
+    <input type="file" class="form-control my-2" placeholder="Features Image" name="features_image">
+    <input type="text" class="form-control my-2" placeholder="Features Title" name="features_title" value="{{feature.features_title}}">
+    <input type="text" class="form-control my-2" placeholder="Features Content" name="features_content" value="{{feature.features_content}}">
+    <input type="submit" class="btn btn-primary" value="Update Feature">
+</form>
+
+{% endblock content %}

@@ -5,6 +5,7 @@
     <form action="/admin/shop_contact" method="POST">
         <input type="text" class="form-control my-2" placeholder="Contact Icon" name="contact_icon">
         <input type="text" class="form-control my-2" placeholder="Contact Detail" name="contact_detail">
+        <input type="text" class="form-control my-2" placeholder="Contact Link" name="contact_link">
         <input type="submit" class="btn btn-primary" value="Add Contact Info">
     </form>
 
@@ -14,6 +15,7 @@
             <tr>
                 <th>Contact Icon</th>
                 <th>Contact Detail</th>
+                <th>Contact Link</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +24,7 @@
                 <tr>
                 <td scope="row">{{shopContact.contact_icon}}</td>
                 <td>{{shopContact.contact_detail}}</td>
+                <td>{{shopContact.contact_link}}</td>
                 <td>
                     <a href="/admin/shop_contact/delete/{{shopContact.id}}">Delete</a>
                     <a href="/admin/shop_contact/update/{{shopContact.id}}">Update</a>

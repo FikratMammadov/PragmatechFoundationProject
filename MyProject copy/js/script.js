@@ -91,13 +91,22 @@ for(let i=0;i<natureTasteContents.length;i++){
 natureTasteSliderContent.style.width = natureTasteSliderContainerWidth * natureTasteContents.length + 'px';
  
 function checkSize(){
+    // natureTaste section'da slider 
     natureTasteSliderContainerWidth = natureTasteSliderContainer.clientWidth;
     for(let i=0;i<natureTasteContents.length;i++){
         natureTasteContents[i].style.width = natureTasteSliderContainerWidth+"px";
     }
     natureTasteSliderContent.style.width = natureTasteSliderContainerWidth * natureTasteContents.length + 'px';
-    console.log(natureTasteSliderContainerWidth )
-    console.log(natureTasteSliderContent.style.width )
+    
+
+    // features section'da slider
+    logosContainerWidth = logosContainer.clientWidth
+    for(let i=0;i<logoItems.length;i++){
+        logoItems[i].style.width=`${logosContainerWidth/5}px`
+         
+    }
+    console.log(logosContainerWidth)
+    console.log(logoItems[0].clientWidth)
 }
 
 natureTasteLeftBtn.addEventListener("click",function(){   
@@ -118,6 +127,41 @@ natureTasteRightBtn.addEventListener('click',function(){
     }
 })
 
+
+// features section'da slider
+
+let logosContainer = document.querySelector('#features .logos');
+let logosContainerWidth = logosContainer.clientWidth
+let logoContent = document.querySelector('#features .logo-items')
+let logoItems = document.querySelectorAll('#features .logo-item');
+let logosLeftBtn=document.querySelector('#features .logos .btn-1');
+let logosRightBtn=document.querySelector('#features .logos .btn-2')
+let logoIndex=5
+let logoPos=0
+
+for(let i=0;i<logoItems.length;i++){
+    logoItems[i].style.width=`${logosContainerWidth/5}px`
+}
+
+logosLeftBtn.addEventListener('click',function(){
+    if(logoIndex>5){
+        logoIndex--;
+        pos+=logosContainerWidth/5
+        logoContent.style.transform=`translateX(${pos}px)`;
+    }
+    console.log(logoIndex)
+});
+
+logosRightBtn.addEventListener('click',function(){
+    if(logoIndex<=logoItems.length-1){
+        logoIndex++;
+        pos-=logosContainerWidth/5
+        logoContent.style.transform=`translateX(${pos}px)`;
+    }
+    console.log(logoIndex)
+})
+ 
+// console.log(logoItem)
  
 
 

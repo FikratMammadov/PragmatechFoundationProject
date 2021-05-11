@@ -1,191 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'main/base2.html' %}
+{% block content %}
+<section id="part">
+    <h3 class="part-header">About us</h3>
+    <span class="part-footer">Home / About us</span>
+</section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font awesome -->
-    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Pages</title>
-</head>
-
-<body>
-    <section id="header">
-        <div id="header-info">
-            <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                    <div class="header-info-contact">
-                        <ul>
-                            <li><i class="fas fa-phone-alt"></i> (00) 000 111 222 </li>
-                            <li><i class="fas fa-envelope"></i> <a href="">info@somedomain.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="header-info-address">
-                        <ul>
-                            <li><a href="">Store Location</a></li>
-                            <li><a href="">Track Your Order</a></li>
-                            <li><a href="">USD</a></li>
-                        </ul>
-                    </div>
+<div id="post" class="section-padding">
+    <div class="container">
+        <div class="row post-item">
+            <div class="col-12 col-lg-6">
+                <div class="post-image">
+                    <img src="../static/main/img/pages-post-img.jpg" alt="">
                 </div>
 
             </div>
-        </div>
-        <div id="header-menubar">
-            <div id="header-logo">
-                <a href="index.html">
-                    <img src="img/logo.png" alt="">
-                </a>  
-            </div>
-            <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                    <div class="header-menubar-account">
-                        <ul>
-                            <li>
-                                <a href=""><i class="fal fa-search"></i></a>
-                            </li>
-                            <li>
-                                <a href="log-in.html"><i class="fal fa-user"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="header-menubar-wishlist">
-                        <ul>
-                            <li>
-                                <a href="wishlist.html"><i class="fal fa-heart"></i></a>
-                            </li>
-                            <li>
-                                <a href=""><i class="fal fa-shopping-bag"></i></a>
-                                <span class="shopping-value">
-                                    0
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
-
-
-        <section id="header-navbar">
-            <div class="container">
-                <div class="row">
-                    <ul class="justify-content-center">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="collection.html">Collection <i class="fal fa-chevron-down"></i></a></li>
-                        <li><a href="shop.html">Shop <i class="fal fa-chevron-down"></i></a></li>
-                        <li><a href="cookies.html">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
-                        <li><a href="wedding.html">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
-                        <li><a href="cupcakes.html">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
-                        <li class="navbar-active"><a href="pages.html">Pages <i class="fal fa-chevron-down"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-
-        </section>
-    </section>
-
-    <section id="part">
-        <h3 class="part-header">About us</h3>
-        <span class="part-footer">Home / About us</span>
-    </section>
-
-    <div id="post" class="section-padding">
-        <div class="container">
-            <div class="row post-item">
-                <div class="col-12 col-lg-6">
-                    <div class="post-image">
-                        <img src="img/pages-post-img.jpg" alt="">
-                    </div>
-
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="post-content">
-                        <div class="post-description">
-                            <div class="post-content-header">
-                                <span>Welcome to Cakes & Bakes</span>
-                                <hr>
-                            </div>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in
-                                voluptate id est laborum.</p>
-
-                            <p>Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et Ut placerat
-                                legendos
-                                interpre.Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit
-                                amet
-                                orci eget Duis dan molestie, sem in sollicitudin sodales, mi justo sagittis est, id
-                                consequat ipsum ligula a ante. Pellentesque sapien dui, miverra et commodo id ductus id
-                                est.
-                                Cras eu tempor eros donec ut porttitor lacus, nec ullamcorper massa maecenas eu nulla
-                                nisl.
-                                Destibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
+            <div class="col-12 col-lg-6">
+                <div class="post-content">
+                    <div class="post-description">
+                        <div class="post-content-header">
+                            <span>Welcome to Cakes & Bakes</span>
+                            <hr>
                         </div>
-                        <div class="row post-cake-items">
-                            <div class="btn btn-1">
-                                <button><i class="fas fa-chevron-left"></i></button>
-                            </div>
-                            <div class="btn btn-2">
-                                <button><i class="fas fa-chevron-right"></i></i></button>
-                            </div>
-                            <div class="col post-cake-item  ">
-                                <img src="img/pages-post-cake-img-1.jpg" alt="">
-                            </div>
-                            <div class="col post-cake-item d-md-block d-none">
-                                <img src="img/pages-post-cake-img-2.jpg" alt="">
-                            </div>
-                            <div class="col post-cake-item d-lg-block d-none">
-                                <img src="img/pages-post-cake-img-3.jpg" alt="">
-                            </div>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                            in
+                            voluptate id est laborum.</p>
+
+                        <p>Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et Ut placerat
+                            legendos
+                            interpre.Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit
+                            amet
+                            orci eget Duis dan molestie, sem in sollicitudin sodales, mi justo sagittis est, id
+                            consequat ipsum ligula a ante. Pellentesque sapien dui, miverra et commodo id ductus id
+                            est.
+                            Cras eu tempor eros donec ut porttitor lacus, nec ullamcorper massa maecenas eu nulla
+                            nisl.
+                            Destibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
+                    </div>
+                    <div class="row post-cake-items">
+                        <div class="btn btn-1">
+                            <button><i class="fas fa-chevron-left"></i></button>
+                        </div>
+                        <div class="btn btn-2">
+                            <button><i class="fas fa-chevron-right"></i></i></button>
+                        </div>
+                        <div class="col post-cake-item  ">
+                            <img src="../static/main/img/pages-post-cake-img-1.jpg" alt="">
+                        </div>
+                        <div class="col post-cake-item d-md-block d-none">
+                            <img src="../static/main/img/pages-post-cake-img-2.jpg" alt="">
+                        </div>
+                        <div class="col post-cake-item d-lg-block d-none">
+                            <img src="../static/main/img/pages-post-cake-img-3.jpg" alt="">
                         </div>
                     </div>
-
-
                 </div>
+
+
             </div>
         </div>
     </div>
+</div>
 
-    <section id="cakes-bakes" class="section-padding">
-        <div class="container">
-            <div class="page-item-header">
-                <h1>What we offer at Cakes & Bakes</h1>
-                <span>The Sound of Sweet Taste</span>
+<section id="cakes-bakes" class="section-padding">
+    <div class="container">
+        <div class="page-item-header">
+            <h1>What we offer at Cakes & Bakes</h1>
+            <span>The Sound of Sweet Taste</span>
+        </div>
+        <div class="row page-cake-items">
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="page-cake-item">
+                    <div class="page-cake-item-header">
+                        Blueberry
+                    </div>
+                    <div class="page-cake-item-img">
+                        <img src="../static/main/img/page-cake-item-img-1.jpg" alt="">
+                    </div>
+                    <div class="page-cake-item-description">
+                        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                        elementum semper nisi. Aenean vulputate
+                    </div>
+                    <div class="cake-item-btn"><button>View more</button></div>
+                </div>
             </div>
-            <div class="row page-cake-items">
-                <div class="col-12 col-lg-4 col-md-6">
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="page-cake-item">
                     <div class="page-cake-item">
                         <div class="page-cake-item-header">
-                            Blueberry
+                            Dry Fruits Cake
                         </div>
                         <div class="page-cake-item-img">
-                            <img src="img/page-cake-item-img-1.jpg" alt="">
+                            <img src="../static/main/img/page-cake-item-im2.jpg" alt="">
                         </div>
                         <div class="page-cake-item-description">
                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
@@ -194,338 +104,224 @@
                         <div class="cake-item-btn"><button>View more</button></div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 col-md-6">
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="page-cake-item">
                     <div class="page-cake-item">
-                        <div class="page-cake-item">
-                            <div class="page-cake-item-header">
-                                Dry Fruits Cake
-                            </div>
-                            <div class="page-cake-item-img">
-                                <img src="img/page-cake-item-im2.jpg" alt="">
-                            </div>
-                            <div class="page-cake-item-description">
-                                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-                                elementum semper nisi. Aenean vulputate
-                            </div>
-                            <div class="cake-item-btn"><button>View more</button></div>
+                        <div class="page-cake-item-header">
+                            Chocolate Creamy
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 col-md-6">
-                    <div class="page-cake-item">
-                        <div class="page-cake-item">
-                            <div class="page-cake-item-header">
-                                Chocolate Creamy
-                            </div>
-                            <div class="page-cake-item-img">
-                                <img src="img/page-cake-item-img-3.jpg" alt="">
-                            </div>
-                            <div class="page-cake-item-description">
-                                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-                                elementum semper nisi. Aenean vulputate
-                            </div>
-                            <div class="cake-item-btn"><button>View more</button></div>
+                        <div class="page-cake-item-img">
+                            <img src="../static/main/img/page-cake-item-img-3.jpg" alt="">
                         </div>
+                        <div class="page-cake-item-description">
+                            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                            elementum semper nisi. Aenean vulputate
+                        </div>
+                        <div class="cake-item-btn"><button>View more</button></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </section>
+</section>
 
-    <section id="cakes-bakes-offers" class="section-padding">
+<section id="cakes-bakes-offers" class="section-padding">
+    <div class="page-item-header">
+        <h1>Cakes & Bakes Offers</h1>
+        <span>Our Latest Offers</span>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.</p>
+
+    <div class="cake-item-btn"><button>Shop Now</button></div>
+</section>
+
+<section id="sweetMovement" class="section-padding">
+    <div class="container">
+        <div class="row post-item">
+            <div class="col-12 col-md-6">
+                <div class="post-image">
+                    <img src="../static/main/img/sweetMovement-img.jpg" alt="">
+                </div>
+
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="post-content">
+                    <div class="post-content-header">
+                        <span>
+                            Candies for Sweet Movement</span>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum pretium
+                        faucibus. Integer non pulvinar metus, ut feugiat tellus. Mauris vestibulum enim at dui
+                        accumsan, vitae tincidunt lorem placerat. Nunc vehicula rhoncus ultricies. Maecenas
+                        vehicula vel enim sit amet mollis. Nulla sed.
+                    </p>
+
+                    <div class="row post-content-choices">
+                        <div class="col-6 post-content-choice">
+                            <span><i class="fas fa-car-alt"></i></span>
+                            <span>Candy</span>
+                             
+                        </div>
+                        <div class="col-6 post-content-choice">
+                            <span><i class="fas fa-plane"></i></span>
+                            <span>Celebration</span>     
+                        </div>
+                        <div class="col-6 post-content-choice">
+                            <span><i class="fas fa-ship"></i></span>
+                            <span>Cupcake</span>                                
+                        </div>
+                        <div class="col-6 post-content-choice">
+                            <span><i class="fas fa-train"></i></span>
+                            <span>Occasion</span> 
+                        </div>
+                    </div>
+                    <div class="cake-item-btn"><button>Read More</button></div>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="salesNumber">
+    <div class="container">
+        <div class="row sales-items">
+            <div class="col-lg-3 col-sm-6 sales-item">
+                <div class="sales-item-icon">
+                    <i class="fal fa-gem"></i>
+                </div>
+                <div class="sales-item-num">
+                    960+
+                </div>
+                <div class="sales-item-title">
+                    Red Velvet
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 sales-item">
+                <div class="sales-item-icon">
+                    <i class="fad fa-mug-hot"></i>
+                </div>
+                <div class="sales-item-num">
+                    750+
+                </div>
+                <div class="sales-item-title">
+                    Designer Cake
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 sales-item">
+                <div class="sales-item-icon">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="sales-item-num">
+                    520+
+                </div>
+                <div class="sales-item-title">
+                    Fruit Cakes
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 sales-item">
+                <div class="sales-item-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="sales-item-num">
+                    860+
+                </div>
+                <div class="sales-item-title">
+                    Celebration
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="staff" class="section-padding">
+    <div class="container">
         <div class="page-item-header">
-            <h1>Cakes & Bakes Offers</h1>
-            <span>Our Latest Offers</span>
+            <h1>Our Staff</h1>
+            <span>Meet our toddler care supporter and gorgeous team members</span>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.</p>
-
-        <div class="cake-item-btn"><button>Shop Now</button></div>
-    </section>
-
-    <section id="sweetMovement" class="section-padding">
-        <div class="container">
-            <div class="row post-item">
-                <div class="col-12 col-md-6">
-                    <div class="post-image">
-                        <img src="img/sweetMovement-img.jpg" alt="">
+        <div class="row staff-employees">
+            <div class="col-lg-4 col-md-6 staff-employee">
+                <div class="staff-employee-image">
+                    <div class="staff-employee-image-second">
+                        <img src="../static/main/img/employee-1.jpg" alt="">
                     </div>
-
+                    <div class="staff-employee-social">
+                        <div class="staff-employee-social-icon twitter">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon facebook">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon google-plus">
+                            <a href=""><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                    </div>
+                    <img class="img-back" src="../static/main/img/employee-1.jpg" alt="">
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <span>
-                                Candies for Sweet Movement</span>
-                        </div>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum pretium
-                            faucibus. Integer non pulvinar metus, ut feugiat tellus. Mauris vestibulum enim at dui
-                            accumsan, vitae tincidunt lorem placerat. Nunc vehicula rhoncus ultricies. Maecenas
-                            vehicula vel enim sit amet mollis. Nulla sed.
-                        </p>
-
-                        <div class="row post-content-choices">
-                            <div class="col-6 post-content-choice">
-                                <span><i class="fas fa-car-alt"></i></span>
-                                <span>Candy</span>
-                                 
-                            </div>
-                            <div class="col-6 post-content-choice">
-                                <span><i class="fas fa-plane"></i></span>
-                                <span>Celebration</span>     
-                            </div>
-                            <div class="col-6 post-content-choice">
-                                <span><i class="fas fa-ship"></i></span>
-                                <span>Cupcake</span>                                
-                            </div>
-                            <div class="col-6 post-content-choice">
-                                <span><i class="fas fa-train"></i></span>
-                                <span>Occasion</span> 
-                            </div>
-                        </div>
-                        <div class="cake-item-btn"><button>Read More</button></div>
-
-                    </div>
+                <div class="staff-employee-name">
+                    Anabel Harpole
+                </div>
+                <div class="staff-employee-profession">
+                    Designer
                 </div>
             </div>
-    </section>
-
-    <section id="salesNumber">
-        <div class="container">
-            <div class="row sales-items">
-                <div class="col-lg-3 col-sm-6 sales-item">
-                    <div class="sales-item-icon">
-                        <i class="fal fa-gem"></i>
+            <div class="col-lg-4 col-md-6 staff-employee">
+                <div class="staff-employee-image">
+                    <div class="staff-employee-image-second">
+                        <img src="../static/main/img/employee-2.jpg" alt="">
                     </div>
-                    <div class="sales-item-num">
-                        960+
+                    <div class="staff-employee-social">
+                        <div class="staff-employee-social-icon twitter">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon facebook">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon google-plus">
+                            <a href=""><i class="fab fa-google-plus-g"></i></a>
+                        </div>
                     </div>
-                    <div class="sales-item-title">
-                        Red Velvet
-                    </div>
+                    <img class="img-back" src="../static/main/img/employee-2.jpg" alt="">
                 </div>
-                <div class="col-lg-3 col-sm-6 sales-item">
-                    <div class="sales-item-icon">
-                        <i class="fad fa-mug-hot"></i>
-                    </div>
-                    <div class="sales-item-num">
-                        750+
-                    </div>
-                    <div class="sales-item-title">
-                        Designer Cake
-                    </div>
+                <div class="staff-employee-name">
+                    Luise Garay
                 </div>
-                <div class="col-lg-3 col-sm-6 sales-item">
-                    <div class="sales-item-icon">
-                        <i class="fas fa-adjust"></i>
-                    </div>
-                    <div class="sales-item-num">
-                        520+
-                    </div>
-                    <div class="sales-item-title">
-                        Fruit Cakes
-                    </div>
+                <div class="staff-employee-profession">
+                    Chef
                 </div>
-                <div class="col-lg-3 col-sm-6 sales-item">
-                    <div class="sales-item-icon">
-                        <i class="fas fa-building"></i>
+            </div>
+            <div class="col-lg-4 col-md-6 staff-employee">
+                <div class="staff-employee-image">
+                    <div class="staff-employee-image-second">
+                        <img src="../static/main/img/employee-3.jpg" alt="">
                     </div>
-                    <div class="sales-item-num">
-                        860+
+                    <div class="staff-employee-social">
+                        <div class="staff-employee-social-icon twitter">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon facebook">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon google-plus">
+                            <a href=""><i class="fab fa-google-plus-g"></i></a>
+                        </div>
                     </div>
-                    <div class="sales-item-title">
-                        Celebration
-                    </div>
+                    <img class="img-back" src="../static/main/img/employee-3.jpg" alt="">
+                </div>
+                <div class="staff-employee-name">
+                    Serafina Portis
+                </div>
+                <div class="staff-employee-profession">
+                    Store Manager
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="staff" class="section-padding">
-        <div class="container">
-            <div class="page-item-header">
-                <h1>Our Staff</h1>
-                <span>Meet our toddler care supporter and gorgeous team members</span>
-            </div>
-            <div class="row staff-employees">
-                <div class="col-lg-4 col-md-6 staff-employee">
-                    <div class="staff-employee-image">
-                        <div class="staff-employee-image-second">
-                            <img src="img/employee-1.jpg" alt="">
-                        </div>
-                        <div class="staff-employee-social">
-                            <div class="staff-employee-social-icon twitter">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon facebook">
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon google-plus">
-                                <a href=""><i class="fab fa-google-plus-g"></i></a>
-                            </div>
-                        </div>
-                        <img class="img-back" src="img/employee-1.jpg" alt="">
-                    </div>
-                    <div class="staff-employee-name">
-                        Anabel Harpole
-                    </div>
-                    <div class="staff-employee-profession">
-                        Designer
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 staff-employee">
-                    <div class="staff-employee-image">
-                        <div class="staff-employee-image-second">
-                            <img src="img/employee-2.jpg" alt="">
-                        </div>
-                        <div class="staff-employee-social">
-                            <div class="staff-employee-social-icon twitter">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon facebook">
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon google-plus">
-                                <a href=""><i class="fab fa-google-plus-g"></i></a>
-                            </div>
-                        </div>
-                        <img class="img-back" src="img/employee-2.jpg" alt="">
-                    </div>
-                    <div class="staff-employee-name">
-                        Luise Garay
-                    </div>
-                    <div class="staff-employee-profession">
-                        Chef
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 staff-employee">
-                    <div class="staff-employee-image">
-                        <div class="staff-employee-image-second">
-                            <img src="img/employee-3.jpg" alt="">
-                        </div>
-                        <div class="staff-employee-social">
-                            <div class="staff-employee-social-icon twitter">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon facebook">
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                            </div>
-                            <div class="staff-employee-social-icon google-plus">
-                                <a href=""><i class="fab fa-google-plus-g"></i></a>
-                            </div>
-                        </div>
-                        <img class="img-back" src="img/employee-3.jpg" alt="">
-                    </div>
-                    <div class="staff-employee-name">
-                        Serafina Portis
-                    </div>
-                    <div class="staff-employee-profession">
-                        Store Manager
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <div class="footer-items">
-                <div class="row">
-                    <div class="footer-col">
-                        <div class="footer-item">
-                            <h5>Contact us</h5>
-                            <ul>
-                                <li>No: 58 A, East Madison Street, <br>
-                                    Baltimore, MD,
-                                    <br> USA 4508.
-                                </li>
-                                <li><i class="fas fa-phone-alt"></i> +080 123 4567</li>
-                                <li>
-                                    <a href="#"><i class="fal fa-envelope"></i> support@somemail.com</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-col footer-help">
-                        <div class="footer-item">
-                            <h5>Help</h5>
-                            <ul>
-                                <li><a href="">Search</a></li>
-                                <li><a href="">Help</a></li>
-                                <li><a href="">Information</a></li>
-                                <li><a href="">Privacy Policy</a></li>
-                                <li><a href="">Shipping Details</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-col footer-support">
-                        <div class="footer-item">
-                            <h5>Support</h5>
-                            <ul>
-                                <li><a href="">Contact us</a></li>
-                                <li><a href="">About us</a></li>
-                                <li><a href="">Careers</a></li>
-                                <li><a href="">Refunds & Returns</a></li>
-                                <li><a href="">Deliveries</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-col ">
-                        <div class="footer-item footer-item-newsletter">
-                            <h5>Newsletter</h5>
-                            <ul>
-                                <li>A short sentence describing what someone will receive by subscribing</li>
-                            </ul>
-                            <div class="footer-input">
-                                <input type="email" name="" id="" placeholder="Email address">
-                                <a href=""><i class="fas fa-paper-plane"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-    <section id="footer-contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="footer-contact">
-                        <div class="copyright">
-                            <span>Copyright <a href="">Powered by Shopify</a></span>
-                            <span>
-                                <a href="" class="social-icon"><i class="fab fa-twitter"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-google"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-tumblr"></i></a>
-                            </span>
-
-                        </div>
-                        <ul class="footer-cards">
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-1.png" alt=""></a>                                
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-2.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-3.png" alt=""></a>                               
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"> <img src="img/footer-card-4.png" alt=""></a>                              
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="img/footer-card-5.png" alt=""></a>                                
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-
-</html>
+    </div>
+</section>
+{% endblock content %}
+     

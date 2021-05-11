@@ -1,0 +1,33 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Logo</h3>
+
+<form action="{{url_for('admin_logos')}}" method="POST" enctype="multipart/form-data">
+    {{form.l_image(class='form-control my-2',placeholder='Logo Image')}}
+    {{form.submit(value='Add Logo',class='btn btn-primary')}}
+</form>
+
+<h4 class="my-2">All Logos</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Logo Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for logo in logos %}
+        <tr>
+            <td scope="row">{{logo.l_image}}</td>
+            <td>
+                <a href="/admin/logos/delete/{{logo.id}}">Delete</a>
+                <a href="/admin/logos/update/{{logo.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+
+
+    </tbody>
+</table>
+{% endblock content %}

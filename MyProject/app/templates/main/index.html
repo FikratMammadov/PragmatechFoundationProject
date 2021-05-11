@@ -1,7 +1,8 @@
 {% extends 'main/base.html' %}
 
+
 {% block content %}
-     
+
 
 <section id="home-slider">
     <!-- <div class="home-slider-buttons">
@@ -681,7 +682,8 @@
             <div class="row">
                 <div class="blog-item">
                     <div class="blog-item-image">
-                        <a href="Home Sub Pages/chocolate-cake.html"><img src="static/main/img/blog-img-1.jpg" alt=""></a>
+                        <a href="Home Sub Pages/chocolate-cake.html"><img src="static/main/img/blog-img-1.jpg"
+                                alt=""></a>
                     </div>
                     <div class="blog-item-content">
                         <h3>
@@ -829,7 +831,18 @@
     <div class="container">
         <div class="features-items">
             <div class="row">
+                {% for feature in features  %}
                 <div class="features-item-col">
+                    <div class="features-item">
+                        <div class="features-item-img">
+                            <img src="static/uploads/{{feature.features_image}}" alt="">
+                        </div>
+                        <h5>{{feature.features_title}}</h5>
+                        <span>{{feature.features_content}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- <div class="features-item-col">
                     <div class="features-item">
                         <div class="features-item-img">
                             <img src="static/main/img/features-item-img-1.png" alt="">
@@ -857,7 +870,7 @@
                         <h5>Free Shipping World Wide</h5>
                         <span>On Order Over $23 - 7 Days A Week</span>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -871,7 +884,13 @@
             <div class="row">
                 <div class="col-12">
                     <ul class="logo-items">
+
+                        {% for logo in logos %}
                         <li class="logo-item">
+                            <img src="static/uploads/{{logo.l_image}}" alt="">
+                        </li>
+                        {% endfor %}
+                        <!-- <li class="logo-item">
                             <img src="static/main/img/features-logo-1.png" alt="">
                         </li>
                         <li class="logo-item logo-item-res-4">
@@ -885,7 +904,7 @@
                         </li>
                         <li class="logo-item logo-item-res-1">
                             <img src="static/main/img/features-logo-5.png" alt="">
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -893,5 +912,9 @@
     </div>
 </section>
 
- 
+
 {% endblock content %}
+
+{% block scripts %}
+<script src="static/main/js/script.js"></script>
+{% endblock scripts %}
