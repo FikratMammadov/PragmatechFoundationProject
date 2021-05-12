@@ -1,0 +1,33 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Social Media</h3>
+
+<form action="{{url_for('admin_social_medias')}}" method="POST" enctype="multipart/form-data">
+    {{form.social_icon(class='form-control my-2',placeholder='Social Media Icon')}}
+    {{form.social_url(class='form-control my-2',placeholder='Social Media URL')}}
+    {{form.submit(value='Add Social Media',class='btn btn-primary')}}
+</form>
+
+<h4 class="my-2">All Social Medias</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Social Media Icon</th>
+            <th>Social Media URL</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for socialMedia in socialMedias %}
+        <tr>
+            <td>{{socialMedia.social_icon}}</td>
+            <td>{{socialMedia.social_url}}</td>
+            <td>
+                <a href="/admin/social_medias/delete/{{socialMedia.id}}">Delete</a>
+                <a href="/admin/social_medias/update/{{socialMedia.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

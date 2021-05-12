@@ -19,3 +19,8 @@ class Logos(db.Model):
 class PaymentCards(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     card_image=db.Column(db.String(100))
+
+class SocialMedias(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    social_icon=db.Column(db.String(100))
+    social_url=db.Column(db.String(100))

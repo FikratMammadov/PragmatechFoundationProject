@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm
-from app.models import ShopContact, Features, Logos,PaymentCards
+from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm,SocialMediasForm
+from app.models import ShopContact, Features, Logos,PaymentCards,SocialMedias
 
 
 @app.route('/admin')
@@ -137,7 +137,7 @@ def update_admin_logos(id):
 # Payment Cards routes
 
 @app.route('/admin/cards',methods=['GET','POST'])
-def main_cards():
+def admin_cards():
     cards = PaymentCards.query.all()
     form = PaymentCardsForm()
     if request.method=='POST':
@@ -149,18 +149,18 @@ def main_cards():
         )
         db.session.add(card)
         db.session.commit()
-        return redirect(url_for('main_cards'))
+        return redirect(url_for('admin_cards'))
     return render_template('admin/payment_cards.html',form = form,cards=cards)
 
 @app.route('/admin/cards/delete/<int:id>')
-def delete_main_cards(id):
+def delete_admin_cards(id):
     card = PaymentCards.query.get(id)
     db.session.delete(card)
     db.session.commit()
-    return redirect(url_for('main_cards'))
+    return redirect(url_for('admin_cards'))
 
 @app.route('/admin/cards/update/<int:id>',methods=['GET','POST'])
-def update_main_cards(id):
+def update_admin_cards(id):
     card = PaymentCards.query.get(id)
     form = PaymentCardsForm()
     if request.method=='POST':
@@ -169,5 +169,40 @@ def update_main_cards(id):
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         card.card_image = filename
         db.session.commit()
-        return redirect(url_for('main_cards'))
+        return redirect(url_for('admin_cards'))
     return render_template('admin/payment_cards_update.html',form = form)
+
+
+# Social Medias routes
+
+@app.route('/admin/social_medias',methods = ['GET','POST'])
+def admin_social_medias():
+    socialMedias = SocialMedias.query.all()
+    form = SocialMediasForm()
+    if request.method=='POST':
+        socialMedia = SocialMedias(
+            social_icon=form.social_icon.data,
+            social_url=form.social_url.data
+        )
+        db.session.add(socialMedia)
+        db.session.commit()
+        return redirect(url_for('admin_social_medias'))
+    return render_template('admin/social_medias.html',form=form,socialMedias=socialMedias)
+
+@app.route('/admin/social_medias/delete/<int:id>')
+def delete_admin_social_medias(id):
+    socialMedia=SocialMedias.query.get(id)
+    db.session.delete(socialMedia)
+    db.session.commit()
+    return redirect(url_for('admin_social_medias'))
+
+@app.route('/admin/social_medias/update/<int:id>',methods=['GET','POST'])
+def update_admin_social_medias(id):
+    socialMedia=SocialMedias.query.get(id)
+    form = SocialMediasForm()
+    if request.method=='POST':
+        socialMedia.social_icon=form.social_icon.data
+        socialMedia.social_url=form.social_url.data
+        db.session.commit()
+        return redirect(url_for('admin_social_medias'))
+    return render_template('admin/social_medias_update.html',form=form,socialMedia=socialMedia)

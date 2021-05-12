@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Social Media</h3>
+
+<form action="/admin/social_medias/update/{{socialMedia.id}}" method="POST">
+    {{form.social_icon(class='form-control my-2',placeholder='Social Media Icon',value=socialMedia.social_icon)}}
+    {{form.social_url(class='form-control my-2',placeholder='Social Media URL' ,value=socialMedia.social_url)}}
+    {{form.submit(value='Update Social Media',class='btn btn-primary')}}
+</form>
+
+{% endblock content %}

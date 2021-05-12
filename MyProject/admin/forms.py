@@ -12,3 +12,8 @@ class LogoUpdateForm(FlaskForm):
 class PaymentCardsForm(FlaskForm):
     card_image=FileField('card_image')
     submit = SubmitField()
+
+class SocialMediasForm(FlaskForm):
+    social_icon=StringField('social_icon')
+    social_url=StringField('social_url')
+    submit=SubmitField()

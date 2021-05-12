@@ -192,10 +192,13 @@
                         <div class="copyright">
                             <span>Copyright <a href="">Powered by Shopify</a></span>
                             <span>
-                                <a href="" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                {% for socialMedia in socialMedias %}
+                                <a href="{{socialMedia.social_url}}" class="social-icon"><i class="{{socialMedia.social_icon}}"></i></a>
+                                {% endfor %}
+                                <!-- <a href="" class="social-icon"><i class="fab fa-twitter"></i></a>
                                 <a href="" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                                 <a href="" class="social-icon"><i class="fab fa-google"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-tumblr"></i></a>
+                                <a href="" class="social-icon"><i class="fab fa-tumblr"></i></a> -->
                             </span>
 
                         </div>
