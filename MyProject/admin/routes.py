@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm
-from app.models import ShopContact, Features, Logos
+from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm
+from app.models import ShopContact, Features, Logos,PaymentCards
 
 
 @app.route('/admin')
@@ -133,3 +133,41 @@ def update_admin_logos(id):
         return redirect('/admin/logos')
 
     return render_template('admin/logos_update.html', logo=logo, form=form)
+
+# Payment Cards routes
+
+@app.route('/admin/cards',methods=['GET','POST'])
+def main_cards():
+    cards = PaymentCards.query.all()
+    form = PaymentCardsForm()
+    if request.method=='POST':
+        file = form.card_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        card = PaymentCards(
+            card_image=filename
+        )
+        db.session.add(card)
+        db.session.commit()
+        return redirect(url_for('main_cards'))
+    return render_template('admin/payment_cards.html',form = form,cards=cards)
+
+@app.route('/admin/cards/delete/<int:id>')
+def delete_main_cards(id):
+    card = PaymentCards.query.get(id)
+    db.session.delete(card)
+    db.session.commit()
+    return redirect(url_for('main_cards'))
+
+@app.route('/admin/cards/update/<int:id>',methods=['GET','POST'])
+def update_main_cards(id):
+    card = PaymentCards.query.get(id)
+    form = PaymentCardsForm()
+    if request.method=='POST':
+        file = form.card_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        card.card_image = filename
+        db.session.commit()
+        return redirect(url_for('main_cards'))
+    return render_template('admin/payment_cards_update.html',form = form)

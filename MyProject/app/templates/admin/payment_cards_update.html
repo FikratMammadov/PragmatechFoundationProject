@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Card</h3>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {{form.card_image(class='form-control my-2',placeholder='Card Image')}}
+    {{form.submit(value='Update Card',class='btn btn-primary')}}
+</form>
+
+
+{% endblock content %}

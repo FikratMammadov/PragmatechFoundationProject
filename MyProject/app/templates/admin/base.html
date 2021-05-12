@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="d-flex">
+        <nav class="navbar navbar-expand navbar-dark bg-dark col-6 col-md-2" style="height: 100vh;">
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <ul class="navbar-nav flex flex-column">
                             <li class="nav-item active">
                                 <a class="nav-link" href="/admin">Home <span class="sr-only">(current)</span></a>
                             </li>
@@ -27,15 +27,21 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin/features">Features</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/logos">Logos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/cards">Payment Cards</a>
+                            </li>
                         </ul>
+                    
                     </div>
                 </div>
             </div>
 
         </div>
     </nav>
-
-    <div class="container">
+    <div class="container col-6 col-md-10 my-4">
         <div class="row">
             <div class="col-12">
                 {% block content %}
@@ -44,6 +50,10 @@
             </div>
         </div>
     </div>
+    </div>
+    
+
+     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

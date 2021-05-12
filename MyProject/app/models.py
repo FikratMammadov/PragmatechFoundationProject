@@ -15,3 +15,7 @@ class Features(db.Model):
 class Logos(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     l_image=db.Column(db.String(100))
+
+class PaymentCards(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    card_image=db.Column(db.String(100))

@@ -1,0 +1,34 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Card</h3>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {{form.card_image(class='form-control my-2',placeholder='Card Image')}}
+    {{form.submit(value='Add Card',class='btn btn-primary')}}
+</form>
+
+<h4 class="my-2">All Cards</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Card Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for card in cards %}
+        <tr>
+            <td scope="row">{{card.card_image}}</td>
+            <td>
+                <a href="/admin/cards/delete/{{card.id}}">Delete</a>
+                <a href="/admin/cards/update/{{card.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+         
+
+
+    </tbody>
+</table>
+{% endblock content %}

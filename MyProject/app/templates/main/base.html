@@ -102,9 +102,12 @@
                             <li><a href="{{url_for('main_collections')}}">Collection <i
                                         class="fal fa-chevron-down"></i></a></li>
                             <li><a href="{{url_for('main_shop')}}">Shop <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="{{url_for('main_wedding')}}">Wedding Cakes <i class="fal fa-chevron-down"></i></a></li>
-                            <li><a href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_cookies')}}">Cookies Cakes <i
+                                        class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_wedding')}}">Wedding Cakes <i
+                                        class="fal fa-chevron-down"></i></a></li>
+                            <li><a href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a>
+                            </li>
                             <li><a href="{{url_for('main_aboutus')}}">Pages <i class="fal fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
@@ -197,7 +200,13 @@
 
                         </div>
                         <ul class="footer-cards">
+                            {% for card in cards %}
                             <li class="footer-card">
+                                <a href="Home Sub Pages/shopping-cart.html"><img src="static/uploads/{{card.card_image}}"
+                                        alt=""></a>
+                            </li>
+                            {% endfor %}
+                            <!-- <li class="footer-card">
                                 <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-1.png"
                                         alt=""></a>
                             </li>
@@ -216,7 +225,7 @@
                             <li class="footer-card">
                                 <a href="Home Sub Pages/shopping-cart.html"><img src="static/main/img/footer-card-5.png"
                                         alt=""></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
