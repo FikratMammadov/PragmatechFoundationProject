@@ -165,19 +165,19 @@
                         <div class="col-6 post-content-choice">
                             <span><i class="fas fa-car-alt"></i></span>
                             <span>Candy</span>
-                             
+
                         </div>
                         <div class="col-6 post-content-choice">
                             <span><i class="fas fa-plane"></i></span>
-                            <span>Celebration</span>     
+                            <span>Celebration</span>
                         </div>
                         <div class="col-6 post-content-choice">
                             <span><i class="fas fa-ship"></i></span>
-                            <span>Cupcake</span>                                
+                            <span>Cupcake</span>
                         </div>
                         <div class="col-6 post-content-choice">
                             <span><i class="fas fa-train"></i></span>
-                            <span>Occasion</span> 
+                            <span>Occasion</span>
                         </div>
                     </div>
                     <div class="cake-item-btn"><button>Read More</button></div>
@@ -258,7 +258,35 @@
             <span>Meet our toddler care supporter and gorgeous team members</span>
         </div>
         <div class="row staff-employees">
+            {% for employee in employees %}
             <div class="col-lg-4 col-md-6 staff-employee">
+                <div class="staff-employee-image">
+                    <div class="staff-employee-image-second">
+                        <img src="../static/uploads/{{employee.e_image}}" alt="">
+                    </div>
+                    <div class="staff-employee-social">
+                        <div class="staff-employee-social-icon twitter">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon facebook">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                        <div class="staff-employee-social-icon google-plus">
+                            <a href=""><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                    </div>
+                    <img class="img-back" src="../static/uploads/{{employee.e_image}}" alt="">
+                </div>
+                <div class="staff-employee-name">
+                    {{employee.e_fullname}}
+                </div>
+                <div class="staff-employee-profession">
+                    {{employee.e_profession}}
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="col-lg-4 col-md-6 staff-employee">
                 <div class="staff-employee-image">
                     <div class="staff-employee-image-second">
                         <img src="../static/main/img/employee-1.jpg" alt="">
@@ -332,9 +360,8 @@
                 <div class="staff-employee-profession">
                     Store Manager
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
 {% endblock content %}
-     

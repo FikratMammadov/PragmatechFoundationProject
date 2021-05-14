@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Employee</h3>
+
+<form action="/admin/employees/update/{{employee.id}}" method="POST" enctype="multipart/form-data">
+      {{form.e_fullname(class='form-control my-2',placeholder = 'Employee Fullname',value = employee.e_fullname)}}
+      {{form.e_image(class='form-control my-2')}}
+      {{form.e_profession(class='form-control my-2' , placeholder='Employee Profession',value = employee.e_profession)}}
+      {{form.submit(class='btn btn-primary', value='Update Employee')}}
+</form>
+
+{% endblock content %}

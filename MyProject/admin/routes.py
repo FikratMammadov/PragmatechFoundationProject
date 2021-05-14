@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm,SocialMediasForm,SalesForm
-from app.models import ShopContact, Features, Logos,PaymentCards,SocialMedias,Sales
+from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm,SocialMediasForm,SalesForm,EmployeesForm
+from app.models import ShopContact, Features, Logos,PaymentCards,SocialMedias,Sales,Employees
 
 
 @app.route('/admin')
@@ -243,3 +243,46 @@ def update_admin_sales(id):
         db.session.commit()
         return redirect(url_for('admin_sales'))
     return render_template('admin/sales_update.html',form=form,sale=sale)
+    
+
+# Employees routes
+
+@app.route('/admin/employees',methods=['GET','POST'])
+def admin_employees():
+    employees = Employees.query.all()
+    form = EmployeesForm()
+    if request.method == 'POST':       
+        file = form.e_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        employee = Employees(
+            e_fullname = form.e_fullname.data,
+            e_image = filename,
+            e_profession = form.e_profession.data
+        )
+        db.session.add(employee)
+        db.session.commit()
+        return redirect(url_for('admin_employees'))
+    return render_template('admin/employees.html',form = form,employees=employees)
+
+@app.route('/admin/employees/delete/<int:id>')
+def delete_admin_employees(id):
+    employee = Employees.query.get(id)
+    db.session.delete(employee)
+    db.session.commit()
+    return redirect(url_for('admin_employees'))
+
+@app.route('/admin/employees/update/<int:id>',methods = ['GET','POST'])
+def update_admin_employees(id):
+    employee = Employees.query.get(id)
+    form = EmployeesForm()
+    if request.method=='POST':
+        file = form.e_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        employee.e_fullname = form.e_fullname.data
+        employee.e_image = filename
+        employee.e_profession = form.e_profession.data
+        db.session.commit()
+        return redirect(url_for('admin_employees'))
+    return render_template('admin/employees_update.html',form=form,employee=employee)

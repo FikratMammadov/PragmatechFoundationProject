@@ -30,3 +30,10 @@ class Sales(db.Model):
     sales_name = db.Column(db.String(50))
     sales_icon = db.Column(db.String(50))
     sales_number = db.Column(db.String(50))
+
+class Employees(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    e_image = db.Column(db.String(100))
+    e_fullname = db.Column(db.String(100))
+    e_profession = db.Column(db.String(100))
+

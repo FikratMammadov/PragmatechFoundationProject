@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees
 
 # index route
 
@@ -73,4 +73,5 @@ def main_aboutus():
     cards = PaymentCards.query.all()
     socialMedias = SocialMedias.query.all()
     sales = Sales.query.all()
-    return render_template('main/pages.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,sales=sales)
+    employees = Employees.query.all()
+    return render_template('main/pages.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,sales=sales,employees=employees)

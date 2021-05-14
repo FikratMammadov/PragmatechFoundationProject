@@ -23,3 +23,9 @@ class SalesForm(FlaskForm):
     sales_icon=StringField('sales_icon')
     sales_number=IntegerField('sales_number')
     submit=SubmitField()
+
+class EmployeesForm(FlaskForm):
+    e_fullname = StringField('e_fullname')
+    e_image = FileField('e_image')
+    e_profession = StringField('e_profession')
+    submit = SubmitField()

@@ -7,7 +7,7 @@ let homeSliderItem = document.querySelector('.home-slider-item');
 let homeSliderPosition = document.querySelector('.home-slider-content-position');
 let homeSliderBtnLeft = document.querySelector('.home-slider-buttons .fa-chevron-left');
 let homeSliderBtnRight = document.querySelector('.home-slider-buttons .fa-chevron-right');
-let index = 0;
+let homeSliderIndex = 0;
 homeSliderContents = [
     {
         bgLink: "static/main/img/cake-3_2000x.jpg",
@@ -38,33 +38,33 @@ homeSliderContents = [
 ];
 
 homeSliderBtnLeft.addEventListener('click', function () {
-    index--;
-    if (index < 0) {
-        index = homeSliderContents.length - 1;
+    homeSliderIndex--;
+    if (homeSliderIndex < 0) {
+        homeSliderIndex = homeSliderContents.length - 1;
     }
     setHomeSliderContent();
 
-    console.log(index);
+    console.log(homeSliderIndex);
 });
 
 homeSliderBtnRight.addEventListener('click', function () {
-    index++;
-    if (index > homeSliderContents.length - 1) {
-        index = 0;
+    homeSliderIndex++;
+    if (homeSliderIndex > homeSliderContents.length - 1) {
+        homeSliderIndex = 0;
     }
     setHomeSliderContent();
 
-    console.log(index);
+    console.log(homeSliderIndex);
 });
 
 function setHomeSliderContent(){
-    homeSliderHeader.textContent = homeSliderContents[index].header;
-    homeSliderDescription.style.color = homeSliderContents[index].descriptionColor;
-    homeSliderPrice.textContent = homeSliderContents[index].price;
-    homeSliderBtn.style.color = homeSliderContents[index].btnColor;
-    homeSliderBtn.style.backgroundColor = homeSliderContents[index].btnBgColor;
-    homeSliderItem.style.backgroundImage = `url(${homeSliderContents[index].bgLink})`;
-    if (index == homeSliderContents.length - 1) {
+    homeSliderHeader.textContent = homeSliderContents[homeSliderIndex].header;
+    homeSliderDescription.style.color = homeSliderContents[homeSliderIndex].descriptionColor;
+    homeSliderPrice.textContent = homeSliderContents[homeSliderIndex].price;
+    homeSliderBtn.style.color = homeSliderContents[homeSliderIndex].btnColor;
+    homeSliderBtn.style.backgroundColor = homeSliderContents[homeSliderIndex].btnBgColor;
+    homeSliderItem.style.backgroundImage = `url(${homeSliderContents[homeSliderIndex].bgLink})`;
+    if (homeSliderIndex == homeSliderContents.length - 1) {
         homeSliderPosition.style.float = 'right'
     } else {
         homeSliderPosition.style.float = 'left'
@@ -82,7 +82,7 @@ let natureTasteSliderContent = document.querySelector('#natureTaste .slider .sli
 let natureTasteLeftBtn = document.querySelector('#natureTaste .slider .btn-1');
 let natureTasteRightBtn = document.querySelector("#natureTaste .slider .btn-2");
 let pos=0;
-index=0;
+let natureTasteIndex=0;
 
 for(let i=0;i<natureTasteContents.length;i++){
     natureTasteContents[i].style.width = natureTasteSliderContainerWidth+"px";
@@ -107,20 +107,20 @@ function checkSize(){
 }
 
 natureTasteLeftBtn.addEventListener("click",function(){   
-    if(index>0){
-        index--;
+    if(natureTasteIndex>0){
+        natureTasteIndex--;
         pos+=natureTasteSliderContainerWidth;
         natureTasteSliderContent.style.transform = `translateX(${pos}px)`;
-        console.log(index)
+        console.log(natureTasteIndex)
     }
 })
 natureTasteRightBtn.addEventListener('click',function(){
-    if (index < natureTasteContents.length - 1){
-        index++;
+    if (natureTasteIndex < natureTasteContents.length - 1){
+        natureTasteIndex++;
         pos-=natureTasteSliderContainerWidth;
         natureTasteSliderContent.style.transform = `translateX(${pos}px)`;
-        console.log(natureTasteContents[index-1]);
-        console.log(index)
+        console.log(natureTasteContents[natureTasteIndex-1]);
+        console.log(natureTasteIndex)
     }
 })
 

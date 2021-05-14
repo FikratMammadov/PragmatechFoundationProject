@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Employee</h3>
+
+<form action="/admin/employees" method="POST" enctype="multipart/form-data">
+      {{form.e_fullname(class='form-control my-2',placeholder = 'Employee Fullname')}}
+      {{form.e_image(class='form-control my-2')}}
+      {{form.e_profession(class='form-control my-2' , placeholder='Employee Profession')}}
+      {{form.submit(class='btn btn-primary', value='Add Employee')}}
+</form>
+
+<h4 class="my-2">All Employees</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Employee Fullname</th>
+            <th>Employee Image</th>
+            <th>Employee Profession</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td scope="row">{{employee.e_fullname}}</td>
+            <td scope="row">{{employee.e_image}}</td>
+            <td scope="row">{{employee.e_profession}}</td>
+            <td>
+                <a href="/admin/employees/delete/{{employee.id}}">Delete</a>
+                <a href="/admin/employees/update/{{employee.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}
+               
+    </tbody>
+</table>
+{% endblock content %}
