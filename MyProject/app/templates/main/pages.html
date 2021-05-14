@@ -190,7 +190,20 @@
 <section id="salesNumber">
     <div class="container">
         <div class="row sales-items">
+            {% for sale in sales %}
             <div class="col-lg-3 col-sm-6 sales-item">
+                <div class="sales-item-icon">
+                    <i class="{{sale.sales_icon}}"></i>
+                </div>
+                <div class="sales-item-num">
+                    {{sale.sales_number}}+
+                </div>
+                <div class="sales-item-title">
+                    {{sale.sales_name}}
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="col-lg-3 col-sm-6 sales-item">
                 <div class="sales-item-icon">
                     <i class="fal fa-gem"></i>
                 </div>
@@ -233,7 +246,7 @@
                 <div class="sales-item-title">
                     Celebration
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Sale</h3>
+
+<form action="/admin/sales/update/{{sale.id}}" method="POST">
+     {{form.sales_name(class='form-control my-2', placeholder = 'Sale Name', value = sale.sales_name)}}
+     {{form.sales_icon(class='form-control my-2' ,placeholder = 'Sale Icon' ,value = sale.sales_icon)}}
+     {{form.sales_number(class='form-control my-2', placeholder = 'Sale Number', value = sale.sales_number)}}
+     {{form.submit(class = 'btn btn-primary', value='Update Sale')}}
+</form>
+
+{% endblock content %}

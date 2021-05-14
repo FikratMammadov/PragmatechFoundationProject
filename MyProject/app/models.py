@@ -24,3 +24,9 @@ class SocialMedias(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     social_icon=db.Column(db.String(100))
     social_url=db.Column(db.String(100))
+
+class Sales(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    sales_name = db.Column(db.String(50))
+    sales_icon = db.Column(db.String(50))
+    sales_number = db.Column(db.String(50))

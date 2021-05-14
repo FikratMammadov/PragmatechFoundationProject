@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm,SocialMediasForm
-from app.models import ShopContact, Features, Logos,PaymentCards,SocialMedias
+from admin.forms import LogosForm, LogoUpdateForm,PaymentCardsForm,SocialMediasForm,SalesForm
+from app.models import ShopContact, Features, Logos,PaymentCards,SocialMedias,Sales
 
 
 @app.route('/admin')
@@ -206,3 +206,40 @@ def update_admin_social_medias(id):
         db.session.commit()
         return redirect(url_for('admin_social_medias'))
     return render_template('admin/social_medias_update.html',form=form,socialMedia=socialMedia)
+
+
+# Sales routes
+
+@app.route('/admin/sales',methods=['GET','POST'])
+def admin_sales():
+    sales = Sales.query.all()
+    form = SalesForm()
+    if request.method=='POST':
+        sale = Sales(
+            sales_name = form.sales_name.data,
+            sales_icon = form.sales_icon.data,
+            sales_number = form.sales_number.data
+        )
+        db.session.add(sale)
+        db.session.commit()
+        return redirect(url_for('admin_sales'))
+    return render_template('admin/sales.html',form=form,sales=sales)
+
+@app.route('/admin/sales/delete/<int:id>')
+def delete_admin_sales(id):
+    sale = Sales.query.get(id)
+    db.session.delete(sale)
+    db.session.commit()
+    return redirect(url_for('admin_sales'))
+
+@app.route('/admin/sales/update/<int:id>',methods= ['GET','POST'])
+def update_admin_sales(id):
+    sale = Sales.query.get(id)
+    form = SalesForm()
+    if request.method=='POST':
+        sale.sales_name = form.sales_name.data
+        sale.sales_icon = form.sales_icon.data
+        sale.sales_number = form.sales_number.data
+        db.session.commit()
+        return redirect(url_for('admin_sales'))
+    return render_template('admin/sales_update.html',form=form,sale=sale)

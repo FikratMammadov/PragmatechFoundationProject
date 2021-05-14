@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Sale</h3>
+
+<form action="/admin/sales" method="POST">
+     {{form.sales_name(class='form-control my-2', placeholder = 'Sale Name')}}
+     {{form.sales_icon(class='form-control my-2' ,placeholder = 'Sale Icon')}}
+     {{form.sales_number(class='form-control my-2', placeholder = 'Sale Number')}}
+     {{form.submit(class = 'btn btn-primary', value='Add Sale')}}
+</form>
+
+<h4 class="my-2">All Sales</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Sale Name</th>
+            <th>Sale Icon</th>
+            <th>Sale Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sale in sales %}
+        <tr>
+            <td scope="row">{{sale.sales_name}}</td>
+            <td scope="row">{{sale.sales_icon}}</td>
+            <td scope="row">{{sale.sales_number}}</td>
+            <td>
+                <a href="/admin/sales/delete/{{sale.id}}">Delete</a>
+                <a href="/admin/sales/update/{{sale.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+    </tbody>
+</table>
+{% endblock content %}
