@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="my-2">Login Page</h3>
+    <form action="/login" method='POST'>
+        <input type="text" name="username" class="form-control my-2" placeholder="Username">
+        <input type="password" name="password" class="form-control my-2" placeholder="Password">
+        <input type="submit" class="btn btn-primary my-2" value="Login">
+    </form>
+{% endblock content %}

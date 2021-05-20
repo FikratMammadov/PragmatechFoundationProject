@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="my-2">Profile Page</h3>
+    <div class="card border-primary">
+      <div class="card-body">
+        <h4 class="card-title">{{user.fullname}}</h4>
+        <p class="card-text">Email: {{user.email}}</p>
+        <a href="/logout" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+{% endblock content %}
