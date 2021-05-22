@@ -9,16 +9,12 @@
 <section id="log-in">
     <div class="container-fluid">
         <div class="log-in-form">
-            <form action="/account/login" method="POST">
+            <form action="/account/register" method='POST'>
+                <input class="log-in-inp" type="text" placeholder="First Name" name="firstName">
+                <input class="log-in-inp" type="text" placeholder="Last Name" name = "lastName">
                 <input class="log-in-inp" type="email" placeholder="Email" name="email">
-                <input class="log-in-inp" type="password"  placeholder="Password" name="password">
-                <div class="log-in-question">
-                    <a href="">Forgot your password?</a>
-                </div>
-                <div class="cake-item-btn"><button>Sign In</button></div>
-                <div class="log-in-create">
-                    <a href="{{url_for('main_register')}}">Create account</a>
-                </div>
+                <input class="log-in-inp" type="password"  placeholder="Password" name='password'>
+                <div class="cake-item-btn"><button type="submit">Create</button></div>
                 <div class="log-in-return">
                     <a href="{{url_for('main_index')}}">Return to Store</a>
                 </div>

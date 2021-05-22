@@ -132,6 +132,7 @@ function choicesHeaderAccordion(e){
         choicesHeaderBtn.className = "fal fa-plus";
     }
 
+    e.preventDefault()
     console.log(choicesHeaderBtn)
 }
 

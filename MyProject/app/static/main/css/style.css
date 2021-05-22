@@ -17,6 +17,9 @@ a{
 
 /* Common Classes */
 
+.d-none{
+    display: none;
+}
  
 .section-padding{
     padding: 100px 0;
@@ -2289,6 +2292,21 @@ footer{
     font-size: 1.5em;
 }
 
+/* ACCOUNT PAGE  */
+.order-history h2,.acc-details h2{
+    font-weight: 400;
+    font-family: 'Lobster Two', cursive;
+    font-size: 2.5em;
+}
+.acc-details h3{
+    font-weight: 400;
+    font-family: 'Lobster Two', cursive;
+    font-size: 2em;
+}
+#accout-info span{
+    font-size: 1.5em;
+    font-weight: 300;
+}
 
 /* LOG IN PAGE */
 /* log-in section styles */
@@ -2296,17 +2314,17 @@ footer{
     padding: 60px 0;
 }
 .log-in-form{
-    width: 22%;
+    width: 25%;
     margin: 0 auto;
 }
 .log-in-inp{
     padding:15px 10px ;
     width: 100%;
     border: 1px solid #e4e4e4;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .log-in-form input{
-    border: none;
+    /* border: none; */
     outline: none;
     font-size: 1.5em;
     opacity: .8;

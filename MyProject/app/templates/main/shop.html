@@ -1,4 +1,7 @@
 {% extends 'main/base2.html' %}
+{% block shopActive %}
+    navbar-active
+{% endblock %}
 
 {% block content %}
 
@@ -384,7 +387,7 @@
                     </div>
                     <div class="choices-item">
                         <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Color
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Color
                         </div>
                         <ul class="choices-item-lists">
                             <li class="bg-red"> <a href="">Red</a> </li>
@@ -401,7 +404,7 @@
                     </div>
                     <div class="choices-item">
                         <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
+                            <a  class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
                         </div>
                         <ul class="choices-item-lists">
                             <li> <a href="">Biscoff</a> </li>
@@ -413,7 +416,7 @@
                     </div>
                     <div class="choices-item">
                         <div class="choices-item-header accordion " onclick="choicesHeaderAccordion(this)">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Price
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Price
                         </div>
                         <ul class="choices-item-lists">
                             <li> <a href="">$100 - $200</a> </li>
@@ -425,7 +428,7 @@
                     </div>
                     <div class="choices-item">
                         <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By
                             Flavour
                         </div>
                         <ul class="choices-item-lists">

@@ -96,7 +96,7 @@
         </div>
         <div id="header-menubar">
             <div id="header-logo">
-                <a href="index.html">
+                <a href="{{url_for('main_index')}}">
                     <img src="../static/main/img/logo.png" alt="">
                 </a>
             </div>
@@ -107,9 +107,18 @@
                             <li>
                                 <a href=""><i class="fal fa-search"></i></a>
                             </li>
+                            {% if loginStat == loginId %}
                             <li>
-                                <a href="log-in.html"><i class="fal fa-user"></i></a>
+                                <a href="/account/{{loginStat}}"><i class="fal fa-user-circle"></i></a>
                             </li>
+                            <li>
+                                <a href="/logout"><i class="fal fa-sign-out"></i></a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{{url_for('main_login')}}"><i class="fal fa-user"></i></a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="header-menubar-wishlist">
@@ -137,17 +146,25 @@
             <div class="container">
                 <div class="row">
                     <ul class="justify-content-center">
-                        <li class="navbar-active"><a href="{{url_for('main_index')}}">Home</a></li>
-                        <li><a href="{{url_for('main_collections')}}">Collection <i class="fal fa-chevron-down"></i></a>
+                        <li class="{% block indexActive %} {% endblock  %}"><a href="{{url_for('main_index')}}">Home</a>
                         </li>
-                        <li><a href="{{url_for('main_shop')}}">Shop <i class="fal fa-chevron-down"></i></a></li>
-                        <li><a href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a>
+                        <li class="{% block collectionActive %} {% endblock  %}"><a
+                                href="{{url_for('main_collections')}}">Collection <i
+                                    class="fal fa-chevron-down"></i></a>
                         </li>
-                        <li><a href="{{url_for('main_wedding')}}">Wedding Cakes <i class="fal fa-chevron-down"></i></a>
+                        <li class="{% block shopActive %} {% endblock  %}"><a href="{{url_for('main_shop')}}">Shop <i
+                                    class="fal fa-chevron-down"></i></a></li>
+                        <li class="{% block cookiesActive %} {% endblock  %}"><a
+                                href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a>
                         </li>
-                        <li><a href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a>
+                        <li class="{% block weddingActive %} {% endblock  %}"><a
+                                href="{{url_for('main_wedding')}}">Wedding Cakes <i class="fal fa-chevron-down"></i></a>
                         </li>
-                        <li><a href="{{url_for('main_aboutus')}}">Pages <i class="fal fa-chevron-down"></i></a></li>
+                        <li class="{% block cupcakesActive %} {% endblock  %}"><a
+                                href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a>
+                        </li>
+                        <li class="{% block pagesActive %} {% endblock  %}"><a href="{{url_for('main_aboutus')}}">Pages
+                                <i class="fal fa-chevron-down"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -237,20 +254,24 @@
                         </div>
                         <ul class="footer-cards">
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-1.png" alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"><img
+                                        src="../static/main/img/footer-card-1.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-2.png" alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"><img
+                                        src="../static/main/img/footer-card-2.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-3.png" alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"><img
+                                        src="../static/main/img/footer-card-3.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"> <img src="../static/main/img/footer-card-4.png"
-                                        alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"> <img
+                                        src="../static/main/img/footer-card-4.png" alt=""></a>
                             </li>
                             <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img src="../static/main/img/footer-card-5.png" alt=""></a>
+                                <a href="Home Sub Pages/shopping-cart.html"><img
+                                        src="../static/main/img/footer-card-5.png" alt=""></a>
                             </li>
                         </ul>
                     </div>
@@ -260,9 +281,9 @@
     </section>
 
     {% block scripts %}
-        
+
     {% endblock scripts %}
-     
+
 </body>
 
 </html>

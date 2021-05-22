@@ -37,3 +37,11 @@ class Employees(db.Model):
     e_fullname = db.Column(db.String(100))
     e_profession = db.Column(db.String(100))
 
+class User(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    firstName = db.Column(db.String(50),nullable=False)
+    lastName = db.Column(db.String(50),nullable=False)
+    email = db.Column(db.String(100), unique=True,nullable=False)
+    password = db.Column(db.String(50),nullable=False)
+    
+
