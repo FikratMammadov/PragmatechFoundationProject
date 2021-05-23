@@ -245,34 +245,20 @@
                         <div class="copyright">
                             <span>Copyright <a href="">Powered by Shopify</a></span>
                             <span>
-                                <a href="" class="social-icon"><i class="fab fa-twitter"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-google"></i></a>
-                                <a href="" class="social-icon"><i class="fab fa-tumblr"></i></a>
+                                {% for socialMedia in socialMedias %}
+                                <a href="{{socialMedia.social_url}}" class="social-icon"><i
+                                        class="{{socialMedia.social_icon}}"></i></a>
+                                {% endfor %}
                             </span>
 
                         </div>
                         <ul class="footer-cards">
+                            {% for card in cards %}
                             <li class="footer-card">
                                 <a href="Home Sub Pages/shopping-cart.html"><img
-                                        src="../static/main/img/footer-card-1.png" alt=""></a>
+                                        src="../static/uploads/{{card.card_image}}" alt=""></a>
                             </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img
-                                        src="../static/main/img/footer-card-2.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img
-                                        src="../static/main/img/footer-card-3.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"> <img
-                                        src="../static/main/img/footer-card-4.png" alt=""></a>
-                            </li>
-                            <li class="footer-card">
-                                <a href="Home Sub Pages/shopping-cart.html"><img
-                                        src="../static/main/img/footer-card-5.png" alt=""></a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

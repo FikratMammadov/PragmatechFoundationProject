@@ -93,17 +93,31 @@ def main_account(id):
     
 @app.route('/account/login',methods=['GET','POST'])
 def main_login():
-    commonVariables()
-    users=User.query.all()
+    shopContacts = ShopContact.query.all()
+    cards = PaymentCards.query.all()
+    socialMedias = SocialMedias.query.all()
+    loginStat = request.cookies.get('loginStatus')
+    users = User.query.all()
+    loginId='salam'
+    for user in users:
+        if str(user.id)==loginStat:
+            loginId = str(user.id)
     if request.method =='POST':
         for user in users:
             if user.email==request.form['email']:
                 if user.password == request.form['password']:
-                    resp = make_response(render_template('main/account.html',user=user, shopContacts=shopContacts, cards=cards,loginStat=loginStat,loginId=loginId))
+                    loginId = str(user.id)
+                    loginStat = loginId
+                    resp = make_response(render_template('main/account.html',user=user, shopContacts=shopContacts,socialMedias=socialMedias, cards=cards,loginStat=loginStat,loginId=loginId))
                     resp.set_cookie('loginStatus', str(user.id))
                     return resp
                 else:
                     return redirect('/account/login')
+            
+        if request.form['email']=='admin@gmail.com':
+            if request.form['password']=='admin':
+                return render_template('admin/index.html')
+
     return render_template('main/log-in.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
 
 
@@ -141,5 +155,3 @@ def logout():
     resp = make_response(render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId ))
     resp.set_cookie('loginStatus', 'logout')
     return resp
-
-# , shopContacts=shopContacts, features=features, logos=logos, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId
