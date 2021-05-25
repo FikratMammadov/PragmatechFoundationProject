@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Product Type</h3>
+
+<form action="/admin/product/type/update/{{type.id}}" method="POST" >
+      {{form.type_name(class='form-control my-2',placeholder = 'Update Type',value=type.type_name)}} 
+      {{form.submit(class='btn btn-primary', value='Update Product Type')}}   
+</form>
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Product Availability</h3>
+
+<form action="/admin/product/availability/update/{{ava.id}}" method="POST" >
+      {{form.pa_name(class='form-control my-2',placeholder = 'Product Availability',value = ava.pa_name)}} 
+      {{form.submit(class='btn btn-primary', value='Update Product Availability')}}   
+</form>
+
+{% endblock content %}

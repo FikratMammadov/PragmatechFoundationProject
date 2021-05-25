@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Product Size</h3>
+
+<form action="/admin/product/size/update/{{productSize.id}}" method="POST" >
+      {{form.s_name(class='form-control my-2',placeholder = 'Product Size',value=productSize.s_name)}} 
+      {{form.submit(class='btn btn-primary', value='Update Product Size')}}   
+</form>
+
+
+{% endblock content %}

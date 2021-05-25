@@ -1,0 +1,34 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product Category</h3>
+
+<form action="/admin/product/category" method="POST" >
+      {{form.cat_name(class='form-control my-2',placeholder = 'Product Category')}} 
+      {{form.submit(class='btn btn-primary', value='Add Product Category')}}   
+</form>
+
+<h4 class="my-2">All Product Categories</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td scope="row">{{category.cat_name}}</td>
+            <td>
+                <a href="/admin/product/category/delete/{{category.id}}">Delete</a>
+                <a href="/admin/product/category/update/{{category.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}
+         
+
+         
+               
+    </tbody>
+</table>
+{% endblock content %}

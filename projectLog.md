@@ -31,7 +31,7 @@
     - blog section'da slider
     - asked section'da slider
     - asked section'da accordion
-    - features section'da slider
+    - features section'da slider +
 - Shop
     - choices section'da category'də accordion +
     - choices section'da choices-item-header üçün accordion

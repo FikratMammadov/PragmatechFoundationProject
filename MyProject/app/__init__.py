@@ -4,7 +4,7 @@ from flask_migrate import Migrate,migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['SECRET_KEY']='dededed'
 
 UPLOAD_FOLDER = 'app/static/uploads/'

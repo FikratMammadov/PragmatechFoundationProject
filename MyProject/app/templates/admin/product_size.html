@@ -1,0 +1,32 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product Size</h3>
+
+<form action="/admin/product/size" method="POST" >
+      {{form.s_name(class='form-control my-2',placeholder = 'Product Size')}} 
+      {{form.submit(class='btn btn-primary', value='Add Product Size')}}   
+</form>
+
+<h4 class="my-2">All Product Sizes</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Size</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for productSize in productSizes %}
+        <tr>
+            <td scope="row">{{productSize.s_name}}</td>
+            <td>
+                <a href="/admin/product/size/delete/{{productSize.id}}">Delete</a>
+                <a href="/admin/product/size/update/{{productSize.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}
+         
+               
+    </tbody>
+</table>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product Type</h3>
+
+<form action="/admin/product/type" method="POST" >
+      {{form.type_name(class='form-control my-2',placeholder = 'Product Type')}} 
+      {{form.submit(class='btn btn-primary', value='Add Product Type')}}   
+</form>
+
+<h4 class="my-2">All Product Types</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for type in types %}
+        <tr>
+            <td scope="row">{{type.type_name}}</td>
+            <td>
+                <a href="/admin/product/type/delete/{{type.id}}">Delete</a>
+                <a href="/admin/product/type/update/{{type.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}
+         
+
+         
+
+         
+               
+    </tbody>
+</table>
+{% endblock content %}

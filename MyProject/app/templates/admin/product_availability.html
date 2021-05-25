@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product Availability</h3>
+
+<form action="/admin/product/availability" method="POST" >
+      {{form.pa_name(class='form-control my-2',placeholder = 'Product Availability')}} 
+      {{form.submit(class='btn btn-primary', value='Add Product Availability')}}   
+</form>
+
+<h4 class="my-2">All Product Availability</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Availability</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ava in avas %}
+        <tr>
+            <td scope="row">{{ava.pa_name}}</td>
+            <td>
+                <a href="/admin/product/availability/delete/{{ava.id}}">Delete</a>
+                <a href="/admin/product/availability/update/{{ava.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}      
+               
+    </tbody>
+</table>
+{% endblock content %}

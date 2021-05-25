@@ -1,0 +1,75 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product</h3>
+
+<form action="/admin/product" method="POST">
+    {{form.p_name(class='form-control my-2',placeholder = 'Product Name')}}
+    {{form.p_price(class='form-control my-2',placeholder = 'Product Price')}}
+    {{form.p_quantity(class='form-control my-2',placeholder = 'Product Quantity')}}
+    {{form.p_content(class='form-control my-2',placeholder = 'Product Content')}}
+
+    <select class="form-control my-2" name="p_size_id">
+        {% for productSize in productSizes %}
+        <option value="{{productSize.id}}">{{productSize.s_name}}</option>
+        {% endfor %}
+
+    </select>
+    <select class="form-control my-2" name="p_availability_id">
+        {% for ava in avas %}
+        <option value="{{ava.id}}">{{ava.pa_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_category_id">
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.cat_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_type_id">
+        {% for type in types %}
+        <option value="{{type.id}}">{{type.type_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_brand_id">
+        {% for brand in brands %}
+        <option value="{{brand.id}}">{{brand.brand_name}}</option>
+        {% endfor %}
+    </select>
+    {{form.submit(class='btn btn-primary', value='Add Product')}}
+</form>
+
+<h4 class="my-2">All Products</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Size</th>
+            <th>Availability</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Brand</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td scope="row">{{product.p_name}}</td>
+            <td>{{product.p_price}}</td>
+            <td>{{product.p_quantity}}</td>
+            <td>{{ProductSize.query.filter_by(id=product.p_size_id).first().s_name}}</td>
+            <td>{{ProductAvailability.query.filter_by(id=product.p_availability_id).first().pa_name}}</td>
+            <td>{{ProductCategory.query.filter_by(id=product.p_category_id).first().cat_name}}</td>
+            <td>{{ProductType.query.filter_by(id=product.p_type_id).first().type_name}}</td>
+            <td>{{ProductBrand.query.filter_by(id=product.p_brand_id).first().brand_name}}</td>
+            <td>
+                <a href="/admin/product/delete/{{product.id}}">Delete</a>
+                <a href="/admin/product/update/{{product.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock content %}

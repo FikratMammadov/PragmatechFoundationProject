@@ -1,0 +1,40 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Product</h3>
+
+<form action="/admin/product/update/{{product.id}}" method="POST">
+    {{form.p_name(class='form-control my-2',placeholder = 'Product Name',value=product.p_name)}}
+    {{form.p_price(class='form-control my-2',placeholder = 'Product Price',value=product.p_price)}}
+    {{form.p_quantity(class='form-control my-2',placeholder = 'Product Quantity',value=product.p_quantity)}}
+    {{form.p_content(class='form-control my-2',placeholder = 'Product Content')}}
+
+    <select class="form-control my-2" name="p_size_id">
+        {% for productSize in productSizes %}
+        <option value="{{productSize.id}}">{{productSize.s_name}}</option>
+        {% endfor %}
+
+    </select>
+    <select class="form-control my-2" name="p_availability_id">
+        {% for ava in avas %}
+        <option value="{{ava.id}}">{{ava.pa_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_category_id">
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.cat_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_type_id">
+        {% for type in types %}
+        <option value="{{type.id}}">{{type.type_name}}</option>
+        {% endfor %}
+    </select>
+    <select class="form-control my-2" name="p_brand_id">
+        {% for brand in brands %}
+        <option value="{{brand.id}}">{{brand.brand_name}}</option>
+        {% endfor %}
+    </select>
+    {{form.submit(class='btn btn-primary', value='Update Product')}}
+</form>
+
+{% endblock content %}
