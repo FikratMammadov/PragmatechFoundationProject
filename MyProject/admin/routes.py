@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand
+from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage
 
 
 @app.route('/admin')
@@ -308,11 +308,15 @@ def admin_product():
     types = ProductType.query.all()
     brands = ProductBrand.query.all()
     if request.method == 'POST':
+        file = form.p_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         product = Product(
             p_name=form.p_name.data,
             p_price=form.p_price.data,
             p_quantity=form.p_quantity.data,
             p_content=form.p_content.data,
+            p_img = filename,
             p_size_id=request.form['p_size_id'],
             p_availability_id = request.form['p_availability_id'],
             p_category_id= request.form['p_category_id'],
@@ -345,10 +349,14 @@ def update_admin_product(id):
     types = ProductType.query.all()
     brands = ProductBrand.query.all()
     if request.method == 'POST':
+        file = form.p_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         product.p_name = form.p_name.data
         product.p_price = form.p_price.data
         product.p_quantity = form.p_quantity.data
         product.p_content = form.p_content.data
+        product.p_img = filename
         product.p_size_id = request.form['p_size_id']
         product.p_availability_id=request.form['p_availability_id']
         product.p_category_id=request.form['p_category_id']
@@ -521,3 +529,49 @@ def update_admin_product_brand(id):
         db.session.commit()
         return redirect(url_for('admin_product_brand'))
     return render_template('admin/product_brand_update.html',form=form,brand=brand)
+
+@app.route('/admin/product/image',methods = ['GET','POST'])
+def admin_product_image():
+    form = ProductImageForm()
+    products = Product.query.all()
+    images = ProductImage.query.all()
+    if request.method=='POST':
+        file = form.img_url.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        img = ProductImage(
+            img_url = filename,
+            product_id = request.form['product_id']
+        )
+        db.session.add(img)
+        db.session.commit()
+        return redirect(url_for('admin_product_image'))
+
+    return render_template('admin/product_image.html',form=form,products=products,images=images,
+    Product=Product)
+
+@app.route('/admin/product/image/delete/<int:id>',methods = ['GET','POST'])
+def delet_admin_product_image(id):
+    image = ProductImage.query.get(id)
+    db.session.delete(image)
+    db.session.commit()
+    return redirect(url_for('admin_product_image'))
+
+@app.route('/admin/product/image/update/<int:id>',methods = ['GET','POST'])
+def update_admin_product_image(id):
+    image = ProductImage.query.get(id)
+    form = ProductImageForm()
+    products = Product.query.all()
+    if request.method=='POST':
+        file = form.img_url.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        image.img_url=filename
+        image.product_id = request.form['product_id']
+        db.session.commit()
+        return redirect(url_for('admin_product_image'))
+    return render_template('admin/product_image_update.html',form=form,image=image,products=products)
+
+
+
+

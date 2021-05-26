@@ -2,11 +2,12 @@
 {% block content %}
 <h3>Update Product</h3>
 
-<form action="/admin/product/update/{{product.id}}" method="POST">
+<form action="/admin/product/update/{{product.id}}" method="POST" enctype="multipart/form-data">
     {{form.p_name(class='form-control my-2',placeholder = 'Product Name',value=product.p_name)}}
     {{form.p_price(class='form-control my-2',placeholder = 'Product Price',value=product.p_price)}}
     {{form.p_quantity(class='form-control my-2',placeholder = 'Product Quantity',value=product.p_quantity)}}
     {{form.p_content(class='form-control my-2',placeholder = 'Product Content')}}
+    {{form.p_img(class='form-control my-2')}}
 
     <select class="form-control my-2" name="p_size_id">
         {% for productSize in productSizes %}

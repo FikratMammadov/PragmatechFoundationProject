@@ -35,6 +35,7 @@ class ProductForm(FlaskForm):
     p_price=FloatField('p_price')
     p_quantity = IntegerField('p_quantity')
     p_content = TextAreaField('p_content')
+    p_img = FileField('p_img')
     submit = SubmitField()
 
 class ProductSizeForm(FlaskForm):
@@ -56,3 +57,7 @@ class ProductTypeForm(FlaskForm):
 class ProductBrandForm(FlaskForm):
     brand_name=StringField('brand_name')
     submit = SubmitField()
+
+class ProductImageForm(FlaskForm):
+    img_url = FileField('img_url')
+    submit=SubmitField()

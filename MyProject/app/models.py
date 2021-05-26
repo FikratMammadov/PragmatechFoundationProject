@@ -80,11 +80,28 @@ class Product(db.Model):
     p_price = db.Column(db.Float,nullable=False)
     p_quantity = db.Column(db.Integer,nullable=False)
     p_content = db.Column(db.Text)
+    p_img = db.Column(db.String(100))
     p_size_id = db.Column(db.Integer,db.ForeignKey('ProductSize.id'),nullable = False)
     p_availability_id = db.Column(db.Integer,db.ForeignKey('ProductAvailability.id'))
     p_category_id = db.Column(db.Integer,db.ForeignKey('ProductCategory.id'),nullable = False)
     p_type_id = db.Column(db.Integer,db.ForeignKey('ProductType.id'),nullable = False)
     p_brand_id = db.Column(db.Integer,db.ForeignKey('ProductBrand.id'),nullable = False)
+    images = db.relationship('ProductImage',backref='Product',lazy=True)
+
+class ProductImage(db.Model):
+    __tablename__='ProductImage'
+    id = db.Column(db.Integer,primary_key=True)
+    img_url = db.Column(db.String(50),nullable=False)
+    product_id = db.Column(db.Integer,db.ForeignKey('Product.id'),nullable = False)
+
+class Post(db.Model):
+    __tablename__='Post'
+    id = db.Column(db.Integer,primary_key=True)
+    post_image = db.Column(db.String(100),nullable=False)
+    post_title = db.Column(db.String(50),nullable=False)
+    post_content = db.Column(db.Text)
+
+
 
  
         

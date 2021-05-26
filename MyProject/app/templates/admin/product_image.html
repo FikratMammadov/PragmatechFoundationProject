@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Product Images</h3>
+
+<form action="/admin/product/image" method="POST" enctype="multipart/form-data" >
+    <select class="form-control my-2" name="product_id">
+        {% for product in products %}
+        <option value="{{product.id}}">{{product.p_name}}</option>
+        {% endfor %}
+    </select>
+      {{form.img_url(class='form-control my-2',placeholder = 'Product Image')}} 
+      {{form.submit(class='btn btn-primary', value='Add Product Size')}}   
+</form>
+
+<h4 class="my-2">All Product Images</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for image in images %}
+        <tr>
+            <th scope="row">{{image.img_url}}</th>
+            <td>{{Product.query.filter_by(id=image.product_id).first().p_name}}</td>
+            <td>
+                <a href="/admin/product/image/delete/{{image.id}}">Delete</a>
+                <a href="/admin/product/image/update/{{image.id}}">Update</a>
+            </td>
+        </tr>  
+        {% endfor %}            
+    </tbody>
+</table>
+{% endblock content %}

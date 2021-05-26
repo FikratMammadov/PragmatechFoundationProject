@@ -1,8 +1,7 @@
 from app import app
 from flask import render_template, request, redirect, url_for,make_response
 from app import db
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User
-
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User,Product,ProductImage
 def commonVariables():
     global shopContacts,cards,socialMedias,loginStat,users,loginId
     shopContacts = ShopContact.query.all()
@@ -41,7 +40,11 @@ def main_collections():
 @app.route('/collections/all')
 def main_shop():
     commonVariables()
-    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
+    products = Product.query.all()
+    images = ProductImage.query.all()
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+     socialMedias=socialMedias,loginStat=loginStat,loginId=loginId,products=products,
+     images=images,ProductImage=ProductImage)
 
 # cookies cakes route
 

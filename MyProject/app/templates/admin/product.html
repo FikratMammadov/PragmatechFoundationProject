@@ -2,11 +2,12 @@
 {% block content %}
 <h3>Add Product</h3>
 
-<form action="/admin/product" method="POST">
+<form action="/admin/product" method="POST" enctype="multipart/form-data">
     {{form.p_name(class='form-control my-2',placeholder = 'Product Name')}}
     {{form.p_price(class='form-control my-2',placeholder = 'Product Price')}}
     {{form.p_quantity(class='form-control my-2',placeholder = 'Product Quantity')}}
     {{form.p_content(class='form-control my-2',placeholder = 'Product Content')}}
+    {{form.p_img(class='form-control my-2')}}
 
     <select class="form-control my-2" name="p_size_id">
         {% for productSize in productSizes %}
@@ -44,6 +45,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Img</th>
             <th>Size</th>
             <th>Availability</th>
             <th>Category</th>
@@ -58,6 +60,7 @@
             <td scope="row">{{product.p_name}}</td>
             <td>{{product.p_price}}</td>
             <td>{{product.p_quantity}}</td>
+            <td>{{product.p_img}}</td>
             <td>{{ProductSize.query.filter_by(id=product.p_size_id).first().s_name}}</td>
             <td>{{ProductAvailability.query.filter_by(id=product.p_availability_id).first().pa_name}}</td>
             <td>{{ProductCategory.query.filter_by(id=product.p_category_id).first().cat_name}}</td>

@@ -155,6 +155,9 @@ a{
 .cake-item-img-2{
     position: relative;
 }
+.cake-item-img-2 img{
+    /* object-fit: cover; */
+}
 .cake-item-img-overlay{
     position: absolute;
     top: 50%;

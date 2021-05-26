@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Product Images</h3>
+
+<form action="/admin/product/image/update/{{image.id}}" method="POST" enctype="multipart/form-data" >
+    <select class="form-control my-2" name="product_id">
+        {% for product in products %}
+        <option value="{{product.id}}">{{product.p_name}}</option>
+        {% endfor %}
+    </select>
+      {{form.img_url(class='form-control my-2',placeholder = 'Product Image')}} 
+      {{form.submit(class='btn btn-primary', value='Update Product Size')}}   
+</form>
+
+{% endblock content %}
