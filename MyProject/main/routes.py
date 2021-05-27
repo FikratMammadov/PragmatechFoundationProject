@@ -1,7 +1,8 @@
 from app import app
 from flask import render_template, request, redirect, url_for,make_response
 from app import db
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User,Product,ProductImage
+from datetime import datetime
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User,Product,ProductImage,Blog,BlogSocial,Comment
 def commonVariables():
     global shopContacts,cards,socialMedias,loginStat,users,loginId
     shopContacts = ShopContact.query.all()
@@ -15,7 +16,7 @@ def commonVariables():
             loginId = str(user.id)
     print(loginId)
         
-
+ 
     
 
 # index route
@@ -24,8 +25,10 @@ def commonVariables():
 def main_index():
     features = Features.query.all()
     logos = Logos.query.all()
+    blogs = Blog.query.all()
     commonVariables()
-    return render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
+    return render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos,
+     cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId,blogs=blogs)
 
 
 # collection route
@@ -158,3 +161,27 @@ def logout():
     resp = make_response(render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId ))
     resp.set_cookie('loginStatus', 'logout')
     return resp
+
+
+
+# Blog Page Routes
+
+@app.route('/blog/<int:id>',methods = ['GET','POST'])
+def main_blog(id):
+    commonVariables()
+    blog = Blog.query.get(id)
+    smedias = BlogSocial.query.all()
+    # comments = Comment.query.all()
+    if request.method=='POST':
+        comment = Comment(
+            c_name = request.form['c_name'],
+            c_email = request.form['c_email'],
+            c_msg = request.form['c_msg'],
+            c_date = datetime.now(),
+            blog_id = id
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('main_blog', id=id))
+    return render_template('main/blog.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,
+    loginStat=loginStat,loginId=loginId,blog=blog,smedias=smedias,BlogSocial = BlogSocial,Comment = Comment)

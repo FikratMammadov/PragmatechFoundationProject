@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Blog Social Media</h3>
+
+<form action="/admin/blog/social/update/{{smedia.id}}" method="POST" enctype="multipart/form-data">
+    <select class="form-control my-2" name="blog_id">
+        {% for blog in blogs %}
+        <option value="{{blog.id}}">{{blog.b_title}}</option>
+        {% endfor %}
+    </select>
+    {{form.social_icon(class='form-control my-2',placeholder = 'Social Media Icon',value = smedia.social_icon)}}
+    {{form.social_link(class='form-control my-2',placeholder = 'Social Media Link',value = smedia.social_link)}}
+    {{form.submit(class='btn btn-primary', value='Update Blog Social Media')}}
+</form>
+
+
+{% endblock content %}

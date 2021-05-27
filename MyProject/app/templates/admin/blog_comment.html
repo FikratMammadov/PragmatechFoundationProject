@@ -1,0 +1,33 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h4 class="my-2">All Blog Comments</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comment</th>
+            <th>Date</th>
+            <th>Blog Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for comment in comments %}
+        <tr>
+            <td>{{comment.c_name}}</td>
+            <td>{{comment.c_email}}</td>
+            <td>{{comment.c_msg}}</td>
+            <td>{{comment.c_date.strftime("%b")}} {{comment.c_date.day}}, {{comment.c_date.year}}</td>
+            <td>{{Blog.query.filter_by(id=comment.blog_id).first().b_title}}</td>
+            <td>
+                <a href="/admin/blog/comment/delete/{{comment.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+
+    </tbody>
+</table>
+{% endblock content %}

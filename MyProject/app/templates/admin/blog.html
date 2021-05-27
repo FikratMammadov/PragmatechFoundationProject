@@ -1,0 +1,40 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Blog</h3>
+
+<form action="/admin/blog" method="POST" enctype="multipart/form-data">
+    {{form.b_title(class='form-control my-2',placeholder = 'Blog Title')}}
+    {{form.b_content(class='form-control my-2',placeholder = 'Blog Content')}}
+    {{form.b_img(class='form-control my-2')}}
+    <input type="date" class="form-control my-2" style="width: 200px;" name="b_date">
+    {{form.submit(class='btn btn-primary', value='Add Blog')}}
+</form>
+
+<h4 class="my-2">All Blogs</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Blog Title</th>
+            <th>Blog Image</th>
+            <th>Blog Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+        <tr>
+            <td scope="row">{{blog.b_title}}</td>
+            <td>{{blog.b_img}}</td>
+            <td>{{blog.b_date.strftime("%b")}} {{blog.b_date.day}}, {{blog.b_date.year}}</td>
+            <td>
+                <a href="/admin/blog/delete/{{blog.id}}">Delete</a>
+                <a href="/admin/blog/update/{{blog.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+         
+
+    </tbody>
+</table>
+{% endblock content %}

@@ -100,6 +100,50 @@ class Post(db.Model):
     post_image = db.Column(db.String(100),nullable=False)
     post_title = db.Column(db.String(50),nullable=False)
     post_content = db.Column(db.Text)
+    postImages = db.relationship('PostImage',backref = 'Post',lazy=True)
+    postTransports = db.relationship('PostTransport',backref = 'Post',lazy=True)
+
+class PostImage(db.Model):
+    __tablename__='PostImage'
+    id = db.Column(db.Integer,primary_key=True)
+    post_img_url = db.Column(db.String(100),nullable=False)
+    post_id = db.Column(db.Integer,db.ForeignKey('Post.id'),nullable = False)
+
+class PostTransport(db.Model):
+    __tablename__='PostTransport'
+    id = db.Column(db.Integer,primary_key=True)
+    tp_name = db.Column(db.String(50),nullable=False)
+    tp_icon = db.Column(db.String(50),nullable=False)
+    post_id=db.Column(db.Integer,db.ForeignKey('Post.id'),nullable = False)
+
+class Blog(db.Model):
+    __tablename__='Blog'
+    id = db.Column(db.Integer,primary_key=True)
+    b_date = db.Column(db.DateTime,nullable=False)
+    b_title = db.Column(db.String(50),nullable=False)
+    b_content = db.Column(db.Text)
+    b_img = db.Column(db.String(50))
+    smedias = db.relationship('BlogSocial',backref = 'Blog',lazy=True)
+    comments = db.relationship('Comment',backref = 'Blog',lazy=True)
+     
+
+class BlogSocial(db.Model):
+    __tablename__='BlogSocial'
+    id = db.Column(db.Integer,primary_key=True)
+    social_icon = db.Column(db.String(50),nullable=False)
+    social_link = db.Column(db.String(50),nullable=False)
+    blog_id = db.Column(db.Integer,db.ForeignKey('Blog.id'),nullable = False)
+
+class Comment(db.Model):
+    __tablename__='Comment'
+    id = db.Column(db.Integer,primary_key=True)
+    c_name = db.Column(db.String(50),nullable=False)
+    c_email = db.Column(db.String(50),nullable=False)
+    c_msg = db.Column(db.Text)
+    c_date = db.Column(db.DateTime)
+    blog_id = db.Column(db.Integer,db.ForeignKey('Blog.id'),nullable = False)
+
+
 
 
 

@@ -2,9 +2,9 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage
-
+from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm,PostForm,PostImageForm,PostTransportForm,BlogSocialForm,BlogForm
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment
+from datetime import datetime
 
 @app.route('/admin')
 def admin_index():
@@ -530,6 +530,7 @@ def update_admin_product_brand(id):
         return redirect(url_for('admin_product_brand'))
     return render_template('admin/product_brand_update.html',form=form,brand=brand)
 
+# Product Image Routes
 @app.route('/admin/product/image',methods = ['GET','POST'])
 def admin_product_image():
     form = ProductImageForm()
@@ -573,5 +574,220 @@ def update_admin_product_image(id):
     return render_template('admin/product_image_update.html',form=form,image=image,products=products)
 
 
+# Post Routes
+@app.route('/admin/post',methods = ['GET','POST'])
+def admin_post():
+    form = PostForm()
+    posts = Post.query.all()
+    if request.method=='POST':
+        file = form.post_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        post = Post(
+            post_title = form.post_title.data,
+            post_image = filename,
+            post_content = form.post_content.data
+        )
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('admin_post'))
+    return render_template('admin/post.html',form = form,posts=posts)
+
+@app.route('/admin/post/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for('admin_post'))
+
+@app.route('/admin/post/update/<int:id>',methods = ['GET','POST'])
+def update_admin_post(id):
+    post = Post.query.get(id)
+    form = PostForm()
+    if request.method=='POST':
+        file = form.post_image.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        post.post_title = form.post_title.data
+        post.post_image = filename
+        post.post_content = form.post_content.data
+        db.session.commit()
+        return redirect(url_for('admin_post'))
+    return render_template('admin/post_update.html',form=form,post=post)
 
 
+# Post Image Routes
+@app.route('/admin/post/image',methods = ['GET','POST'])
+def admin_post_image():
+    form =PostImageForm()
+    posts = Post.query.all()
+    postImages = PostImage.query.all()
+    if request.method=='POST':
+        file = form.post_img_url.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        postImage = PostImage(
+            post_id = request.form['post_id'],
+            post_img_url = filename
+        )
+        db.session.add(postImage)
+        db.session.commit()
+        return redirect(url_for('admin_post_image'))
+    return render_template('admin/post_image.html',form = form,posts=posts,postImages=postImages,Post = Post)
+
+@app.route('/admin/post/image/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_post_image(id):
+    postImage = PostImage.query.get(id)
+    db.session.delete(postImage)
+    db.session.commit()
+    return redirect(url_for('admin_post_image'))
+
+
+@app.route('/admin/post/image/update/<int:id>',methods = ['GET','POST'])
+def update_admin_post_image(id):
+    posts = Post.query.all()
+    postImage = PostImage.query.get(id)
+    form = PostImageForm()
+    if request.method=='POST':
+        file = form.post_img_url.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        postImage.post_id = request.form['post_id']
+        postImage.post_img_url = filename
+        db.session.commit()
+        return redirect(url_for('admin_post_image'))
+    return render_template('admin/post_image_update.html',form=form,postImage=postImage,posts=posts)
+
+# Post Transport Routes
+@app.route('/admin/post/transport',methods = ['GET','POST'])
+def admin_post_transport():
+    form = PostTransportForm()
+    posts = Post.query.all()
+    postTransports = PostTransport.query.all()
+    if request.method =='POST':
+        postTransport = PostTransport(
+            post_id = request.form['post_id'],
+            tp_name = form.tp_name.data,
+            tp_icon = form.tp_icon.data
+        )
+        db.session.add(postTransport)
+        db.session.commit()
+        return redirect(url_for('admin_post_transport'))
+    return render_template('admin/post_transport.html',form=form,posts=posts,postTransports=postTransports,Post=Post)
+
+
+@app.route('/admin/post/transport/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_post_transport(id):
+    postTransport = PostTransport.query.get(id)
+    db.session.delete(postTransport)
+    db.session.commit()
+    return redirect(url_for('admin_post_transport'))
+
+@app.route('/admin/post/transport/update/<int:id>',methods = ['GET','POST'])
+def update_admin_post_transport(id):
+    posts = Post.query.all()
+    postTransport = PostTransport.query.get(id)
+    form = PostTransportForm()
+    if request.method=='POST':
+        postTransport.post_id = request.form['post_id']
+        postTransport.tp_name=form.tp_name.data
+        postTransport.tp_icon=form.tp_icon.data
+        db.session.commit()
+        return redirect(url_for('admin_post_transport'))
+    return render_template('admin/post_transport_update.html',form=form,postTransport=postTransport,posts=posts)
+
+
+# Blog Routes
+@app.route('/admin/blog',methods = ['GET','POST'])
+def admin_blog():
+    form=BlogForm()
+    blogs = Blog.query.all()
+    if request.method=='POST':
+        file = form.b_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        blog=Blog(            
+            b_date = datetime.strptime(request.form['b_date'],'%Y-%m-%d').date(),
+            b_title = form.b_title.data,
+            b_content = form.b_content.data,
+            b_img = filename      
+        )
+        db.session.add(blog)
+        db.session.commit()
+        return redirect(url_for('admin_blog'))
+    return render_template('admin/blog.html',form=form,blogs=blogs)
+
+@app.route('/admin/blog/delete/<int:id>')
+def delete_admin_blog(id):
+    blog = Blog.query.get(id)
+    db.session.delete(blog)
+    db.session.commit()
+    return redirect(url_for('admin_blog'))
+
+@app.route('/admin/blog/update/<int:id>',methods = ['GET','POST'])
+def update_admin_blog(id):
+    blog = Blog.query.get(id)
+    form=BlogForm()
+    if request.method=='POST':
+        file = form.b_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        blog.b_date = datetime.strptime(request.form['b_date'],'%Y-%m-%d').date()
+        blog.b_title = form.b_title.data
+        blog.b_content = form.b_content.data
+        blog.b_img = filename
+        db.session.commit()
+        return redirect(url_for('admin_blog'))
+    return render_template('/admin/blog_update.html',form=form,blog=blog)
+
+
+
+# Blog Social Routes
+@app.route('/admin/blog/social',methods = ['GET','POST'])
+def admin_blog_social():
+    form = BlogSocialForm()
+    smedias = BlogSocial.query.all()
+    blogs = Blog.query.all()
+    if request.method=='POST':
+        social = BlogSocial(
+            blog_id = request.form['blog_id'],
+            social_icon=form.social_icon.data,
+            social_link=form.social_link.data
+        )
+        db.session.add(social)
+        db.session.commit()
+        return redirect(url_for('admin_blog_social'))
+    return render_template('admin/blog_social.html',form=form,smedias=smedias,blogs=blogs,Blog=Blog)
+
+@app.route('/admin/blog/social/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_blog_social(id):
+    smedia = BlogSocial.query.get(id)
+    db.session.delete(smedia)
+    db.session.commit()
+    return redirect(url_for('admin_blog_social'))
+
+
+@app.route('/admin/blog/social/update/<int:id>',methods = ['GET','POST'])
+def update_admin_blog_social(id):
+    smedia = BlogSocial.query.get(id)
+    form = BlogSocialForm()
+    blogs = Blog.query.all()
+    if request.method=='POST':
+        smedia.blog_id = request.form['blog_id']
+        smedia.social_icon=form.social_icon.data
+        smedia.social_link=form.social_link.data
+        db.session.commit()
+        return redirect(url_for('admin_blog_social'))
+    return render_template('admin/blog_social_update.html',form=form,smedia=smedia,blogs=blogs)
+
+@app.route('/admin/blog/comment')
+def admin_blog_comment():
+    comments = Comment.query.all()
+    return render_template('admin/blog_comment.html',comments=comments,Blog = Blog)
+
+@app.route('/admin/blog/comment/delete/<int:id>')
+def delete_admin_blog_comment(id):
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(url_for('admin_blog_comment'))

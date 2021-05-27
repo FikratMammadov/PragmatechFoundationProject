@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Post</h3>
+
+<form action="/admin/post/update/{{post.id}}" method="POST" enctype="multipart/form-data">
+    {{form.post_title(class='form-control my-2',placeholder = 'Post Title',value=post.post_title)}}
+    {{form.post_image(class='form-control my-2',placeholder = 'Post Image')}}
+    {{form.post_content(class='form-control my-2',placeholder = 'Post Content',value=post.post_content)}}
+    {{form.submit(class='btn btn-primary', value='Update Post')}}
+</form>
+{% endblock content %}

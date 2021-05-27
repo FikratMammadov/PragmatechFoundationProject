@@ -683,7 +683,34 @@
                 <button><i class="fal fa-arrow-right"></i></button>
             </div>
             <div class="row">
-                <div class="blog-item">
+                {% for blog in blogs %}
+                <div class="blog-item" style="width: 33.33%;">
+                    <div class="blog-item-image">
+                        <a href="/blog/{{blog.id}}"><img src="static/main/img/{{blog.b_img}}"
+                                alt=""></a>
+                    </div>
+                    <div class="blog-item-content">
+                        <h3>
+                            <a href="">{{b_title}}</a>
+                        </h3>
+                        <div class="calendar">
+                            <span><i class="fas fa-user"></i> Fikrat M</span>
+                            <span><i class="fal fa-calendar"></i> {{blog.b_date.strftime("%b")}} {{blog.b_date.day}}, {{blog.b_date.year}}</span>
+                        </div>
+                        <p>{{blog.b_content[0:100]}}...</p>
+                        <div class="footer">
+                            <span>
+                                <a href="/blog/{{blog.id}}">Read more</a>
+                            </span>
+                            <span>
+                                (1) Comments
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                 
+                <!-- <div class="blog-item">
                     <div class="blog-item-image">
                         <a href="Home Sub Pages/chocolate-cake.html"><img src="static/main/img/blog-img-1.jpg"
                                 alt=""></a>
@@ -756,7 +783,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

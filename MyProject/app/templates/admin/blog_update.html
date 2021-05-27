@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Blog</h3>
+
+<form action="/admin/blog/update/{{blog.id}}" method="POST" enctype="multipart/form-data">
+    {{form.b_title(class='form-control my-2',placeholder = 'Blog Title',value = blog.b_title)}}
+    {{form.b_content(class='form-control my-2',placeholder = 'Blog Content',value = blog.b_content)}}
+    {{form.b_img(class='form-control my-2')}}
+    <input type="date" class="form-control my-2" style="width: 200px;" name="b_date">
+    {{form.submit(class='btn btn-primary', value='Update Blog')}}
+</form>
+{% endblock content %}

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,FileField,IntegerField,FloatField,TextAreaField,SelectField
+from wtforms import StringField,SubmitField,FileField,IntegerField,FloatField,TextAreaField,DateField
 
 class LogosForm(FlaskForm):
     l_image = FileField('l_name')
@@ -61,3 +61,29 @@ class ProductBrandForm(FlaskForm):
 class ProductImageForm(FlaskForm):
     img_url = FileField('img_url')
     submit=SubmitField()
+
+class PostForm(FlaskForm):
+    post_image = FileField('post_image')
+    post_title = StringField('post_title')
+    post_content = TextAreaField('post_content')
+    submit = SubmitField()
+
+class PostImageForm(FlaskForm):
+    post_img_url = FileField('post_img_url')
+    submit = SubmitField()
+
+class PostTransportForm(FlaskForm):
+    tp_name = StringField('tp_name')
+    tp_icon = StringField('tp_icon')
+    submit = SubmitField()
+
+class BlogForm(FlaskForm):
+    b_title = StringField('b_title')
+    b_content = TextAreaField('b_content')
+    b_img = FileField('b_img')
+    submit = SubmitField()
+
+class BlogSocialForm(FlaskForm):
+    social_icon = StringField('social_icon')
+    social_link = StringField('social_link')
+    submit = SubmitField()

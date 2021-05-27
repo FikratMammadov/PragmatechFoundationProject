@@ -1,0 +1,42 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Blog Social Media</h3>
+
+<form action="/admin/blog/social" method="POST" enctype="multipart/form-data">
+    <select class="form-control my-2" name="blog_id">
+        {% for blog in blogs %}
+        <option value="{{blog.id}}">{{blog.b_title}}</option>
+        {% endfor %}
+    </select>
+    {{form.social_icon(class='form-control my-2',placeholder = 'Social Media Icon')}}
+    {{form.social_link(class='form-control my-2',placeholder = 'Social Media Link')}}
+    {{form.submit(class='btn btn-primary', value='Add Blog Social Media')}}
+</form>
+
+<h4 class="my-2">All Blog Social Medias</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Blog Title</th>
+            <th>Social Media Icon</th>
+            <th>Social Media Link</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for smedia in smedias %}
+        <tr>
+            <td>{{Blog.query.filter_by(id=smedia.blog_id).first().b_title}}</td>
+            <td>{{smedia.social_icon}}</td>
+            <td>{{smedia.social_link}}</td>
+            <td>
+                <a href="/admin/blog/social/delete/{{smedia.id}}">Delete</a>
+                <a href="/admin/blog/social/update/{{smedia.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+
+    </tbody>
+</table>
+{% endblock content %}

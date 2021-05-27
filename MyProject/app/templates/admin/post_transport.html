@@ -1,0 +1,41 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Post Transport</h3>
+
+<form action="/admin/post/transport" method="POST" enctype="multipart/form-data">
+    <select class="form-control my-2" name="post_id">
+        {% for post in posts %}
+        <option value="{{post.id}}">{{post.post_title}}</option>
+        {% endfor %}
+    </select>
+    {{form.tp_name(class='form-control my-2',placeholder = 'Post Transport Name')}}
+    {{form.tp_icon(class='form-control my-2',placeholder = 'Post Transport Icon')}}
+    {{form.submit(class='btn btn-primary', value='Add Post Transport')}}
+</form>
+
+<h4 class="my-2">All Post Images</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Post Title</th>
+            <th>Post Transport Name</th>
+            <th>Post Transport Icon</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for postTransport in postTransports %}
+        <tr>
+            <td scope="row">{{Post.query.filter_by(id=postTransport.post_id).first().post_title}}</td>
+            <td>{{postTransport.tp_name}}</td>
+            <td>{{postTransport.tp_icon}}</td>
+            <td>
+                <a href="/admin/post/transport/delete/{{postTransport.id}}">Delete</a>
+                <a href="/admin/post/transport/update/{{postTransport.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+    </tbody>
+</table>
+{% endblock content %}

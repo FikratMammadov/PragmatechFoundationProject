@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Post Transport</h3>
+
+<form action="/admin/post/transport/update/{{postTransport.id}}" method="POST" enctype="multipart/form-data">
+    <select class="form-control my-2" name="post_id">
+        {% for post in posts %}
+        <option value="{{post.id}}">{{post.post_title}}</option>
+        {% endfor %}
+    </select>
+    {{form.tp_name(class='form-control my-2',placeholder = 'Post Transport Name',value = postTransport.tp_name)}}
+    {{form.tp_icon(class='form-control my-2',placeholder = 'Post Transport Icon',value = postTransport.tp_icon)}}
+    {{form.submit(class='btn btn-primary', value='Update Post Transport')}}
+</form>
+
+{% endblock content %}

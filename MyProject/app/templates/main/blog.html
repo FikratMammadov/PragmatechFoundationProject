@@ -1,0 +1,120 @@
+{% extends 'main/base2.html' %}
+{% block content %}
+<section id="part">
+    <h3 class="part-header">Creamy fruit cake</h3>
+    <span class="part-footer">Home / News / {{blog.b_title}}</span>
+</section>
+
+<section id="blog-post" class="section-padding">
+    <div class="container">
+        <div class="blog-post-image">
+            <a href=""><img src="../static/main/img/{{blog.b_img}}" alt=""></a>
+
+        </div>
+
+
+        <!-- Blog-Post Content Start -->
+        <div class="blog-post-content">
+
+            <!-- Blog-Post Shared Start -->
+            <div class="blog-post-shared">
+                <div class="blog-post-history">
+                    {{blog.b_date.strftime("%b")}} {{blog.b_date.day}}, {{blog.b_date.year}}
+                </div>
+                <div class="blog-post-header">
+                    <a href="">{{blog.b_title}}</a>
+                </div>
+                <p class="blog-post-description">
+                    {{blog.b_content}}
+                </p>
+                <div class="blog-post-tags">
+                    Tags:Chocolate
+                </div>
+                <div class="blog-post-social">
+                    <span>Share this on: </span>
+                    <ul>
+                        {% for i in BlogSocial.query.filter_by(blog_id=blog.id) %}
+                        <li><a href=""><i class="{{i.social_icon}}"></i></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <!-- Blog-Post Shared End -->
+
+
+            <!-- Blog-Post Comments Start -->
+            <div class="blog-post-comments">
+                <div class="comment-number">
+                    {{(Comment.query.filter_by(blog_id = blog.id) ).count()}} Comments
+                </div>
+                {% for comment in Comment.query.filter_by(blog_id = blog.id) %}
+                <div class="blog-post-comment">
+                    <span class="comment-history">
+                        {{comment.c_date.strftime("%b")}} {{comment.c_date.day}}, {{comment.c_date.year}}
+                    </span>
+                    <span class="comment-from">
+                        {{comment.c_name}}
+                    </span>
+                    <p class="comment">
+                         {{comment.c_msg}}
+                    </p>
+                </div>
+                {% endfor %}
+                 
+                 
+                
+            </div>
+            <!-- Blog-Post Comments End -->
+
+            <!-- Blog Post Form Start -->
+            <div class="blog-post-form">
+                <div class="blog-post-header">
+                    LEAVE A COMMENT
+                </div>
+
+                <form action="/blog/{{blog.id}}" method="POST">
+                    <div class="row blog-post-inputs">
+                        <div class="col-12 col-sm-6">
+                            <div class="blog-post-name blog-post-inp">
+                                <input type="text" placeholder="Name" name="c_name">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="blog-post-email blog-post-inp">
+                                <input type="email" placeholder="Email" name="c_email">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="blog-post-textarea">
+                                <textarea name="c_msg" id="" cols="" rows="5" placeholder="Message"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="blog-post-footer">
+                        <p class="blog-post-note">
+                            Please note, comments must be approved before they are published
+                        </p>
+                        <div class="cake-item-btn"><button type="submit">Post comment</button></div>
+                    </div>
+
+                </form>
+            </div>
+            <!-- Blog Post Form End -->
+
+             
+
+        </div>
+        <!-- Blog-Post Content End -->
+
+
+
+
+
+    </div>
+</section>
+{% endblock content %}

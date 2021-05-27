@@ -26,7 +26,7 @@ from main.routes import *
 from admin.routes import *
 
 
-# db.create_all()
+db.create_all()
 
 
 
