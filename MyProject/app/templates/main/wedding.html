@@ -44,13 +44,23 @@
                         </nav>
                         <section id="products">
                             <div class="cake-items row">
+                                {% for weddingProduct in weddingProducts %}
                                 <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-img">
-                                        <img src="../static/main/img/shop-products-img-1.webp" alt="">
+                                    <div class="cake-item-images">
+                                        <div class="cake-item-img">
+                                            <a href="" class="cake-item-img-1"><img
+                                                    src="../static/main/img/{{weddingProduct.p_img}}" alt=""></a>
+                                            <a href="" class="cake-item-img-2">
+                                                <img src="../static/main/img/{{ProductImage.query.filter_by(product_id=weddingProduct.id).first().img_url}}"
+                                                    alt="">
+                                            </a>
+                                        </div>
+
                                     </div>
+
                                     <div class="cake-content">
-                                        <span><a href="">A World of Cup Cake </a></span>
-                                        <p>$300.00 <span>$351.00</span></p>
+                                        <span><a href="">{{weddingProduct.p_name}}</a></span>
+                                        <p>${{weddingProduct.p_price}}0 <span></span></p>
                                         <div class="icons">
                                             <i class="fal fa-star"></i>
                                             <i class="fal fa-star"></i>
@@ -58,86 +68,16 @@
                                             <i class="fal fa-star"></i>
                                             <i class="fal fa-star"></i>
                                         </div>
-                                        <div class="cake-item-btn"><button>Add To Cart</button></div>
+                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
+                                                Cart</button></div>
                                     </div>
-                                     
+
                                 </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-img">
-                                        <img src="../static/main/img/shop-products-img-2.webp" alt="">
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Angel Food Cake</a></span>
-                                        <p>$369.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn"><button>Add To Cart</button></div>
-                                    </div>
-                                     
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-img">
-                                        <img src="../static/main/img/shop-products-img-3.webp" alt="">
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Banana Snack Cake</a></span>
-                                        <p>$212.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn"><button>Add To Cart</button></div>
-                                    </div>
-                                     
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-img">
-                                        <img src="../static/main/img/shop-products-img-4.jpg" alt="">
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Birthday Giant Cup Cake </a></span>
-                                        <p>$489.00 <span>$500.00</span></p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn"><button>Add To Cart</button></div>
-                                    </div>
-                                     
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-img">
-                                        <img src="../static/main/img/shop-products-img-5.jpg" alt="">
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Celebration Cake </a></span>
-                                        <p>$460.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn"><button>Add To Cart</button></div>
-                                    </div>
-                                     
-                                </div>
-                                 
+                                {% endfor %}
+
                             </div>
-                             
-                            
+
+
                         </section>
                     </div>
 
@@ -152,21 +92,46 @@
                             Category
                         </div>
                         <ul class="choices-item-lists category">
-                            <li> <a href="">Black Forest</a> <a href="" class="choices-item-lists-btn"><i
-                                        class="fal fa-plus"></i></a></li>
-                            <li><a href="">White Forest</a> <a href="" class="choices-item-lists-btn"><i
-                                        class="fal fa-plus"></i></a></li>
+                            <li>
+                                <a href="">Black Forest</a>
+                                <a class="choices-item-lists-btn" onclick="choicesAccoridion(this)">
+                                    <i class="fal fa-plus"></i>
+                                </a>
+                            </li>
+                            <ul class="choices-item-lists sub-lists">
+                                <li><a href="">Aprons</a></li>
+                                <li><a href="">Choco Shrads Cakes</a></li>
+                                <li><a href="">Cake Eggless</a></li>
+                            </ul>
+                            <li>
+                                <a href="">White Forest</a> <a class="choices-item-lists-btn"
+                                    onclick="choicesAccoridion(this)">
+                                    <i class="fal fa-plus"></i>
+                                </a>
+                            </li>
+                            <ul class="choices-item-lists sub-lists">
+                                <li><a href="">Forest Beauty</a></li>
+                                <li><a href="">Be Santa</a></li>
+                                <li><a href="">Alluring Hamper</a></li>
+                            </ul>
                             <li><a href="">Cup Cakes</a></li>
                             <li><a href="">Stawberry Cakes</a></li>
                             <li><a href="">Vanilla Cakes</a></li>
                             <li><a href="">Onesie Fondant Cake</a></li>
-                            <li><a href="">Birthday Cake</a> <a href="" class="choices-item-lists-btn"><i
-                                        class="fal fa-plus"></i></a></li>
+                            <li><a href="">Birthday Cake</a> <a class="choices-item-lists-btn"
+                                    onclick="choicesAccoridion(this)">
+                                    <i class="fal fa-plus"></i>
+                                </a></li>
+                            <ul class="choices-item-lists sub-lists">
+                                <li><a href="">Pineapple Cake</a></li>
+                                <li><a href="">Tempting Truffle Cake</a></li>
+                                <li><a href="">Butterscotch Cake</a></li>
+                            </ul>
                         </ul>
                     </div>
                     <div class="choices-item">
-                        <div class="choices-item-header">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Color
+                        <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Color
                         </div>
                         <ul class="choices-item-lists">
                             <li class="bg-red"> <a href="">Red</a> </li>
@@ -182,8 +147,8 @@
                         </ul>
                     </div>
                     <div class="choices-item">
-                        <div class="choices-item-header">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
+                        <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
                         </div>
                         <ul class="choices-item-lists">
                             <li> <a href="">Biscoff</a> </li>
@@ -194,8 +159,8 @@
                         </ul>
                     </div>
                     <div class="choices-item">
-                        <div class="choices-item-header">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Price
+                        <div class="choices-item-header accordion " onclick="choicesHeaderAccordion(this)">
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Price
                         </div>
                         <ul class="choices-item-lists">
                             <li> <a href="">$100 - $200</a> </li>
@@ -206,8 +171,8 @@
                         </ul>
                     </div>
                     <div class="choices-item">
-                        <div class="choices-item-header">
-                            <a href="" class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By
+                        <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By
                             Flavour
                         </div>
                         <ul class="choices-item-lists">
@@ -251,5 +216,9 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block scripts %}
+<script src="../static/main/js/shop.js"></script>
+{% endblock scripts %}
      
 

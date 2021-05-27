@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update FAQ</h3>
+
+<form action="/admin/faq/update/{{faq.id}}" method="POST" enctype="multipart/form-data">
+    {{form.question(class='form-control my-2',placeholder = 'Question')}}
+    {{form.answer(class='form-control my-2',placeholder = 'Answer')}}
+    {{form.submit(class='btn btn-primary', value='Update FAQ')}}
+</form>
+
+{% endblock content %}

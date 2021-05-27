@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Menu Item</h3>
+
+<form action="/admin/menu/update/{{menuItem.id}}" method="POST" enctype="multipart/form-data">
+    {{form.m_title(class='form-control my-2',placeholder = 'Title',value = menuItem.m_title)}}
+    {{form.m_price(class='form-control my-2',placeholder = 'Price',value = menuItem.m_price)}}
+    {{form.m_content(class='form-control my-2',placeholder = 'Content')}}
+    {{form.m_img(class='form-control my-2')}}
+    {{form.submit(class='btn btn-primary', value='Add Menu Item')}}
+</form>
+{% endblock content %}

@@ -16,7 +16,13 @@ a{
 }
 
 /* Common Classes */
+.hide {
+    display: none;
+}
 
+.show {
+    display: block;
+}
 .d-none{
     display: none;
 }

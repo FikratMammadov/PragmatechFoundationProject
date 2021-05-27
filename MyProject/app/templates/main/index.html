@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block indexActive %}
-    navbar-active
+navbar-active
 {% endblock %}
 
 {% block content %}
@@ -686,8 +686,7 @@
                 {% for blog in blogs %}
                 <div class="blog-item" style="width: 33.33%;">
                     <div class="blog-item-image">
-                        <a href="/blog/{{blog.id}}"><img src="static/main/img/{{blog.b_img}}"
-                                alt=""></a>
+                        <a href="/blog/{{blog.id}}"><img src="static/main/img/{{blog.b_img}}" alt=""></a>
                     </div>
                     <div class="blog-item-content">
                         <h3>
@@ -695,7 +694,8 @@
                         </h3>
                         <div class="calendar">
                             <span><i class="fas fa-user"></i> Fikrat M</span>
-                            <span><i class="fal fa-calendar"></i> {{blog.b_date.strftime("%b")}} {{blog.b_date.day}}, {{blog.b_date.year}}</span>
+                            <span><i class="fal fa-calendar"></i> {{blog.b_date.strftime("%b")}} {{blog.b_date.day}},
+                                {{blog.b_date.year}}</span>
                         </div>
                         <p>{{blog.b_content[0:100]}}...</p>
                         <div class="footer">
@@ -709,7 +709,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                 
+
                 <!-- <div class="blog-item">
                     <div class="blog-item-image">
                         <a href="Home Sub Pages/chocolate-cake.html"><img src="static/main/img/blog-img-1.jpg"
@@ -794,7 +794,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="item-header ">
+                <div class="item-header">
                     <div class="item-header-logo">
                         <img src="static/main/img/latestCollection-logo.png" alt="">
                     </div>
@@ -820,12 +820,34 @@
                 </div>
                 <div class="asked-item">
                     <div class="asked-contents">
+                        {% for faq in faqs %}
                         <div class="asked-content">
-                            <div class="asked-question">
+                            <div class="asked-question" onclick="toggleAccordion(this)">
+                                <h5><a>{{faq.question}}</a></h5>
+                                {% if faq == FAQ.query.all()[0] %}
+                                <div class="icon"><i class="fal fa-minus"></i></div>
+                                {% else %}
+                                <div class="icon"><i class="fal fa-plus"></i></div>
+                                {% endif %}
+                            </div>
+                            {% if faq == FAQ.query.all()[0] %}
+                            <div class="question-answer show">
+                                <p>{{faq.answer}}</p>
+                            </div>
+                            {% else %}
+                            <div class="question-answer hide">
+                                <p>{{faq.answer}}</p>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="asked-content">
+                            <div class="asked-question" onclick="toggleAccordion(this)">
                                 <h5><a href="">What is a Payment Gateway?</a></h5>
                                 <div class="icon"><i class="fal fa-minus"></i></div>
                             </div>
-                            <div class="question-answer">
+                            <div class="question-answer show">
                                 <p>Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris
                                     sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum
                                     sodales Includes Business as well as Professionals bibendum sodales, augue velit
@@ -833,7 +855,7 @@
                             </div>
                         </div>
                         <div class="asked-content">
-                            <div class="asked-question">
+                            <div class="asked-question" onclick="toggleAccordion(this)">
                                 <h5><a href="">What is a Payment Gateway?</a></h5>
                                 <div class="icon"><i class="fal fa-plus"></i></div>
                             </div>
@@ -842,14 +864,14 @@
                             </div>
                         </div>
                         <div class="asked-content">
-                            <div class="asked-question">
+                            <div class="asked-question" onclick="toggleAccordion(this)" >
                                 <h5><a href="">What is a Payment Gateway?</a></h5>
                                 <div class="icon"><i class="fal fa-plus"></i></div>
                             </div>
                             <div class="question-answer">
                                 <p></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -861,7 +883,7 @@
     <div class="container">
         <div class="features-items">
             <div class="row">
-                {% for feature in features  %}
+                {% for feature in features %}
                 <div class="features-item-col">
                     <div class="features-item">
                         <div class="features-item-img">
@@ -920,7 +942,7 @@
                             <img src="static/uploads/{{logo.l_image}}" alt="">
                         </li>
                         {% endfor %}
-                        
+
                     </ul>
                 </div>
             </div>

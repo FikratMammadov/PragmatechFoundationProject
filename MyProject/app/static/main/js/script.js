@@ -160,6 +160,31 @@ logosRightBtn.addEventListener('click',function(){
 // console.log(logoItem)
 
 
+// asked section'da accordion
+
+function toggleAccordion(elem) {
+    nextElement = elem.nextElementSibling;
+    askedContents = elem.parentElement.parentElement;
+    btn = elem.children[1].children[0]
+    // Eger paragraf gorunurse toggle status true , eks halda false olsun
+    if (nextElement.className == "question-answer show") {
+        toggleStatus = true;
+    } else {
+        toggleStatus = false;
+    }
+
+    if (toggleStatus == false) {
+        for (let i = 0; i < askedContents.children.length; i++) {
+            askedContents.children[i].children[1].className = "question-answer hide"
+            askedContents.children[i].children[0].children[1].children[0].className = "fal fa-plus"
+        }
+        nextElement.className = "question-answer show";
+        btn.className = "fal fa-minus"
+    }
+
+}
+
+
  
 
 

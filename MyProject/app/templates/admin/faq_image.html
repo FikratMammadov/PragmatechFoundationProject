@@ -1,0 +1,30 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add FAQ Image</h3>
+
+<form action="/admin/faq/image" method="POST" enctype="multipart/form-data">
+    {{form.faq_img(class='form-control my-2',placeholder = 'Question')}}
+    {{form.submit(class='btn btn-primary', value='Add FAQ Image')}}
+</form>
+
+<h4 class="my-2">All FAQ Images</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for faqImg in faqImgs %}
+        <tr>
+            <td scope="row">{{faqImg.faq_img}}</td>
+            <td>
+                <a href="/admin/faq/image/delete/{{faqImg.id}}">Delete</a>
+                <a href="/admin/faq/image/update/{{faqImg.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %} 
+    </tbody>
+</table>
+{% endblock content %}

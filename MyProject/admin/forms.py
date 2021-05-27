@@ -87,3 +87,19 @@ class BlogSocialForm(FlaskForm):
     social_icon = StringField('social_icon')
     social_link = StringField('social_link')
     submit = SubmitField()
+
+class FAQForm(FlaskForm):
+    question = TextAreaField('question')
+    answer = TextAreaField('answer')
+    submit = SubmitField()
+
+class FAQImageForm(FlaskForm):
+    faq_img = FileField('faq_img')
+    submit = SubmitField()
+
+class MenuForm(FlaskForm):
+    m_title = StringField('m_title')
+    m_price = FloatField('m_price')
+    m_content = TextAreaField('m_content')
+    m_img = FileField('m_img')
+    submit = SubmitField()

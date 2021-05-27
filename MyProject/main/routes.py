@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, request, redirect, url_for,make_response
 from app import db
 from datetime import datetime
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User,Product,ProductImage,Blog,BlogSocial,Comment
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias,Sales,Employees,User,Product,ProductImage,Blog,BlogSocial,Comment,ProductCategory,FAQ
 def commonVariables():
     global shopContacts,cards,socialMedias,loginStat,users,loginId
     shopContacts = ShopContact.query.all()
@@ -26,9 +26,10 @@ def main_index():
     features = Features.query.all()
     logos = Logos.query.all()
     blogs = Blog.query.all()
+    faqs = FAQ.query.all()
     commonVariables()
     return render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos,
-     cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId,blogs=blogs)
+     cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId,blogs=blogs,faqs=faqs,FAQ=FAQ)
 
 
 # collection route
@@ -55,7 +56,13 @@ def main_shop():
 @app.route('/collection/best')
 def main_cookies():
     commonVariables()
-    return render_template('main/cookies.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
+    products = Product.query.all()
+    images = ProductImage.query.all()
+    bestProducts = Product.query.filter_by(p_category_id=ProductCategory.query.filter_by(cat_name='Best').first().id)
+
+    return render_template('main/cookies.html', shopContacts=shopContacts, cards=cards,
+     socialMedias=socialMedias,loginStat=loginStat,loginId=loginId,products=products,
+     images=images,ProductImage=ProductImage,bestProducts=bestProducts)
 
 # wedding cakes route
 
@@ -63,7 +70,9 @@ def main_cookies():
 @app.route('/collections/wedding')
 def main_wedding():
     commonVariables()
-    return render_template('main/wedding.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
+    weddingProducts = Product.query.filter_by(p_category_id=ProductCategory.query.filter_by(cat_name='Wedding').first().id)
+    return render_template('main/wedding.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,
+    loginStat=loginStat,loginId=loginId,weddingProducts=weddingProducts,ProductImage=ProductImage)
 
 # cup cakes route
 
@@ -71,7 +80,9 @@ def main_wedding():
 @app.route('/collections/chocalate')
 def main_cupcakes():
     commonVariables()
-    return render_template('main/cupcakes.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,loginStat=loginStat,loginId=loginId)
+    cupProducts = Product.query.filter_by(p_category_id=ProductCategory.query.filter_by(cat_name='Cup').first().id)
+    return render_template('main/cupcakes.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,
+    loginStat=loginStat,loginId=loginId,ProductImage=ProductImage,cupProducts=cupProducts)
 
 # # pages route
 

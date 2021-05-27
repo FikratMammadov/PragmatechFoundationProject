@@ -1,6 +1,6 @@
 {% extends 'main/base2.html' %}
 {% block shopActive %}
-    navbar-active
+navbar-active
 {% endblock %}
 
 {% block content %}
@@ -57,7 +57,8 @@
                                             <a href="" class="cake-item-img-1"><img
                                                     src="../static/main/img/{{product.p_img}}" alt=""></a>
                                             <a href="" class="cake-item-img-2">
-                                                <img src="../static/main/img/{{ProductImage.query.filter_by(product_id=product.id).first().img_url}}" alt="">
+                                                <img src="../static/main/img/{{ProductImage.query.filter_by(product_id=product.id).first().img_url}}"
+                                                    alt="">
                                             </a>
                                         </div>
 
@@ -79,254 +80,7 @@
 
                                 </div>
                                 {% endfor %}
-                                
-                                <!-- <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href="" class="cake-item-img-1"><img
-                                                    src="../static/main/img/shop-products-img-1.webp" alt=""></a>
-                                            <a href="" class="cake-item-img-2">
-                                                <img src="../static/main/img/shop-products-img-10.webp" alt="">
-                                            </a>
-                                        </div>
 
-                                    </div>
-
-                                    <div class="cake-content">
-                                        <span><a href="">A World of Cup Cake </a></span>
-                                        <p>$300.00 <span>$351.00</span></p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-2.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-3.webp" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Angel Food Cake</a></span>
-                                        <p>$369.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-3.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-5.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Banana Snack Cake</a></span>
-                                        <p>$212.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-4.jpg" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-6.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Birthday Giant Cup Cake </a></span>
-                                        <p>$489.00 <span>$500.00</span></p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-7.jpg" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-10.webp" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Celebration Cake </a></span>
-                                        <p>$460.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-8.jpg" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-5.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Children's Cup Cake </a></span>
-                                        <p>$300.00 <span>$405.00</span></p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-9.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-11.webp" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Chocolate cake </a></span>
-                                        <p>$180.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-10.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-4.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Chocolate Cup Cake </a></span>
-                                        <p>$289.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-11.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-7.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Classic Carrot Cake </a></span>
-                                        <p>$289.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-5.jpg" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-7.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Cookies Crispy Cake </a></span>
-                                        <p>$479.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div>
-                                <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
-                                    <div class="cake-item-images">
-                                        <div class="cake-item-img">
-                                            <a href=""><img src="../static/main/img/shop-products-img-9.webp" alt=""></a>
-                                            <a href=""><img src="../static/main/img/shop-products-img-10.webp" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div class="cake-content">
-                                        <span><a href="">Deeper Cup Cake </a></span>
-                                        <p>$300.00</p>
-                                        <div class="icons">
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </div>
-                                        <div class="cake-item-btn" onclick="addToCart(this,1)"><button>Add To
-                                                Cart</button></div>
-                                    </div>
-
-                                </div> -->
                             </div>
                             <!-- Pagination section start -->
                             <div class="pagination">
@@ -369,9 +123,11 @@
                                 <li><a href="">Cake Eggless</a></li>
                             </ul>
                             <li>
-                                <a href="">White Forest</a> <a class="choices-item-lists-btn" onclick="choicesAccoridion(this)">
+                                <a href="">White Forest</a> <a class="choices-item-lists-btn"
+                                    onclick="choicesAccoridion(this)">
                                     <i class="fal fa-plus"></i>
-                                </a></li>
+                                </a>
+                            </li>
                             <ul class="choices-item-lists sub-lists">
                                 <li><a href="">Forest Beauty</a></li>
                                 <li><a href="">Be Santa</a></li>
@@ -381,9 +137,10 @@
                             <li><a href="">Stawberry Cakes</a></li>
                             <li><a href="">Vanilla Cakes</a></li>
                             <li><a href="">Onesie Fondant Cake</a></li>
-                            <li><a href="">Birthday Cake</a> <a class="choices-item-lists-btn" onclick="choicesAccoridion(this)">
-                                <i class="fal fa-plus"></i>
-                            </a></li>
+                            <li><a href="">Birthday Cake</a> <a class="choices-item-lists-btn"
+                                    onclick="choicesAccoridion(this)">
+                                    <i class="fal fa-plus"></i>
+                                </a></li>
                             <ul class="choices-item-lists sub-lists">
                                 <li><a href="">Pineapple Cake</a></li>
                                 <li><a href="">Tempting Truffle Cake</a></li>
@@ -410,7 +167,7 @@
                     </div>
                     <div class="choices-item">
                         <div class="choices-item-header accordion" onclick="choicesHeaderAccordion(this)">
-                            <a  class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
+                            <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
                         </div>
                         <ul class="choices-item-lists">
                             <li> <a href="">Biscoff</a> </li>
@@ -482,6 +239,3 @@
 {% block scripts %}
 <script src="../static/main/js/shop.js"></script>
 {% endblock scripts %}
-
-     
-

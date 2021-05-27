@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Menu Item</h3>
+
+<form action="/admin/menu" method="POST" enctype="multipart/form-data">
+    {{form.m_title(class='form-control my-2',placeholder = 'Title')}}
+    {{form.m_price(class='form-control my-2',placeholder = 'Price')}}
+    {{form.m_content(class='form-control my-2',placeholder = 'Content')}}
+    {{form.m_img(class='form-control my-2')}}
+    {{form.submit(class='btn btn-primary', value='Add Menu Item')}}
+</form>
+
+<h4 class="my-2">All Menu Items</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for menuItem in menuItems %}
+        <tr>
+            <td>{{menuItem.m_title}}</td>
+            <td>{{menuItem.m_price}}</td>
+            <td>{{menuItem.m_img}}</td>
+            <td>
+                <a href="/admin/menu/delete/{{menuItem.id}}">Delete</a>
+                <a href="/admin/menu/update/{{menuItem.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

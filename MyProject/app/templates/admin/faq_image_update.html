@@ -1,0 +1,9 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update FAQ Image</h3>
+
+<form action="/admin/faq/image/update/{{faqImg.id}}" method="POST" enctype="multipart/form-data">
+    {{form.faq_img(class='form-control my-2',placeholder = 'Question')}}
+    {{form.submit(class='btn btn-primary', value='Update FAQ Image')}}
+</form>
+{% endblock content %}

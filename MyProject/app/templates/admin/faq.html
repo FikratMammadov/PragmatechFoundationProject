@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add FAQ</h3>
+
+<form action="/admin/faq" method="POST" enctype="multipart/form-data">
+    {{form.question(class='form-control my-2',placeholder = 'Question')}}
+    {{form.answer(class='form-control my-2',placeholder = 'Answer')}}
+    {{form.submit(class='btn btn-primary', value='Add FAQ')}}
+</form>
+
+<h4 class="my-2">All FAQ</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for faq in faqs %}
+        <tr>
+            <td scope="row">{{faq.question}}</td>
+            <td>{{faq.answer}}</td>
+            <td>
+                <a href="/admin/faq/delete/{{faq.id}}">Delete</a>
+                <a href="/admin/faq/update/{{faq.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+         
+    
+    </tbody>
+</table>
+{% endblock content %}

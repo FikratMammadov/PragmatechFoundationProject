@@ -143,6 +143,22 @@ class Comment(db.Model):
     c_date = db.Column(db.DateTime)
     blog_id = db.Column(db.Integer,db.ForeignKey('Blog.id'),nullable = False)
 
+class FAQ(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    question = db.Column(db.Text)
+    answer = db.Column(db.Text)
+
+class FAQImage(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    faq_img = db.Column(db.String(100),nullable=False)
+
+class Menu(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    m_title = db.Column(db.String(50),nullable=False)
+    m_price = db.Column(db.Float,nullable=False)
+    m_content = db.Column(db.Text)
+    m_img = db.Column(db.String(100),nullable=False)
+
 
 
 

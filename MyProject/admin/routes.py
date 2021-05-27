@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm,PostForm,PostImageForm,PostTransportForm,BlogSocialForm,BlogForm
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment
+from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm,PostForm,PostImageForm,PostTransportForm,BlogSocialForm,BlogForm,FAQForm,FAQImageForm,MenuForm
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment,FAQ,FAQImage,Menu
 from datetime import datetime
 
 @app.route('/admin')
@@ -791,3 +791,121 @@ def delete_admin_blog_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return redirect(url_for('admin_blog_comment'))
+
+
+# FAQ Routes
+@app.route('/admin/faq',methods=['GET','POST'])
+def admin_faq():
+    form = FAQForm()
+    faqs = FAQ.query.all()
+    if request.method=='POST':
+        faq = FAQ(
+            question = form.question.data,
+            answer = form.answer.data
+        )
+        db.session.add(faq)
+        db.session.commit()
+        return redirect(url_for('admin_faq'))
+    return render_template('admin/faq.html',form=form,faqs=faqs)
+
+@app.route('/admin/faq/delete/<int:id>')
+def delete_admin_faq(id):
+    faq = FAQ.query.get(id)
+    db.session.delete(faq)
+    db.session.commit()
+    return redirect(url_for('admin_faq'))
+
+@app.route('/admin/faq/update/<int:id>',methods=['GET','POST'])
+def update_admin_faq(id):
+    faq = FAQ.query.get(id)
+    form = FAQForm()
+    if request.method=='POST':
+        faq.question = form.question.data
+        faq.answer = form.answer.data
+        db.session.commit()
+        return redirect(url_for('admin_faq'))
+    return render_template('admin/faq_update.html',form=form,faq=faq)
+
+
+# FAQ Image Routes
+
+@app.route('/admin/faq/image',methods = ['GET','POST'])
+def admin_faq_image():
+    form  =FAQImageForm()
+    faqImgs = FAQImage.query.all()
+    if request.method=='POST':
+        file = form.faq_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        faqImg = FAQImage(
+            faq_img = filename
+        )
+        db.session.add(faqImg)
+        db.session.commit()
+        return redirect(url_for('admin_faq_image'))
+    return render_template('admin/faq_image.html',form=form,faqImgs=faqImgs)
+
+@app.route('/admin/faq/image/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_faq_image(id):
+    faqImg = FAQImage.query.get(id)
+    db.session.delete(faqImg)
+    db.session.commit()
+    return redirect(url_for('admin_faq_image'))
+
+@app.route('/admin/faq/image/update/<int:id>',methods = ['GET','POST'])
+def update_admin_faq_image(id):
+    faqImg = FAQImage.query.get(id)
+    form = FAQImageForm()
+    if request.method=='POST':
+        file = form.faq_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        faqImg.faq_img = filename
+        db.session.commit()
+        return redirect(url_for('admin_faq_image'))
+    return render_template('admin/faq_image_update.html',form=form,faqImg=faqImg)
+
+# Menu Routes
+
+@app.route('/admin/menu',methods = ['GET','POST'])
+def admin_menu():
+    form = MenuForm()
+    menuItems = Menu.query.all()
+    if request.method=='POST':
+        file = form.m_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        menu = Menu(
+            m_title = form.m_title.data,
+            m_price = form.m_price.data,
+            m_content = form.m_content.data,
+            m_img = filename
+        )
+        db.session.add(menu)
+        db.session.commit()
+        return redirect(url_for('admin_menu'))
+    return render_template('admin/menu.html',form = form,menuItems=menuItems)
+
+@app.route('/admin/menu/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_menu(id):
+    menuItem = Menu.query.get(id)
+    db.session.delete(menuItem)
+    db.session.commit()
+    return redirect(url_for('admin_menu'))
+
+
+@app.route('/admin/menu/update/<int:id>',methods = ['GET','POST'])
+def update_admin_menu(id):
+    menuItem = Menu.query.get(id)
+    form = MenuForm()
+    if request.method=='POST':
+        file = form.m_img.data
+        filename = file.filename
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        menuItem.m_title = form.m_title.data
+        menuItem.m_price = form.m_price.data
+        menuItem.m_content = form.m_content.data
+        menuItem.m_img = filename
+        db.session.commit()
+        return redirect(url_for('admin_menu'))
+    return render_template('admin/menu_update.html',form=form,menuItem=menuItem)
