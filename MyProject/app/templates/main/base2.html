@@ -26,6 +26,18 @@
 </head>
 
 <body onresize="checkStatus()">
+    <section id="search" class="hide">
+        <div class="serach-exit">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="search">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <a href="" class="search-btn"><i class="far fa-search"></i></a>
+            </div>
+        </div>
+
+    </section>
     <div id="addToCart" class="addToCart-overlay">
         <div class="container">
             <div class="card-item row">
@@ -105,7 +117,7 @@
                     <div class="header-menubar-account">
                         <ul>
                             <li>
-                                <a href=""><i class="fal fa-search"></i></a>
+                                <a><i class="fal fa-search"></i></a>
                             </li>
                             {% if loginStat == loginId %}
                             <li>
@@ -122,7 +134,42 @@
                         </ul>
                     </div>
                     <div class="header-menubar-wishlist">
+
                         <ul>
+                            <div class="shopping-cart hide">
+                                <div class="cart-items">
+                                    <!-- <div class="cart-item">
+                                        <div class="cart-item-delete">
+                                            <i class="fal fa-times"></i>
+                                        </div>
+                                        <div class="cart-item-img">
+                                            <img src="../static/main/img/bestProducts-cake-item-1.jpg" alt="">
+                                        </div>
+                                        <div class="cart-item-desc">
+                                            <div class="card-item-title">
+                                                Banana Snack Cake <br>
+                                                Strawberry
+                                            </div>
+                                            <div class="card-item-price">
+                                                $<span class="price">278.00</span> x <span class="piece">1</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="cart-footer hide">
+                                    <div class="cart-total">
+                                        cart total : $<span class="total-price">878.00</span>.00
+                                    </div>
+                                    <div class="cart-buttons d-flex justify-content-center">
+                                        <div class="check-out cart-btn">
+                                            <a href=""><i class="fal fa-check-circle"></i> check out</a>
+                                        </div>
+                                        <div class="wiew-cart cart-btn">
+                                            <a href=""><i class="fal fa-shopping-cart"></i> view cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <li>
                                 <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                             </li>
@@ -148,13 +195,12 @@
                     <ul class="justify-content-center">
                         <li class="{% block indexActive %} {% endblock  %}"><a href="{{url_for('main_index')}}">Home</a>
                         </li>
-                        <li class="{% block collectionActive %} {% endblock  %}"><a
-                                href="{{url_for('main_collections')}}">Collection <i
-                                    class="fal fa-chevron-down"></i></a>
+                        <!-- <li class="{% block collectionActive %} {% endblock  %}"><a
+                                href="{{url_for('main_collections')}}">Collection </a>
+                        </li> -->
+                        <li class="{% block shopActive %} {% endblock  %}"><a href="{{url_for('main_shop')}}">Shop </a>
                         </li>
-                        <li class="{% block shopActive %} {% endblock  %}"><a href="{{url_for('main_shop')}}">Shop <i
-                                    class="fal fa-chevron-down"></i></a></li>
-                        <li class="{% block cookiesActive %} {% endblock  %}"><a
+                        <!-- <li class="{% block cookiesActive %} {% endblock  %}"><a
                                 href="{{url_for('main_cookies')}}">Cookies Cakes <i class="fal fa-chevron-down"></i></a>
                         </li>
                         <li class="{% block weddingActive %} {% endblock  %}"><a
@@ -162,9 +208,9 @@
                         </li>
                         <li class="{% block cupcakesActive %} {% endblock  %}"><a
                                 href="{{url_for('main_cupcakes')}}">Cup Cakes <i class="fal fa-chevron-down"></i></a>
-                        </li>
-                        <li class="{% block pagesActive %} {% endblock  %}"><a href="{{url_for('main_aboutus')}}">Pages
-                                <i class="fal fa-chevron-down"></i></a></li>
+                        </li> -->
+                        <li class="{% block pagesActive %} {% endblock  %}"><a href="{{url_for('main_aboutus')}}">About Us
+                            </a></li>
                     </ul>
                 </div>
             </div>
@@ -266,6 +312,7 @@
         </div>
     </section>
 
+    <script src="../static/main/js/base.js"></script>
     {% block scripts %}
 
     {% endblock scripts %}

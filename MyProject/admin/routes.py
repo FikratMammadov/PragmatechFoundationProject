@@ -6,10 +6,16 @@ from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMedia
 from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment,FAQ,FAQImage,Menu
 from datetime import datetime
 
+def loginCheck(param):
+    adminLoginStat = request.cookies.get('adminLoginStatus')
+    if adminLoginStat=='beli':
+        return param
+    else:
+        return redirect(url_for('login'))
+
 @app.route('/admin')
 def admin_index():
-    return render_template('admin/index.html')
-
+    return loginCheck(render_template('admin/index.html'))
 # ShopContact routes
 
 
@@ -25,7 +31,8 @@ def admin_shop_contact():
         db.session.add(shopContact)
         db.session.commit()
         return redirect('/admin/shop_contact')
-    return render_template('admin/shop_contact.html', shopContacts=shopContacts)
+    return loginCheck(render_template('admin/shop_contact.html', shopContacts=shopContacts))
+    
 
 
 @app.route('/admin/shop_contact/delete/<int:id>')
@@ -33,7 +40,7 @@ def delete_admin_shop_contact(id):
     shopContact = ShopContact.query.get(id)
     db.session.delete(shopContact)
     db.session.commit()
-    return redirect('/admin/shop_contact')
+    return loginCheck(redirect('/admin/shop_contact'))
 
 
 @app.route('/admin/shop_contact/update/<int:id>', methods=['GET', 'POST'])
@@ -45,7 +52,7 @@ def update_admin_shop_contact(id):
         shopContact.contact_link = request.form['contact_link']
         db.session.commit()
         return redirect('/admin/shop_contact')
-    return render_template('admin/shop_contact_update.html', shopContact=shopContact)
+    return loginCheck(render_template('admin/shop_contact_update.html', shopContact=shopContact))
 
 # Features routes
 
@@ -65,7 +72,7 @@ def admin_features():
         db.session.add(feature)
         db.session.commit()
         return redirect('/admin/features')
-    return render_template('admin/features.html', features=features)
+    return loginCheck(render_template('admin/features.html', features=features))
 
 
 @app.route('/admin/features/delete/<int:id>')
@@ -73,8 +80,7 @@ def delete_admin_features(id):
     feature = Features.query.get(id)
     db.session.delete(feature)
     db.session.commit()
-    return redirect('/admin/features')
-
+    return loginCheck(redirect('/admin/features'))
 
 @app.route('/admin/features/update/<int:id>', methods=['GET', 'POST'])
 def update_admin_features(id):
@@ -89,7 +95,7 @@ def update_admin_features(id):
         feature.features_content = request.form['features_content']
         db.session.commit()
         return redirect('/admin/features')
-    return render_template('admin/features_update.html', feature=feature)
+    return loginCheck(render_template('admin/features_update.html', feature=feature))
 
 
 # Logos routes
@@ -108,7 +114,7 @@ def admin_logos():
         db.session.add(logo)
         db.session.commit()
         return redirect('/admin/logos')
-    return render_template('admin/logos.html', form=form, logos=logos)
+    return loginCheck(render_template('admin/logos.html', form=form, logos=logos))
 
 
 @app.route('/admin/logos/delete/<int:id>')
@@ -116,7 +122,7 @@ def delete_admin_logos(id):
     logo = Logos.query.get(id)
     db.session.delete(logo)
     db.session.commit()
-    return redirect('/admin/logos')
+    return loginCheck(redirect('/admin/logos'))
 
 
 @app.route('/admin/logos/update/<int:id>', methods=['GET', 'POST'])
@@ -131,8 +137,7 @@ def update_admin_logos(id):
         logo.l_image = filename
         db.session.commit()
         return redirect('/admin/logos')
-
-    return render_template('admin/logos_update.html', logo=logo, form=form)
+    return loginCheck(render_template('admin/logos_update.html', logo=logo, form=form))
 
 # Payment Cards routes
 
@@ -151,7 +156,7 @@ def admin_cards():
         db.session.add(card)
         db.session.commit()
         return redirect(url_for('admin_cards'))
-    return render_template('admin/payment_cards.html', form=form, cards=cards)
+    return loginCheck(render_template('admin/payment_cards.html', form=form, cards=cards))
 
 
 @app.route('/admin/cards/delete/<int:id>')
@@ -159,7 +164,7 @@ def delete_admin_cards(id):
     card = PaymentCards.query.get(id)
     db.session.delete(card)
     db.session.commit()
-    return redirect(url_for('admin_cards'))
+    return loginCheck(redirect(url_for('admin_cards')))
 
 
 @app.route('/admin/cards/update/<int:id>', methods=['GET', 'POST'])
@@ -173,7 +178,7 @@ def update_admin_cards(id):
         card.card_image = filename
         db.session.commit()
         return redirect(url_for('admin_cards'))
-    return render_template('admin/payment_cards_update.html', form=form)
+    return loginCheck(render_template('admin/payment_cards_update.html', form=form))
 
 
 # Social Medias routes
@@ -190,7 +195,7 @@ def admin_social_medias():
         db.session.add(socialMedia)
         db.session.commit()
         return redirect(url_for('admin_social_medias'))
-    return render_template('admin/social_medias.html', form=form, socialMedias=socialMedias)
+    return loginCheck(render_template('admin/social_medias.html', form=form, socialMedias=socialMedias))
 
 
 @app.route('/admin/social_medias/delete/<int:id>')
@@ -198,7 +203,7 @@ def delete_admin_social_medias(id):
     socialMedia = SocialMedias.query.get(id)
     db.session.delete(socialMedia)
     db.session.commit()
-    return redirect(url_for('admin_social_medias'))
+    return loginCheck(redirect(url_for('admin_social_medias')))
 
 
 @app.route('/admin/social_medias/update/<int:id>', methods=['GET', 'POST'])
@@ -210,8 +215,7 @@ def update_admin_social_medias(id):
         socialMedia.social_url = form.social_url.data
         db.session.commit()
         return redirect(url_for('admin_social_medias'))
-    return render_template('admin/social_medias_update.html', form=form, socialMedia=socialMedia)
-
+    return loginCheck(render_template('admin/social_medias_update.html', form=form, socialMedia=socialMedia))
 
 # Sales routes
 
@@ -228,7 +232,7 @@ def admin_sales():
         db.session.add(sale)
         db.session.commit()
         return redirect(url_for('admin_sales'))
-    return render_template('admin/sales.html', form=form, sales=sales)
+    return loginCheck(render_template('admin/sales.html', form=form, sales=sales))
 
 
 @app.route('/admin/sales/delete/<int:id>')
@@ -236,7 +240,7 @@ def delete_admin_sales(id):
     sale = Sales.query.get(id)
     db.session.delete(sale)
     db.session.commit()
-    return redirect(url_for('admin_sales'))
+    return loginCheck(redirect(url_for('admin_sales')))
 
 
 @app.route('/admin/sales/update/<int:id>', methods=['GET', 'POST'])
@@ -249,7 +253,7 @@ def update_admin_sales(id):
         sale.sales_number = form.sales_number.data
         db.session.commit()
         return redirect(url_for('admin_sales'))
-    return render_template('admin/sales_update.html', form=form, sale=sale)
+    return loginCheck(render_template('admin/sales_update.html', form=form, sale=sale))
 
 
 # Employees routes
@@ -270,7 +274,7 @@ def admin_employees():
         db.session.add(employee)
         db.session.commit()
         return redirect(url_for('admin_employees'))
-    return render_template('admin/employees.html', form=form, employees=employees)
+    return loginCheck(render_template('admin/employees.html', form=form, employees=employees))
 
 
 @app.route('/admin/employees/delete/<int:id>')
@@ -278,7 +282,7 @@ def delete_admin_employees(id):
     employee = Employees.query.get(id)
     db.session.delete(employee)
     db.session.commit()
-    return redirect(url_for('admin_employees'))
+    return loginCheck(redirect(url_for('admin_employees')))
 
 
 @app.route('/admin/employees/update/<int:id>', methods=['GET', 'POST'])
@@ -294,7 +298,7 @@ def update_admin_employees(id):
         employee.e_profession = form.e_profession.data
         db.session.commit()
         return redirect(url_for('admin_employees'))
-    return render_template('admin/employees_update.html', form=form, employee=employee)
+    return loginCheck(render_template('admin/employees_update.html', form=form, employee=employee))
 
 
 # Product Routes
@@ -326,9 +330,9 @@ def admin_product():
         db.session.add(product)
         db.session.commit()
         return redirect(url_for('admin_product'))
-    return render_template('admin/product.html', form=form, productSizes=productSizes, products=products,
+    return loginCheck(render_template('admin/product.html', form=form, productSizes=productSizes, products=products,
      ProductSize=ProductSize, avas=avas, ProductAvailability=ProductAvailability,categories=categories,
-     ProductCategory=ProductCategory,types=types,ProductType=ProductType,brands=brands,ProductBrand=ProductBrand)
+     ProductCategory=ProductCategory,types=types,ProductType=ProductType,brands=brands,ProductBrand=ProductBrand))
 
 
 @app.route('/admin/product/delete/<int:id>')
@@ -336,7 +340,7 @@ def delete_admin_product(id):
     product = Product.query.get(id)
     db.session.delete(product)
     db.session.commit()
-    return redirect(url_for('admin_product'))
+    return loginCheck(redirect(url_for('admin_product')))
 
 
 @app.route('/admin/product/update/<int:id>', methods=['GET', 'POST'])
@@ -364,8 +368,8 @@ def update_admin_product(id):
         product.p_brand_id=request.form['p_brand_id']
         db.session.commit()
         return redirect(url_for('admin_product'))
-    return render_template('admin/product_update.html', form=form, product=product,
-     productSizes=productSizes,avas=avas,categories=categories,types=types,brands=brands)
+    return loginCheck(render_template('admin/product_update.html', form=form, product=product,
+     productSizes=productSizes,avas=avas,categories=categories,types=types,brands=brands))
 
 
 # Product Size Routes
@@ -380,7 +384,7 @@ def admin_product_size():
         db.session.add(size)
         db.session.commit()
         return redirect(url_for('admin_product_size'))
-    return render_template('admin/product_size.html', form=form, productSizes=productSizes)
+    return loginCheck(render_template('admin/product_size.html', form=form, productSizes=productSizes))
 
 
 @app.route('/admin/product/size/delete/<int:id>')
@@ -388,7 +392,8 @@ def delete_admin_product_size(id):
     productSize = ProductSize.query.get(id)
     db.session.delete(productSize)
     db.session.commit()
-    return redirect(url_for('admin_product_size'))
+    return loginCheck(redirect(url_for('admin_product_size')))
+
 
 
 @app.route('/admin/product/size/update/<int:id>', methods=['GET', 'POST'])
@@ -399,7 +404,7 @@ def update_admin_product_size(id):
         productSize.s_name = form.s_name.data
         db.session.commit()
         return redirect(url_for('admin_product_size'))
-    return render_template('admin/product_size_update.html', form=form, productSize=productSize)
+    return loginCheck(render_template('admin/product_size_update.html', form=form, productSize=productSize))
 
 # Product Availability Routes
 
@@ -415,7 +420,7 @@ def admin_product_availability():
         db.session.add(ava)
         db.session.commit()
         return redirect(url_for('admin_product_availability'))
-    return render_template('admin/product_availability.html', form=form, avas=avas)
+    return loginCheck(render_template('admin/product_availability.html', form=form, avas=avas))
 
 
 @app.route('/admin/product/availability/delete/<int:id>')
@@ -423,7 +428,7 @@ def delete_admin_product_availability(id):
     ava = ProductAvailability.query.get(id)
     db.session.delete(ava)
     db.session.commit()
-    return redirect(url_for('admin_product_availability'))
+    return loginCheck(redirect(url_for('admin_product_availability')))
 
 
 @app.route('/admin/product/availability/update/<int:id>', methods=['GET', 'POST'])
@@ -434,7 +439,7 @@ def update_admin_product_availability(id):
         ava.pa_name = form.pa_name.data
         db.session.commit()
         return redirect(url_for('admin_product_availability'))
-    return render_template('admin/product_availability_update.html', form=form, ava=ava)
+    return loginCheck(render_template('admin/product_availability_update.html', form=form, ava=ava))
 
 # Product Category Routes
 
@@ -449,14 +454,15 @@ def admin_product_category():
         db.session.add(category)
         db.session.commit()
         return redirect(url_for('admin_product_category'))
-    return render_template('admin/product_category.html',form=form,categories=categories)
+    return loginCheck(render_template('admin/product_category.html',form=form,categories=categories))
 
 @app.route('/admin/product/category/delete/<int:id>')
 def delete_admin_product_category(id):
     category = ProductCategory.query.get(id)
     db.session.delete(category)
     db.session.commit()
-    return redirect(url_for('admin_product_category'))
+    return loginCheck(redirect(url_for('admin_product_category')))
+
 
 @app.route('/admin/product/category/update/<int:id>', methods=['GET', 'POST'])
 def update_admin_product_category(id):
@@ -466,7 +472,7 @@ def update_admin_product_category(id):
         category.cat_name=form.cat_name.data
         db.session.commit()
         return redirect(url_for('admin_product_category'))
-    return render_template('admin/product_category_update.html',form=form,category=category)
+    return loginCheck(render_template('admin/product_category_update.html',form=form,category=category))
 
 # Product Type Routes
 @app.route('/admin/product/type', methods=['GET', 'POST'])
@@ -480,14 +486,14 @@ def admin_product_type():
         db.session.add(type)
         db.session.commit()
         return redirect(url_for('admin_product_type'))
-    return render_template('admin/product_type.html',form=form,types=types)
+    return loginCheck(render_template('admin/product_type.html',form=form,types=types))
 
 @app.route('/admin/product/type/delete/<int:id>')
 def delete_admin_product_type(id):
     type = ProductType.query.get(id)
     db.session.delete(type)
     db.session.commit()
-    return redirect(url_for('admin_product_type'))
+    return loginCheck(redirect(url_for('admin_product_type')))
 
 @app.route('/admin/product/type/update/<int:id>', methods=['GET', 'POST'])
 def update_admin_product_type(id):
@@ -497,7 +503,7 @@ def update_admin_product_type(id):
         type.type_name=form.type_name.data
         db.session.commit()
         return redirect(url_for('admin_product_type'))
-    return render_template('admin/product_type_update.html',form=form,type=type)
+    return loginCheck(render_template('admin/product_type_update.html',form=form,type=type))
 
 # Product Brand Routes
 @app.route('/admin/product/brand', methods=['GET', 'POST'])
@@ -511,14 +517,15 @@ def admin_product_brand():
         db.session.add(brand)
         db.session.commit()
         return redirect(url_for('admin_product_brand'))
-    return render_template('admin/product_brand.html',form=form,brands=brands)
+    return loginCheck(render_template('admin/product_brand.html',form=form,brands=brands))
+
 
 @app.route('/admin/product/brand/delete/<int:id>')
 def delete_admin_product_brand(id):
     brand = ProductBrand.query.get(id)
     db.session.delete(brand)
     db.session.commit()
-    return redirect(url_for('admin_product_brand'))
+    return loginCheck(redirect(url_for('admin_product_brand')))
 
 @app.route('/admin/product/brand/update/<int:id>', methods=['GET', 'POST'])
 def update_admin_product_brand(id):
@@ -528,7 +535,7 @@ def update_admin_product_brand(id):
         brand.brand_name=form.brand_name.data
         db.session.commit()
         return redirect(url_for('admin_product_brand'))
-    return render_template('admin/product_brand_update.html',form=form,brand=brand)
+    return loginCheck(render_template('admin/product_brand_update.html',form=form,brand=brand))
 
 # Product Image Routes
 @app.route('/admin/product/image',methods = ['GET','POST'])
@@ -547,16 +554,16 @@ def admin_product_image():
         db.session.add(img)
         db.session.commit()
         return redirect(url_for('admin_product_image'))
+    return loginCheck(render_template('admin/product_image.html',form=form,products=products,images=images,
+    Product=Product))
 
-    return render_template('admin/product_image.html',form=form,products=products,images=images,
-    Product=Product)
 
 @app.route('/admin/product/image/delete/<int:id>',methods = ['GET','POST'])
 def delet_admin_product_image(id):
     image = ProductImage.query.get(id)
     db.session.delete(image)
     db.session.commit()
-    return redirect(url_for('admin_product_image'))
+    return loginCheck(redirect(url_for('admin_product_image')))
 
 @app.route('/admin/product/image/update/<int:id>',methods = ['GET','POST'])
 def update_admin_product_image(id):
@@ -571,7 +578,7 @@ def update_admin_product_image(id):
         image.product_id = request.form['product_id']
         db.session.commit()
         return redirect(url_for('admin_product_image'))
-    return render_template('admin/product_image_update.html',form=form,image=image,products=products)
+    return loginCheck(render_template('admin/product_image_update.html',form=form,image=image,products=products))
 
 
 # Post Routes
@@ -591,14 +598,16 @@ def admin_post():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('admin_post'))
-    return render_template('admin/post.html',form = form,posts=posts)
+    return loginCheck(render_template('admin/post.html',form = form,posts=posts))
+
 
 @app.route('/admin/post/delete/<int:id>',methods = ['GET','POST'])
 def delete_admin_post(id):
     post = Post.query.get(id)
     db.session.delete(post)
     db.session.commit()
-    return redirect(url_for('admin_post'))
+    return loginCheck(redirect(url_for('admin_post')))
+
 
 @app.route('/admin/post/update/<int:id>',methods = ['GET','POST'])
 def update_admin_post(id):
@@ -613,7 +622,7 @@ def update_admin_post(id):
         post.post_content = form.post_content.data
         db.session.commit()
         return redirect(url_for('admin_post'))
-    return render_template('admin/post_update.html',form=form,post=post)
+    return loginCheck(render_template('admin/post_update.html',form=form,post=post))
 
 
 # Post Image Routes
@@ -633,14 +642,15 @@ def admin_post_image():
         db.session.add(postImage)
         db.session.commit()
         return redirect(url_for('admin_post_image'))
-    return render_template('admin/post_image.html',form = form,posts=posts,postImages=postImages,Post = Post)
+    return loginCheck(render_template('admin/post_image.html',form = form,posts=posts,postImages=postImages,Post = Post))
 
 @app.route('/admin/post/image/delete/<int:id>',methods = ['GET','POST'])
 def delete_admin_post_image(id):
     postImage = PostImage.query.get(id)
     db.session.delete(postImage)
     db.session.commit()
-    return redirect(url_for('admin_post_image'))
+    return loginCheck(redirect(url_for('admin_post_image')))
+
 
 
 @app.route('/admin/post/image/update/<int:id>',methods = ['GET','POST'])
@@ -656,7 +666,8 @@ def update_admin_post_image(id):
         postImage.post_img_url = filename
         db.session.commit()
         return redirect(url_for('admin_post_image'))
-    return render_template('admin/post_image_update.html',form=form,postImage=postImage,posts=posts)
+    return loginCheck(render_template('admin/post_image_update.html',form=form,postImage=postImage,posts=posts))
+
 
 # Post Transport Routes
 @app.route('/admin/post/transport',methods = ['GET','POST'])
@@ -673,7 +684,9 @@ def admin_post_transport():
         db.session.add(postTransport)
         db.session.commit()
         return redirect(url_for('admin_post_transport'))
-    return render_template('admin/post_transport.html',form=form,posts=posts,postTransports=postTransports,Post=Post)
+    return loginCheck(render_template('admin/post_transport.html',form=form,posts=posts,
+    postTransports=postTransports,Post=Post))
+
 
 
 @app.route('/admin/post/transport/delete/<int:id>',methods = ['GET','POST'])
@@ -681,7 +694,8 @@ def delete_admin_post_transport(id):
     postTransport = PostTransport.query.get(id)
     db.session.delete(postTransport)
     db.session.commit()
-    return redirect(url_for('admin_post_transport'))
+    return loginCheck(redirect(url_for('admin_post_transport')))
+
 
 @app.route('/admin/post/transport/update/<int:id>',methods = ['GET','POST'])
 def update_admin_post_transport(id):
@@ -694,7 +708,9 @@ def update_admin_post_transport(id):
         postTransport.tp_icon=form.tp_icon.data
         db.session.commit()
         return redirect(url_for('admin_post_transport'))
-    return render_template('admin/post_transport_update.html',form=form,postTransport=postTransport,posts=posts)
+    return loginCheck(render_template('admin/post_transport_update.html',form=form,postTransport=postTransport,
+    posts=posts))
+
 
 
 # Blog Routes
@@ -715,14 +731,14 @@ def admin_blog():
         db.session.add(blog)
         db.session.commit()
         return redirect(url_for('admin_blog'))
-    return render_template('admin/blog.html',form=form,blogs=blogs)
+    return loginCheck(render_template('admin/blog.html',form=form,blogs=blogs))
 
 @app.route('/admin/blog/delete/<int:id>')
 def delete_admin_blog(id):
     blog = Blog.query.get(id)
     db.session.delete(blog)
     db.session.commit()
-    return redirect(url_for('admin_blog'))
+    return loginCheck(redirect(url_for('admin_blog')))
 
 @app.route('/admin/blog/update/<int:id>',methods = ['GET','POST'])
 def update_admin_blog(id):
@@ -738,7 +754,8 @@ def update_admin_blog(id):
         blog.b_img = filename
         db.session.commit()
         return redirect(url_for('admin_blog'))
-    return render_template('/admin/blog_update.html',form=form,blog=blog)
+    return loginCheck(render_template('/admin/blog_update.html',form=form,blog=blog))
+
 
 
 
@@ -757,14 +774,15 @@ def admin_blog_social():
         db.session.add(social)
         db.session.commit()
         return redirect(url_for('admin_blog_social'))
-    return render_template('admin/blog_social.html',form=form,smedias=smedias,blogs=blogs,Blog=Blog)
+    return loginCheck(render_template('admin/blog_social.html',form=form,smedias=smedias,blogs=blogs,Blog=Blog))
+
 
 @app.route('/admin/blog/social/delete/<int:id>',methods = ['GET','POST'])
 def delete_admin_blog_social(id):
     smedia = BlogSocial.query.get(id)
     db.session.delete(smedia)
     db.session.commit()
-    return redirect(url_for('admin_blog_social'))
+    return loginCheck(redirect(url_for('admin_blog_social')))
 
 
 @app.route('/admin/blog/social/update/<int:id>',methods = ['GET','POST'])
@@ -778,19 +796,22 @@ def update_admin_blog_social(id):
         smedia.social_link=form.social_link.data
         db.session.commit()
         return redirect(url_for('admin_blog_social'))
-    return render_template('admin/blog_social_update.html',form=form,smedia=smedia,blogs=blogs)
+    return loginCheck(render_template('admin/blog_social_update.html',form=form,smedia=smedia,blogs=blogs))
+
 
 @app.route('/admin/blog/comment')
 def admin_blog_comment():
     comments = Comment.query.all()
-    return render_template('admin/blog_comment.html',comments=comments,Blog = Blog)
+    return loginCheck(render_template('admin/blog_comment.html',comments=comments,Blog = Blog))
+
 
 @app.route('/admin/blog/comment/delete/<int:id>')
 def delete_admin_blog_comment(id):
     comment = Comment.query.get(id)
     db.session.delete(comment)
     db.session.commit()
-    return redirect(url_for('admin_blog_comment'))
+    return loginCheck(redirect(url_for('admin_blog_comment')))
+
 
 
 # FAQ Routes
@@ -806,14 +827,15 @@ def admin_faq():
         db.session.add(faq)
         db.session.commit()
         return redirect(url_for('admin_faq'))
-    return render_template('admin/faq.html',form=form,faqs=faqs)
+    return loginCheck(render_template('admin/faq.html',form=form,faqs=faqs))
 
 @app.route('/admin/faq/delete/<int:id>')
 def delete_admin_faq(id):
     faq = FAQ.query.get(id)
     db.session.delete(faq)
     db.session.commit()
-    return redirect(url_for('admin_faq'))
+    return loginCheck(redirect(url_for('admin_faq')))
+
 
 @app.route('/admin/faq/update/<int:id>',methods=['GET','POST'])
 def update_admin_faq(id):
@@ -824,7 +846,8 @@ def update_admin_faq(id):
         faq.answer = form.answer.data
         db.session.commit()
         return redirect(url_for('admin_faq'))
-    return render_template('admin/faq_update.html',form=form,faq=faq)
+    return loginCheck(render_template('admin/faq_update.html',form=form,faq=faq))
+
 
 
 # FAQ Image Routes
@@ -843,14 +866,16 @@ def admin_faq_image():
         db.session.add(faqImg)
         db.session.commit()
         return redirect(url_for('admin_faq_image'))
-    return render_template('admin/faq_image.html',form=form,faqImgs=faqImgs)
+    return loginCheck(render_template('admin/faq_image.html',form=form,faqImgs=faqImgs))
+
 
 @app.route('/admin/faq/image/delete/<int:id>',methods = ['GET','POST'])
 def delete_admin_faq_image(id):
     faqImg = FAQImage.query.get(id)
     db.session.delete(faqImg)
     db.session.commit()
-    return redirect(url_for('admin_faq_image'))
+    return loginCheck(redirect(url_for('admin_faq_image')))
+
 
 @app.route('/admin/faq/image/update/<int:id>',methods = ['GET','POST'])
 def update_admin_faq_image(id):
@@ -863,7 +888,8 @@ def update_admin_faq_image(id):
         faqImg.faq_img = filename
         db.session.commit()
         return redirect(url_for('admin_faq_image'))
-    return render_template('admin/faq_image_update.html',form=form,faqImg=faqImg)
+    return loginCheck(render_template('admin/faq_image_update.html',form=form,faqImg=faqImg))
+
 
 # Menu Routes
 
@@ -884,14 +910,16 @@ def admin_menu():
         db.session.add(menu)
         db.session.commit()
         return redirect(url_for('admin_menu'))
-    return render_template('admin/menu.html',form = form,menuItems=menuItems)
+    return loginCheck(render_template('admin/menu.html',form = form,menuItems=menuItems))
+
 
 @app.route('/admin/menu/delete/<int:id>',methods = ['GET','POST'])
 def delete_admin_menu(id):
     menuItem = Menu.query.get(id)
     db.session.delete(menuItem)
     db.session.commit()
-    return redirect(url_for('admin_menu'))
+    return loginCheck(redirect(url_for('admin_menu')))
+
 
 
 @app.route('/admin/menu/update/<int:id>',methods = ['GET','POST'])
@@ -908,4 +936,5 @@ def update_admin_menu(id):
         menuItem.m_img = filename
         db.session.commit()
         return redirect(url_for('admin_menu'))
-    return render_template('admin/menu_update.html',form=form,menuItem=menuItem)
+    return loginCheck(render_template('admin/menu_update.html',form=form,menuItem=menuItem))
+

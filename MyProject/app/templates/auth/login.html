@@ -1,0 +1,24 @@
+{% extends 'main/base2.html' %}
+
+{% block content %}
+<section id="part">
+    <h3 class="part-header">Account</h3>
+    <span class="part-footer">Home / Account</span>
+</section>
+
+<section id="log-in">
+    <div class="container-fluid">
+        <div class="log-in-form">
+            <form action="{{url_for('login')}}" method="POST">
+                <input class="log-in-inp" type="text"  placeholder="Username" name="username">
+                <input class="log-in-inp" type="password"  placeholder="Password" name="password">
+                <div class="log-in-question">
+                    <a href="">Forgot your password?</a>
+                </div>
+                <div class="cake-item-btn"><button>Sign In</button></div>
+            </form>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}

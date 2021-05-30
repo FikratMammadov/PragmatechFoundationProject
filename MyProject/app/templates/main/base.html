@@ -28,6 +28,18 @@
 <!-- Start Header -->
 
 <body onresize="checkSize()">
+    <section id="search" class="hide">
+        <div class="serach-exit">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="search">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <a href="" class="search-btn"><i class="far fa-search"></i></a>
+            </div>
+        </div>
+
+    </section>
     <section id="header">
         <div id="header-info">
             <div class="container">
@@ -63,9 +75,9 @@
             <div class="container">
                 <div class="row">
                     <div class="header-menubar-account">
-                        <ul>                          
+                        <ul>
                             <li>
-                                <a href=""><i class="fal fa-search"></i></a>
+                                <a><i class="fal fa-search"></i></a>
                             </li>
                             {% if loginStat == loginId %}
                             <li>
@@ -79,7 +91,7 @@
                                 <a href="{{url_for('main_login')}}"><i class="fal fa-user"></i></a>
                             </li>
                             {% endif %}
-                             
+
                         </ul>
                     </div>
                     <div class="header-menubar-wishlist">
@@ -110,13 +122,13 @@
                         <ul>
                             <li class="{% block indexActive %} {% endblock  %}"><a
                                     href="{{url_for('main_index')}}">Home</a></li>
-                            <li class="{% block collectionActive %} {% endblock  %}"><a
+                            <!-- <li class="{% block collectionActive %} {% endblock  %}"><a
                                     href="{{url_for('main_collections')}}">Collection <i
                                         class="fal fa-chevron-down"></i></a>
-                            </li>
+                            </li> -->
                             <li class="{% block shopActive %} {% endblock  %}"><a href="{{url_for('main_shop')}}">Shop
-                                    <i class="fal fa-chevron-down"></i></a></li>
-                            <li class="{% block cookiesActive %} {% endblock  %}"><a
+                                </a></li>
+                            <!-- <li class="{% block cookiesActive %} {% endblock  %}"><a
                                     href="{{url_for('main_cookies')}}">Cookies Cakes <i
                                         class="fal fa-chevron-down"></i></a>
                             </li>
@@ -127,9 +139,9 @@
                             <li class="{% block cupcakesActive %} {% endblock  %}"><a
                                     href="{{url_for('main_cupcakes')}}">Cup Cakes <i
                                         class="fal fa-chevron-down"></i></a>
-                            </li>
+                            </li> -->
                             <li class="{% block pagesActive %} {% endblock  %}"><a
-                                    href="{{url_for('main_aboutus')}}">Pages <i class="fal fa-chevron-down"></i></a>
+                                    href="{{url_for('main_aboutus')}}">About Us </a>
                             </li>
                         </ul>
                     </div>
@@ -260,6 +272,8 @@
     </section>
 
     <!-- End Footer -->
+
+    <script src="static/main/js/base.js"></script>
     {% block scripts %}
 
     {% endblock scripts %}

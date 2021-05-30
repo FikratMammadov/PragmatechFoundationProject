@@ -52,10 +52,11 @@ let totalPrice = 0;
 let totalNumber = 0;
 let number = 0;
 
-
+total = 0
 function addToCart(e,num) {
     number+=Number(num);
     addToCartContainer.style.display = "block";
+     
     
 
     
@@ -70,15 +71,15 @@ function addToCart(e,num) {
 
     // set product price
     cardProductPrice.textContent = e.parentElement.children[1].childNodes[0].textContent;
-
+    
     // set product total price
-    cardProductTotalPrice.textContent = `$${totalPrice} USD`;
+    cardProductTotalPrice.textContent = `$${total+Number(e.parentElement.children[1].childNodes[0].textContent.slice(1))}.00 USD`;
 
     // set product number
-    cardProductNumber.textContent = `Qyt: ${number}`
+    cardProductNumber.textContent = `Qyt: ${1}`
 
     // set total product number
-    cardProductTotalNumber.textContent = `there are ${totalNumber} item(s) in your cart`
+    cardProductTotalNumber.textContent = `there are ${cartItemNumber+1} item(s) in your cart`
 
     // set product image
     cardProductImage.setAttribute('src', e.parentElement.previousElementSibling.children[0].children[0].children[0].src)
