@@ -2,8 +2,8 @@ from app import app
 from flask import render_template, request, redirect, url_for
 from app import db
 import os
-from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm,PostForm,PostImageForm,PostTransportForm,BlogSocialForm,BlogForm,FAQForm,FAQImageForm,MenuForm
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment,FAQ,FAQImage,Menu
+from admin.forms import LogosForm, LogoUpdateForm, PaymentCardsForm, SocialMediasForm, SalesForm, EmployeesForm, ProductSizeForm, ProductForm, ProductAvailabilityForm,ProductCategoryForm,ProductTypeForm,ProductBrandForm,ProductImageForm,PostForm,PostImageForm,PostTransportForm,BlogSocialForm,BlogForm,FAQForm,FAQImageForm,MenuForm,CountryForm
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, Product, ProductSize, ProductAvailability,ProductCategory,ProductType,ProductBrand,ProductImage,Post,PostImage,PostTransport,BlogSocial,Blog,Comment,FAQ,FAQImage,Menu,Country,User
 from datetime import datetime
 
 def loginCheck(param):
@@ -938,3 +938,46 @@ def update_admin_menu(id):
         return redirect(url_for('admin_menu'))
     return loginCheck(render_template('admin/menu_update.html',form=form,menuItem=menuItem))
 
+
+@app.route('/admin/country',methods = ['GET','POST'])
+def admin_country():
+    form = CountryForm()
+    countries = Country.query.all()
+    if request.method=='POST':
+        country = Country(
+            country_name = form.country_name.data
+        )
+        db.session.add(country)
+        db.session.commit()
+        return redirect(url_for('admin_country'))
+    return loginCheck(render_template('admin/country.html',form=form,countries=countries))
+
+@app.route('/admin/country/delete/<int:id>',methods = ['GET','POST'])
+def delete_admin_country(id):
+    country = Country.query.get(id)
+    db.session.delete(country)
+    db.session.commit()
+    return loginCheck(redirect(url_for('admin_country')))
+
+@app.route('/admin/country/update/<int:id>',methods = ['GET','POST'])
+def update_admin_country(id):
+    country = Country.query.get(id)
+    form = CountryForm()
+    if request.method=='POST':
+        country.country_name = form.country_name.data
+        db.session.commit()
+        return redirect(url_for('admin_country'))
+    return loginCheck(render_template('admin/country_update.html',form=form,country=country))
+
+# USER routes
+@app.route('/admin/user')
+def admin_user():
+    users = User.query.all()
+    return loginCheck(render_template('admin/user.html',users=users))
+
+@app.route('/admin/user/delete/<int:id>')
+def delete_admin_user(id):
+    user = User.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    return loginCheck(redirect(url_for('admin_user'))) 

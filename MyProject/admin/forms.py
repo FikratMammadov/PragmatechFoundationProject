@@ -103,3 +103,7 @@ class MenuForm(FlaskForm):
     m_content = TextAreaField('m_content')
     m_img = FileField('m_img')
     submit = SubmitField()
+
+class CountryForm(FlaskForm):
+    country_name = StringField('country_name')
+    submit = SubmitField()

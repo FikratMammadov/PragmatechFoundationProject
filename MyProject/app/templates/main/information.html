@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font awesome -->
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/main/css/grid.css">
+    <link rel="stylesheet" href="../static/main/css/style.css">
+    <title>Information</title>
+</head>
+
+<body>
+    <div class="">
+        <div class="row" style="margin: 0;">
+            <div class="col-lg-2">
+
+            </div>
+            <!-- Information Start -->
+            <section id="information" class="col-lg-5 section-padding">
+                <div class="logo">
+                    <a href="/">
+                        <img src="../static/main/img/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="order-summary d-flex d-lg-none justify-content-between align-items-center">
+                    <div class="order-summary-btn">
+                        <i class="fal fa-shopping-cart"></i> Show order summary  <i class="fal fa-chevron-down"></i>
+                    </div>
+                    <div class="order-summary-price">
+                        ${{product.p_price}}0
+                    </div>
+                </div>
+                <section id="selected-product" class="clicked section-padding" style="display: none;">
+                    <div class="product d-flex justify-content-between align-items-center">
+                        <div class="product-info d-flex align-items-center">
+                            <div class="product-img ">
+                                <img src="../static/main/img/{{product.p_img}}" alt="">
+                            </div>
+                            <div class="product-name">
+                                {{product.p_name}}
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            ${{product.p_price}}0
+                        </div>
+                    </div>
+                    <div class="subtotal">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <div class="subtotal-price">${{product.p_price}}0</div>
+                        </div>
+                        <div class="d-flex justify-content-between"> 
+                            <span>Shipping</span> <span>Calculated at next step</span>
+                        </div>
+                    </div>
+                    <div class="total d-flex justify-content-between align-items-center">
+                        <span>Total</span> <div>USD <span>${{product.p_price}}0</span></div>
+                    </div>
+                </section>
+                <nav class="info-navbar">
+                    <ul class="d-flex align-items-center">
+                        <li>Information</li>
+                        <i class="fal fa-chevron-right"></i>
+                        <li>Shipping</li>
+                        <i class="fal fa-chevron-right"></i>
+                        <li>Payment</li>
+                    </ul>
+                </nav>
+                <form action="/information/{{product.id}}" method="POST">
+                    <div class="info-header d-flex justify-content-between align-items-center">
+                        <div class="info-title">
+                            Contanct information
+                        </div>
+                        <div class="info-msg">
+                            Already have an account? <a href="">Log in</a>
+                        </div>
+                    </div>
+                    <div class="info-inp">
+                        <input type="email" placeholder="Email" name="email">
+                    </div>
+                    <div class="d-flex justify-content-between" style="width: 100%;">
+                        <div class="info-inp" style="width: 48%;">
+                            <input type="text" placeholder="First name" style="width: 100%;" name="f_name">
+                        </div>
+                        <div class="info-inp" style="width: 48%;">
+                            <input type="text" placeholder="Last name" style="width: 100%;" name="l_name">
+                        </div>
+                    </div>
+                    <div class="info-inp">
+                        <input type="text" placeholder="Address" name="address">
+                    </div>
+                    <div class="info-inp">
+                        <input type="text" placeholder="Apartment, suite, etc." name="apartment">
+                    </div>
+                    <div class="d-flex justify-content-between" style="width: 100%;">
+                        <div class="info-inp" style="width: 48%;">
+                            <input type="text" placeholder="Postal code" style="width: 100%;" name="postal_code">
+                        </div>
+                        <div class="info-inp" style="width: 48%;">
+                            <input type="text" placeholder="City" style="width: 100%;" name="city">
+                        </div>
+                    </div>
+
+                    <select name="country_id" id="" class="info-select">
+                        {% for country in countries %}
+                            <option value="{{country.id}}">{{country.country_name}}</option>
+                        {% endfor %}
+                        
+                    </select>
+                    <div>
+                        <input class="info-submit" type="submit" value="Continue to shopping">
+                    </div>
+                    
+
+
+                </form>
+                
+            </section>
+            <!-- Information End -->
+
+            <!-- Selected Product Start -->
+            <section id="selected-product" class="d-none d-lg-block col-lg-5 section-padding" style="height: 100vh;">
+                <div class="product d-flex justify-content-between align-items-center">
+                    <div class="product-info d-flex align-items-center">
+                        <div class="product-img ">
+                            <img src="../static/main/img/{{product.p_img}}" alt="">
+                        </div>
+                        <div class="product-name">
+                            {{product.p_name}}
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        ${{product.p_price}}0
+                    </div>
+                </div>
+                <div class="subtotal">
+                    <div class="d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <div class="subtotal-price">${{product.p_price}}0</div>
+                    </div>
+                    <div class="d-flex justify-content-between"> 
+                        <span>Shipping</span> <span>Calculated at next step</span>
+                    </div>
+                </div>
+                <div class="total d-flex justify-content-between align-items-center">
+                    <span>Total</span> <div>USD <span>${{product.p_price}}0</span></div>
+                </div>
+            </section>
+            <!-- Selected Product End -->
+        </div>
+    </div>
+
+
+
+
+    <script src="../static/main/js/information.js"></script>
+</body>
+
+</html>

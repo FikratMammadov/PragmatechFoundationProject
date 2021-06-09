@@ -1,0 +1,32 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Add Country</h3>
+
+<form action="/admin/country" method="POST" enctype="multipart/form-data">
+    {{form.country_name(class='form-control my-2',placeholder = 'Country Name')}}
+    {{form.submit(class='btn btn-primary', value='Add Country')}}
+</form>
+
+<h4 class="my-2">All Countries</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for country in countries %}
+        <tr>
+            <td scope="row">{{country.country_name}}</td>
+            <td>
+                <a href="/admin/country/delete/{{country.id}}">Delete</a>
+                <a href="/admin/country/update/{{country.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+{% endblock content %}

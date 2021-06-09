@@ -53,13 +53,13 @@ let totalNumber = 0;
 let number = 0;
 
 total = 0
-function addToCart(e,num) {
-    number+=Number(num);
+function addToCart(e, num) {
+    number += Number(num);
     addToCartContainer.style.display = "block";
-     
-    
 
-    
+
+
+
     //total number
     totalNumber++;
 
@@ -71,15 +71,15 @@ function addToCart(e,num) {
 
     // set product price
     cardProductPrice.textContent = e.parentElement.children[1].childNodes[0].textContent;
-    
+
     // set product total price
-    cardProductTotalPrice.textContent = `$${total+Number(e.parentElement.children[1].childNodes[0].textContent.slice(1))}.00 USD`;
+    cardProductTotalPrice.textContent = `$${total + Number(e.parentElement.children[1].childNodes[0].textContent.slice(1))}.00 USD`;
 
     // set product number
     cardProductNumber.textContent = `Qyt: ${1}`
 
     // set total product number
-    cardProductTotalNumber.textContent = `there are ${cartItemNumber+1} item(s) in your cart`
+    cardProductTotalNumber.textContent = `there are ${cartItemNumber + 1} item(s) in your cart`
 
     // set product image
     cardProductImage.setAttribute('src', e.parentElement.previousElementSibling.children[0].children[0].children[0].src)
@@ -105,35 +105,65 @@ addToCartContainer.addEventListener('click', function (e) {
 
 /*choices section'da category'də accordion*/
 
-function choicesAccoridion(e){
+function choicesAccoridion(e) {
     choicesNextElement = e.parentElement.nextElementSibling;
     choicesBtn = e.children[0];
 
-    if(choicesBtn.className=="fal fa-plus"){
-        choicesNextElement.style.display="block";
+    if (choicesBtn.className == "fal fa-plus") {
+        choicesNextElement.style.display = "block";
         choicesBtn.className = "fal fa-minus";
-    }else{
-        choicesNextElement.style.display="none";
+    } else {
+        choicesNextElement.style.display = "none";
         choicesBtn.className = "fal fa-plus";
-    }    
+    }
 }
 
 
 /*choices section'da choices-item-header üçün accordion*/
 
-function choicesHeaderAccordion(e){
+function choicesHeaderAccordion(e) {
     choicesHeaderNextElement = e.nextElementSibling;
     choicesHeaderBtn = e.children[0].children[0];
 
-    if(choicesHeaderBtn.className=="fal fa-plus"){
-        choicesHeaderNextElement.style.display="none";
+    if (choicesHeaderBtn.className == "fal fa-plus") {
+        choicesHeaderNextElement.style.display = "none";
         choicesHeaderBtn.className = "fal fa-minus";
-    }else{
-        choicesHeaderNextElement.style.display="block";
+    } else {
+        choicesHeaderNextElement.style.display = "block";
         choicesHeaderBtn.className = "fal fa-plus";
     }
 
     e.preventDefault()
     console.log(choicesHeaderBtn)
 }
+
+
+
+// products section'da sort by və show dropdowns
+
+sortingBtn = document.querySelectorAll('.product-sorting-btn')
+sortingBtn.forEach(function (btn) {
+    btn.addEventListener('mouseover', function () {
+        sortingIcon = btn.children[1].children[0];
+        sortingIcon.className = 'far fa-chevron-up'
+    });
+    btn.addEventListener('mouseout', function () {
+        sortingIcon = btn.children[1].children[0];
+        sortingIcon.className = 'far fa-chevron-down';
+    })
+    window.addEventListener('click', function (e) {
+        if (btn.contains(e.target)) {
+            sortingList = btn.nextElementSibling;
+            sortingList.style.display = 'block';
+            btn.style.borderTopLeftRadius = '10px'
+            btn.style.borderTopRightRadius = '10px'
+            btn.style.borderBottomLeftRadius = '0px';
+            btn.style.borderBottomRightRadius = '0px';
+        } else {
+            sortingList = btn.nextElementSibling;
+            sortingList.style.display = 'none';
+            btn.style.borderRadius = '30px'
+        }
+    })
+})
 

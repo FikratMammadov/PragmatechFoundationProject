@@ -1,0 +1,27 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+
+<h4 class="my-2">All Users</h4>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td scope="row">{{user.firstName}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <a href="/admin/user/delete/{{user.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+{% endblock content %}

@@ -1,8 +1,9 @@
 from app import app
 from flask import render_template, request, redirect, url_for, make_response
+
 from app import db
 from datetime import datetime
-from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, User, Product, ProductImage, Blog, BlogSocial, Comment, ProductCategory, FAQ
+from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, User, Product, ProductImage, Blog, BlogSocial, Comment, ProductCategory, FAQ,ProductType,ProductAvailability,Shipping,Country,Menu,ProductBrand
 from app import bc
 
 def commonVariables():
@@ -27,9 +28,11 @@ def main_index():
     logos = Logos.query.all()
     blogs = Blog.query.all()
     faqs = FAQ.query.all()
+    menus = Menu.query.all()
     commonVariables()
     return render_template('main/index.html', shopContacts=shopContacts, features=features, logos=logos,
-                           cards=cards, socialMedias=socialMedias, loginStat=loginStat, loginId=loginId, blogs=blogs, faqs=faqs, FAQ=FAQ)
+                           cards=cards, socialMedias=socialMedias, loginStat=loginStat, loginId=loginId, 
+                           blogs=blogs, faqs=faqs, FAQ=FAQ,menus=menus,Comment=Comment)
 
 
 # collection route
@@ -41,18 +44,75 @@ def main_collections():
 # shop route
 
 
-@app.route('/collections/all')
+@app.route('/products')
 def main_shop():
     commonVariables()
     products = Product.query.all()
     images = ProductImage.query.all()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
     return render_template('main/shop.html', shopContacts=shopContacts, cards=cards,
                            socialMedias=socialMedias, loginStat=loginStat, loginId=loginId, products=products,
-                           images=images, ProductImage=ProductImage)
+                           images=images, ProductImage=ProductImage,categories=categories,brands=brands)
+
+# shop filter by category
+@app.route('/products/category/<int:id>')
+def main_shop_category(id):
+    commonVariables()
+    category = ProductCategory.query.get(id)
+    products = Product.query.filter_by(p_category_id=category.id)
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
+                           ProductImage=ProductImage,categories=categories,brands=brands)
+
+# shop filter by brand
+@app.route('/products/brand/<int:id>')
+def main_shop_brand(id):
+    commonVariables()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    brand = ProductBrand.query.get(id)
+    products = Product.query.filter_by(p_brand_id=brand.id)
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
+                           ProductImage=ProductImage,categories=categories,brands=brands)
+
+# shop filter by price
+@app.route('/products/price/0-100')
+def main_shop_price_1():
+    commonVariables()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    products = Product.query.filter((Product.p_price>0)& (Product.p_price<100))
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
+                           ProductImage=ProductImage,categories=categories,brands=brands)
+
+@app.route('/products/price/100-200')
+def main_shop_price_2():
+    commonVariables()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    products = Product.query.filter((Product.p_price>100)& (Product.p_price<200))
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
+                           ProductImage=ProductImage,categories=categories,brands=brands)
+
+
+@app.route('/products/price/200-300')
+def main_shop_price_3():
+    commonVariables()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    products = Product.query.filter((Product.p_price>200)& (Product.p_price<300))
+    return render_template('main/shop.html',shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
+                           ProductImage=ProductImage,categories=categories,brands=brands)
+
 
 # cookies cakes route
-
-
 @app.route('/collection/best')
 def main_cookies():
     commonVariables()
@@ -200,4 +260,36 @@ def main_blog(id):
     return render_template('main/blog.html', shopContacts=shopContacts, cards=cards, socialMedias=socialMedias,
                            loginStat=loginStat, loginId=loginId, blog=blog, smedias=smedias, BlogSocial=BlogSocial, Comment=Comment)
 
-# Wishlist Routes
+# Product Self Routes 
+@app.route('/products/<int:id>')
+def main_product(id):
+    product = Product.query.get(id)
+    images = ProductImage.query.filter_by(product_id=product.id)
+    commonVariables()
+    return render_template('main/product_self.html', shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,product=product,
+                           ProductType=ProductType,ProductAvailability=ProductAvailability,images=images)
+
+@app.route('/information/<int:id>',methods = ['GET','POST'])
+def main_info(id):
+    countries = Country.query.all()
+    product = Product.query.get(id)
+    if request.method=='POST':
+        shippingInfo = Shipping(
+            f_name = request.form['f_name'],
+            l_name = request.form['l_name'],
+            email = request.form['email'],
+            address = request.form['address'],
+            apartment = request.form['apartment'],
+            city = request.form['city'],
+            postal_code = request.form['postal_code'],
+            product_id = id,
+            country_id = request.form['country_id']
+        )
+        db.session.add(shippingInfo)
+        db.session.commit()
+        return redirect(url_for('main_shop'))
+    return render_template('main/information.html',product=product,countries=countries,id=id)
+
+
+

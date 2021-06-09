@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<h3>Update Country</h3>
+
+<form action="/admin/country/update/{{country.id}}" method="POST" enctype="multipart/form-data">
+    {{form.country_name(class='form-control my-2',placeholder = 'Country Name',value=country.country_name)}}
+    {{form.submit(class='btn btn-primary', value='Update Country')}}
+</form>
+
+{% endblock content %}

@@ -44,6 +44,25 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True,nullable=False)
     password = db.Column(db.String(50),nullable=False)
 
+class Shipping(db.Model):
+    __tablename__='Shipping'
+    id = db.Column(db.Integer,primary_key=True)
+    f_name = db.Column(db.String(50),nullable=False)
+    l_name = db.Column(db.String(50),nullable=False)
+    email = db.Column(db.String(100), unique=True,nullable=False)
+    address = db.Column(db.String(50),nullable=False)
+    apartment = db.Column(db.String(50),nullable=False)
+    city = db.Column(db.String(50),nullable=False)
+    postal_code = db.Column(db.String(50),nullable=False)
+    product_id = db.Column(db.Integer)
+    country_id = db.Column(db.Integer,db.ForeignKey('Country.id'),nullable = False)
+
+class Country(db.Model):
+    __tablename__='Country'
+    id = db.Column(db.Integer,primary_key=True)
+    country_name = db.Column(db.String(50))
+    countries = db.relationship('Shipping', backref = 'Country',lazy = True)
+
 class ProductSize(db.Model):
     __tablename__='ProductSize'
     id = db.Column(db.Integer,primary_key=True)

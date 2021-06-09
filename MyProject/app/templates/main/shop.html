@@ -29,35 +29,63 @@ navbar-active
 
                             <div class="products-sorting d-flex col-md-8 col-xl-6 col-lg-9">
                                 <div class="col-8 product-sorting-item d-flex align-items-center">
-                                    <span class="d-md-inline-flex d-none">Sort by</span>
-                                    <div
-                                        class="product-sorting-features d-flex align-items-center justify-content-between">
-                                        <div class="products-sorting-features-name">Featured</div>
-                                        <div class="products-sorting-feature-btn "><i class="fas fa-sort-down"></i>
+                                    <span class="d-md-inline-flex d-none" style="margin: 0 5px;">Sort by</span>
+                                    <div class="sort-bar">
+                                        <div
+                                            class="product-sorting-btn d-flex align-items-center justify-content-between">
+                                            <div class="">Featured</div>
+                                            <div class="d-flex align-items-center"><i class="far fa-chevron-down"></i>
+                                            </div>
+
+                                        </div>
+                                        <div class="sub-list">
+                                            <ul>
+                                                <a href=""><li>Featured</li></a>
+                                                <a href=""><li>Price, low to high</li></a>
+                                                <a href=""><li>Price, high to low</li></a>
+                                                <a href=""><li>A-Z</li></a>
+                                                <a href=""><li>Z-A</li></a>
+                                                <a href=""><li>Date, old to new</li></a>
+                                                <a href=""><li>Date, new to old</li></a>
+                                            </ul>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="col-4 d-md-inline-flex d-none product-sorting-item  align-items-center">
-                                    <span>Show</span>
-                                    <div
-                                        class="product-sorting-features d-flex align-items-center justify-content-between">
-                                        <div class="products-sorting-features-name">12</div>
-                                        <div class="products-sorting-features-btn"><i class="fas fa-sort-down"></i>
+                                    <span style="margin: 0 5px;">Show</span>
+                                    <div class="sort-bar">
+                                        <div
+                                            class="product-sorting-btn d-flex align-items-center justify-content-between">
+                                            <div class="products-sorting-features-name">12</div>
+                                            <div class="products-sorting-features-btn"><i class="far fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="sub-list">
+                                            <ul>
+                                                <a href=""><li>8</li></a>
+                                                <a href=""><li>12</li></a>
+                                                <a href=""><li>24</li></a>
+                                                <a href=""><li>36</li></a>
+                                                <a href=""><li>All</li></a>
+                                            </ul>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </nav>
+
                         <section id="products">
                             <div class="cake-items row">
                                 {% for product in products %}
                                 <div class="cake-item col-xl-3 col-lg-4 col-sm-6 col-12">
                                     <div class="cake-item-images">
                                         <div class="cake-item-img">
-                                            <a href="" class="cake-item-img-1"><img
-                                                    src="../static/main/img/{{product.p_img}}" alt=""></a>
-                                            <a href="" class="cake-item-img-2">
-                                                <img src="../static/main/img/{{ProductImage.query.filter_by(product_id=product.id).first().img_url}}"
+                                            <a href="/products/{{product.id}}" class="cake-item-img-1"><img
+                                                    src="/static/main/img/{{product.p_img}}" alt=""></a>
+                                            <a href="/products/{{product.id}}" class="cake-item-img-2">
+                                                <img src="/static/main/img/{{ProductImage.query.filter_by(product_id=product.id).first().img_url}}"
                                                     alt="">
                                             </a>
                                         </div>
@@ -82,6 +110,8 @@ navbar-active
                                 {% endfor %}
 
                             </div>
+
+                            {% if products%}
                             <!-- Pagination section start -->
                             <div class="pagination">
                                 <ul class="d-flex justify-content-center">
@@ -96,8 +126,18 @@ navbar-active
                                 </ul>
                             </div>
                             <!-- Pagination section end -->
+                            {% else %}
+                            <div class="d-flex justify-content-center"
+                                style="margin-top: 10w0px; font-family: 'Lobster Two', cursive;">
+                                <h2 style="font-size: 5em; font-weight: 400;">There isn't any product</h2>
+                            </div>
+
+                            {% endif %}
+
 
                         </section>
+
+
                     </div>
 
                 </div>
@@ -111,7 +151,7 @@ navbar-active
                             Category
                         </div>
                         <ul class="choices-item-lists category">
-                            <li>
+                            <!-- <li>
                                 <a href="">Black Forest</a>
                                 <a class="choices-item-lists-btn" onclick="choicesAccoridion(this)">
                                     <i class="fal fa-plus"></i>
@@ -121,31 +161,15 @@ navbar-active
                                 <li><a href="">Aprons</a></li>
                                 <li><a href="">Choco Shrads Cakes</a></li>
                                 <li><a href="">Cake Eggless</a></li>
-                            </ul>
-                            <li>
-                                <a href="">White Forest</a> <a class="choices-item-lists-btn"
-                                    onclick="choicesAccoridion(this)">
-                                    <i class="fal fa-plus"></i>
-                                </a>
-                            </li>
-                            <ul class="choices-item-lists sub-lists">
-                                <li><a href="">Forest Beauty</a></li>
-                                <li><a href="">Be Santa</a></li>
-                                <li><a href="">Alluring Hamper</a></li>
-                            </ul>
-                            <li><a href="">Cup Cakes</a></li>
-                            <li><a href="">Stawberry Cakes</a></li>
-                            <li><a href="">Vanilla Cakes</a></li>
-                            <li><a href="">Onesie Fondant Cake</a></li>
-                            <li><a href="">Birthday Cake</a> <a class="choices-item-lists-btn"
-                                    onclick="choicesAccoridion(this)">
-                                    <i class="fal fa-plus"></i>
-                                </a></li>
-                            <ul class="choices-item-lists sub-lists">
-                                <li><a href="">Pineapple Cake</a></li>
-                                <li><a href="">Tempting Truffle Cake</a></li>
-                                <li><a href="">Butterscotch Cake</a></li>
-                            </ul>
+                            </ul> -->
+                            {% for category in categories %}
+                            <a href="/products/category/{{category.id}}">
+                                <li>{{category.cat_name}}</li>
+                            </a>
+                            {% endfor %}
+
+
+                        </ul>
                         </ul>
                     </div>
                     <div class="choices-item">
@@ -170,11 +194,13 @@ navbar-active
                             <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Brand
                         </div>
                         <ul class="choices-item-lists">
-                            <li> <a href="">Biscoff</a> </li>
-                            <li><a href="">Cuplt</a> </li>
-                            <li><a href="">Isveet</a></li>
-                            <li><a href="">Bingo</a></li>
-                            <li><a href="">Tastilo</a></li>
+                            {% for brand in brands %}
+                            <a href="/products/brand/{{brand.id}}">
+                                <li>{{brand.brand_name}}</li>
+                            </a>
+                            {% endfor %}
+
+
                         </ul>
                     </div>
                     <div class="choices-item">
@@ -182,11 +208,16 @@ navbar-active
                             <a class="choices-item-header-btn"><i class="fal fa-plus"></i></a> Shop By Price
                         </div>
                         <ul class="choices-item-lists">
-                            <li> <a href="">$100 - $200</a> </li>
-                            <li><a href="">$200 - $300</a> </li>
-                            <li><a href="">$300 - $500</a></li>
-                            <li><a href="">$500 - $700 </a></li>
-                            <li><a href="">$700 - $1000 </a></li>
+                            <a href="{{url_for('main_shop_price_1')}}">
+                                <li>$0 - $100</li>
+                            </a>
+                            <a href="{{url_for('main_shop_price_2')}}">
+                                <li>$100 - $200</li>
+                            </a>
+                            <a href="{{url_for('main_shop_price_3')}}">
+                                <li>$200 - $300</li>
+                            </a>
+
                         </ul>
                     </div>
                     <div class="choices-item">
@@ -217,7 +248,7 @@ navbar-active
                             </div>
                             <div class="cake-item">
                                 <div class="cake-item-img">
-                                    <img src="../static/main/img/shop-choices-cake-img-1.webp" alt="">
+                                    <img src="/static/main/img/shop-choices-cake-img-1.webp" alt="">
                                 </div>
                                 <div class="cake-content choices-cake-content">
                                     <span><a href="">Gourmate Cake</a></span>
@@ -237,5 +268,5 @@ navbar-active
 {% endblock content %}
 
 {% block scripts %}
-<script src="../static/main/js/shop.js"></script>
+<script src="/static/main/js/shop.js"></script>
 {% endblock scripts %}
