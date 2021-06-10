@@ -33,20 +33,20 @@ navbar-active
                                     <div class="sort-bar">
                                         <div
                                             class="product-sorting-btn d-flex align-items-center justify-content-between">
-                                            <div class="">Featured</div>
+                                            <div class="">{{sortingName}}</div>
                                             <div class="d-flex align-items-center"><i class="far fa-chevron-down"></i>
                                             </div>
 
                                         </div>
                                         <div class="sub-list">
                                             <ul>
-                                                <a href=""><li>Featured</li></a>
-                                                <a href=""><li>Price, low to high</li></a>
-                                                <a href=""><li>Price, high to low</li></a>
-                                                <a href=""><li>A-Z</li></a>
-                                                <a href=""><li>Z-A</li></a>
-                                                <a href=""><li>Date, old to new</li></a>
-                                                <a href=""><li>Date, new to old</li></a>
+                                                <a href="{{url_for('main_shop')}}"><li>Featured</li></a>
+                                                <a href="{{url_for('main_shop_min')}}"><li>Price, low to high</li></a>
+                                                <a href="{{url_for('main_shop_max')}}"><li>Price, high to low</li></a>
+                                                <a href="{{url_for('main_shop_alp_asc')}}"><li>A-Z</li></a>
+                                                <a href="{{url_for('main_shop_alp_desc')}}"><li>Z-A</li></a>
+                                                <a href="{{url_for('main_shop_date_asc')}}"><li>Date, old to new</li></a>
+                                                <a href="{{url_for('main_shop_date_desc')}}"><li>Date, new to old</li></a>
                                             </ul>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@ navbar-active
                                         </div>
                                         <div class="sub-list">
                                             <ul>
-                                                <a href=""><li>8</li></a>
+                                                <a href=" "><li>8</li></a>
                                                 <a href=""><li>12</li></a>
                                                 <a href=""><li>24</li></a>
                                                 <a href=""><li>36</li></a>

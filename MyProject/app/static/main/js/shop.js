@@ -139,31 +139,49 @@ function choicesHeaderAccordion(e) {
 
 
 
-// products section'da sort by və show dropdowns
+// START - products section'da sort by və show dropdowns
 
 sortingBtn = document.querySelectorAll('.product-sorting-btn')
 sortingBtn.forEach(function (btn) {
-    btn.addEventListener('mouseover', function () {
-        sortingIcon = btn.children[1].children[0];
-        sortingIcon.className = 'far fa-chevron-up'
-    });
-    btn.addEventListener('mouseout', function () {
-        sortingIcon = btn.children[1].children[0];
-        sortingIcon.className = 'far fa-chevron-down';
-    })
     window.addEventListener('click', function (e) {
         if (btn.contains(e.target)) {
-            sortingList = btn.nextElementSibling;
-            sortingList.style.display = 'block';
-            btn.style.borderTopLeftRadius = '10px'
-            btn.style.borderTopRightRadius = '10px'
-            btn.style.borderBottomLeftRadius = '0px';
-            btn.style.borderBottomRightRadius = '0px';
+            sortingIcon = btn.children[1].children[0];
+            if (sortingIcon.className == 'far fa-chevron-down') {
+                sortingIcon.className = 'far fa-chevron-up'
+                sortingList = btn.nextElementSibling;
+                sortingList.style.display = 'block';
+                btn.style.borderTopLeftRadius = '10px'
+                btn.style.borderTopRightRadius = '10px'
+                btn.style.borderBottomLeftRadius = '0px';
+                btn.style.borderBottomRightRadius = '0px';
+            } else {
+                sortingList = btn.nextElementSibling;
+                sortingList.style.display = 'none';
+                btn.style.borderRadius = '30px'
+                sortingIcon = btn.children[1].children[0];
+                sortingIcon.className = 'far fa-chevron-down';
+            }
+
         } else {
             sortingList = btn.nextElementSibling;
             sortingList.style.display = 'none';
             btn.style.borderRadius = '30px'
+            sortingIcon = btn.children[1].children[0];
+            sortingIcon.className = 'far fa-chevron-down';
         }
     })
 })
 
+// sortingSubList = document.querySelectorAll('.sub-list ul a');
+// sortingSubList.forEach(function(list){
+//     list.addEventListener('click',function(e){
+//         sortingName = list.parentElement.parentElement.previousElementSibling.children[0];
+//         listName = list.children[0];
+//         sortingName.textContent=listName.textContent;
+//         console.log(listName)
+//         console.log(sortingName.textContent)
+//         e.preventDefault();
+//     })
+// })
+
+// END - products section'da sort by və show dropdowns

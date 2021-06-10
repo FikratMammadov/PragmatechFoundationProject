@@ -1819,9 +1819,13 @@ footer{
 }
 .sub-list a{
     color: #000;
+    transition: .5s;
+}
+.sub-list a:hover{
+    color: #ff599a;
 }
 .sub-list ul li{
-    margin: 5px 0;
+    padding: 5px 0;
 }
 /* Choices Section Styles */
 

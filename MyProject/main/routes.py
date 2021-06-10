@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for, make_response
-
+from sqlalchemy import desc
 from app import db
 from datetime import datetime
 from app.models import ShopContact, Features, Logos, PaymentCards, SocialMedias, Sales, Employees, User, Product, ProductImage, Blog, BlogSocial, Comment, ProductCategory, FAQ,ProductType,ProductAvailability,Shipping,Country,Menu,ProductBrand
@@ -19,6 +19,18 @@ def commonVariables():
             loginId = str(user.id)
     print(loginId)
 
+# Sorting common func
+def sortBy(_sortingName,_products):
+    commonVariables()
+    products = _products
+    images = ProductImage.query.all()
+    categories = ProductCategory.query.all()
+    brands = ProductBrand.query.all()
+    sortingName = _sortingName
+    return render_template('main/shop.html', shopContacts=shopContacts, cards=cards,
+                           socialMedias=socialMedias, loginStat=loginStat, loginId=loginId, products=products,
+                           images=images, ProductImage=ProductImage,categories=categories,brands=brands,
+                           sortingName=sortingName)
 
 # index route
 
@@ -51,9 +63,10 @@ def main_shop():
     images = ProductImage.query.all()
     categories = ProductCategory.query.all()
     brands = ProductBrand.query.all()
+    sortingName = "Featured"
     return render_template('main/shop.html', shopContacts=shopContacts, cards=cards,
                            socialMedias=socialMedias, loginStat=loginStat, loginId=loginId, products=products,
-                           images=images, ProductImage=ProductImage,categories=categories,brands=brands)
+                           images=images, ProductImage=ProductImage,categories=categories,brands=brands,sortingName=sortingName)
 
 # shop filter by category
 @app.route('/products/category/<int:id>')
@@ -111,6 +124,30 @@ def main_shop_price_3():
                            socialMedias=socialMedias, loginStat=loginStat, loginId=loginId,products=products,
                            ProductImage=ProductImage,categories=categories,brands=brands)
 
+# sort by price
+@app.route('/products/min')
+def main_shop_min():
+    return sortBy("Price, low to high",Product.query.order_by(Product.p_price))
+
+@app.route('/products/max')
+def main_shop_max():
+    return sortBy("Price, high to low",Product.query.order_by(desc(Product.p_price)))
+
+@app.route('/products/alp/asc')
+def main_shop_alp_asc():
+    return sortBy("A-Z",Product.query.order_by(Product.p_name))
+
+@app.route('/products/alp/desc')
+def main_shop_alp_desc():
+    return sortBy("Z-A",Product.query.order_by(desc(Product.p_name)))
+
+@app.route('/products/date/asc')
+def main_shop_date_asc():
+    return sortBy("Date, old to new",Product.query.all())
+
+@app.route('/products/date/decs')
+def main_shop_date_desc():
+    return sortBy("Date, new to old",Product.query.order_by(desc(Product.id)))
 
 # cookies cakes route
 @app.route('/collection/best')
